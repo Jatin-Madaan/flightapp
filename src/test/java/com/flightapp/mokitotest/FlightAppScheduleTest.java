@@ -70,5 +70,11 @@ public class FlightAppScheduleTest {
 		String msg = service.scheduleFlight(10, flight, schedule);
 		assertThat(msg, is("Test Case Failed"));
 	}
+	
+	@Test
+	public void getFlights()
+	{
+		
+	}
 
 }
