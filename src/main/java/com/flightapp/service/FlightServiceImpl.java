@@ -16,4 +16,9 @@ public class FlightServiceImpl {
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule schedule) {
 		return dao.scheduleFlight(availableSeats, flight, schedule);
 	}
+	
+	public String modifySchedule(Schedule schedule)
+	{
+		return dao.modifySchedule(schedule);
+	}
 }
