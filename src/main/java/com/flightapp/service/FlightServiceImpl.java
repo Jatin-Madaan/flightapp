@@ -16,6 +16,11 @@ public class FlightServiceImpl {
 		this.dao = dao;
 	}
 	
+	public List<Flight> getFlights(String src, String dest)
+	{
+		return dao.getFlights(src, dest);
+	}
+	
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule schedule) {
 		return dao.scheduleFlight(availableSeats, flight, schedule);
 	}

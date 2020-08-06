@@ -83,7 +83,8 @@ public class FlightAppScheduleTest {
 		assertThat(msg, is("Test Case Failed"));
 	}
 	
-	@Test
+	
+
 	public void isDateTimeBlank() {
 		Flight flight = new Flight();
 		flight.setFlightId(101);
@@ -157,7 +158,6 @@ public class FlightAppScheduleTest {
 		String msg = service.scheduleFlight(10, flight, schedule);
 		assertThat(msg, is("Test Case Failed"));
 	}
-	
 	
 
 }
