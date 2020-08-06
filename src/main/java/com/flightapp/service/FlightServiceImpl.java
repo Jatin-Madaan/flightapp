@@ -1,5 +1,7 @@
 package com.flightapp.service;
 
+import java.util.List;
+
 import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Booking;
 import com.flightapp.entities.Flight;
@@ -18,6 +20,7 @@ public class FlightServiceImpl {
 		return dao.scheduleFlight(availableSeats, flight, schedule);
 	}
 	
+
 	public Booking getbookingbyid(String bookingid, String userid){
 		Booking bookingdetails = dao.getbookingbyid(bookingid);
 		if(bookingdetails.getUser().getUserId().contentEquals(userid)) {	
@@ -43,5 +46,18 @@ public class FlightServiceImpl {
 			return 1;
 		}
 		
+	}
+
+
+	public List<Booking> viewBookings(String userId){
+		return dao.viewBookings(userId);
+	}
+	
+	public int cancelBooking(String bookingId) {
+		return dao.cancelBooking(bookingId);
+	}
+	
+	public int modifyBooking(String bookingId,Schedule schedule) {
+		return dao.modifyBooking(bookingId, schedule);
 	}
 }
