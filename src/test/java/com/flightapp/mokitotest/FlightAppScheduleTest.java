@@ -5,6 +5,10 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.assertj.core.util.Arrays;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -14,8 +18,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Airport;
+import com.flightapp.entities.Booking;
 import com.flightapp.entities.Flight;
 import com.flightapp.entities.Schedule;
+import com.flightapp.entities.User;
 import com.flightapp.service.FlightServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -153,4 +159,5 @@ public class FlightAppScheduleTest {
 	}
 	
 	
+
 }
