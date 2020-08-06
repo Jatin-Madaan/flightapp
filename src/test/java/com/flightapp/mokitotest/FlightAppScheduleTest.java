@@ -39,12 +39,15 @@ public class FlightAppScheduleTest {
 		dest.setAddress("Delhi");
 		Airport source = new Airport();
 		source.setAddress("Bombay");
+		
 		schedule.setDestinationAirport(null);
 		schedule.setSourceAirport(null);
+		
 		schedule.setArrivalTime(LocalDateTime.now());
 		schedule.setDepartureTime(LocalDateTime.of(2020, 2, 13, 15, 56));
 		
 		when(dao.scheduleFlight(10, flight, schedule)).thenReturn("Test Case Failed");
+		
 		String msg = service.scheduleFlight(10, flight, schedule);
 		assertThat(msg, is("Test Case Failed"));
 	}
@@ -67,8 +70,9 @@ public class FlightAppScheduleTest {
 		schedule.setDepartureTime(LocalDateTime.of(2020, 2, 13, 15, 56));
 		
 		when(dao.scheduleFlight(10, flight, schedule)).thenReturn("Test Case Failed");
+		
 		String msg = service.scheduleFlight(10, flight, schedule);
 		assertThat(msg, is("Test Case Failed"));
 	}
-
+	
 }
