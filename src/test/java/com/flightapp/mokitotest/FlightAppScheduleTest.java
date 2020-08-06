@@ -5,6 +5,10 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.assertj.core.util.Arrays;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -14,8 +18,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Airport;
+import com.flightapp.entities.Booking;
 import com.flightapp.entities.Flight;
 import com.flightapp.entities.Schedule;
+import com.flightapp.entities.User;
 import com.flightapp.service.FlightServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -70,5 +76,65 @@ public class FlightAppScheduleTest {
 		String msg = service.scheduleFlight(10, flight, schedule);
 		assertThat(msg, is("Test Case Failed"));
 	}
+	
+//	@Test
+//	public void viewBookings() {
+//		User user=new User();
+//		user.setUserId("kush14");
+//		List<Booking> booking=new ArrayList();
+//		
+//		when(dao.viewBookings(user.getUserId()).thenReturn(booking));
+//	}
+	
+	@Test
+	public void cancelBookings() {
+		when(dao.cancelBooking("BK100")).thenReturn(1);
+		int res=service.cancelBooking("BK100");
+		assertThat(res,is(1));
+	}
+	
+	@Test
+	public void cancelBookingsNull() {
+		when(dao.cancelBooking(null)).thenReturn(0);
+		int res=service.cancelBooking(null);
+		assertThat(res,is(0));
+	}
+	
+	@Test
+	public void modifyBookings() {
+		
+		Airport dest = new Airport();
+		dest.setAddress("Pune");
+		Airport source = new Airport();
+		source.setAddress("Goa");
+		
+		Schedule schedule=new Schedule();
+		schedule.setDestinationAirport(dest);
+		schedule.setSourceAirport(source);
+		schedule.setDepartureTime(LocalDateTime.of(2020, 2, 13, 15, 00));
+		schedule.setArrivalTime(LocalDateTime.of(2020, 2, 13, 16, 20));
+		
+		when(dao.modifyBooking("BK100", schedule)).thenReturn(1);
+		int res=service.modifyBooking("BK100", schedule);
+		assertThat(res,is(1));
+	}
 
+	@Test
+	public void modifyBookingsNull() {
+		
+		Airport dest = new Airport();
+		dest.setAddress("Pune");
+		Airport source = new Airport();
+		source.setAddress("Goa");
+		
+		Schedule schedule=new Schedule();
+		schedule.setDestinationAirport(dest);
+		schedule.setSourceAirport(source);
+		schedule.setDepartureTime(LocalDateTime.of(2020, 2, 13, 15, 00));
+		schedule.setArrivalTime(LocalDateTime.of(2020, 2, 13, 16, 20));
+		
+		when(dao.modifyBooking(null, schedule)).thenReturn(0);
+		int res=service.modifyBooking(null, schedule);
+		assertThat(res,is(0));
+	}
 }
