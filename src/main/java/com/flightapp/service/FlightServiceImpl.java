@@ -1,6 +1,7 @@
 package com.flightapp.service;
 
 import com.flightapp.dao.FlightDAO;
+import com.flightapp.entities.Booking;
 import com.flightapp.entities.Flight;
 import com.flightapp.entities.Schedule;
 
@@ -15,5 +16,32 @@ public class FlightServiceImpl {
 	
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule schedule) {
 		return dao.scheduleFlight(availableSeats, flight, schedule);
+	}
+	
+	public Booking getbookingbyid(String bookingid, String userid){
+		Booking bookingdetails = dao.getbookingbyid(bookingid);
+		if(bookingdetails.getUser().getUserId().contentEquals(userid)) {	
+			System.out.println(bookingdetails.getUser().getUserId());
+			return bookingdetails;
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public int setbookingstatusbyid(String bookingid, String status) {
+		Booking bookingdetails = dao.setbookingstatusbyid(bookingid);
+		String status_before = bookingdetails.getBookingStatus();
+		if(status_before.equals("Failed")) {
+			return -1;
+		}
+		if(status_before.contentEquals(status)) {
+			return 0;
+		}
+		else {
+			bookingdetails.setBookingStatus(status);
+			return 1;
+		}
+		
 	}
 }
