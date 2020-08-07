@@ -1,13 +1,10 @@
 package com.flightapp.mokitotest;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import com.flightapp.dao.FlightDAO;
@@ -23,7 +20,8 @@ class FlightAppRescheduleTest
 	FlightServiceImpl service = new FlightServiceImpl(dao);
 	
 	@Test
-	public void isNull() {
+	public void isNull() 
+	{
 		Schedule schedule = new Schedule();
 		Airport dest = new Airport();
 		dest.setAddress("Delhi");
@@ -42,7 +40,46 @@ class FlightAppRescheduleTest
 	}
 	
 	@Test
-	public void isNotNull() {
+	public void isDeprtTimeInvalid() 
+	{
+		Schedule schedule = new Schedule();
+		Airport dest = new Airport();
+		dest.setAddress("Delhi");
+		Airport source = new Airport();
+		source.setAddress("Mumbai");
+		schedule.setDestinationAirport(dest);
+		schedule.setSourceAirport(source);
+
+		schedule.setDepartureTime(LocalDateTime.of(2020, 10, 1, 14, 00));
+		schedule.setArrivalTime(LocalDateTime.now());	
+		
+		when(dao.modifySchedule(schedule)).thenReturn("wrong");
+		String msg = service.modifySchedule(schedule);
+		assertThat(msg, is("wrong"));
+	}
+	
+	@Test
+	public void isDeprtTimeValid() 
+	{
+		Schedule schedule = new Schedule();
+		Airport dest = new Airport();
+		dest.setAddress("Delhi");
+		Airport source = new Airport();
+		source.setAddress("Mumbai");
+		schedule.setDestinationAirport(dest);
+		schedule.setSourceAirport(source);
+
+		schedule.setDepartureTime(LocalDateTime.now());
+		schedule.setArrivalTime(LocalDateTime.of(2020, 10, 1, 15, 00));	
+		
+		when(dao.modifySchedule(schedule)).thenReturn("ok");
+		String msg = service.modifySchedule(schedule);
+		assertThat(msg, is("ok"));
+	}
+	
+	@Test
+	public void isNotNullValid() 
+	{
 		Schedule schedule = new Schedule();
 		Airport dest = new Airport();
 		dest.setAddress("Delhi");
@@ -57,5 +94,24 @@ class FlightAppRescheduleTest
 		when(dao.modifySchedule(schedule)).thenReturn("ok");
 		String msg = service.modifySchedule(schedule);
 		assertThat(msg, is("ok"));
+	}
+	
+	@Test
+	public void isNotNullButInvalid() 
+	{
+		Schedule schedule = new Schedule();
+		Airport dest = new Airport();
+		dest.setAddress("Delhi");
+		Airport source = new Airport();
+		source.setAddress("Mumbai");
+		schedule.setDestinationAirport(dest);
+		schedule.setSourceAirport(source);
+
+		schedule.setDepartureTime(LocalDateTime.of(2020, 10, 1, 15, 00));
+		schedule.setArrivalTime(LocalDateTime.of(2020, 10, 1, 14, 00));	
+		
+		when(dao.modifySchedule(schedule)).thenReturn("wrong");
+		String msg = service.modifySchedule(schedule);
+		assertThat(msg, is("wrong"));
 	}
 }
