@@ -25,6 +25,10 @@ public class FlightServiceImpl {
 		return dao.scheduleFlight(availableSeats, flight, schedule);
 	}
 	
+	public String modifySchedule(Schedule schedule)
+	{
+		return dao.modifySchedule(schedule);
+	}
 
 	public Booking getbookingbyid(String bookingid, String userid){
 		Booking bookingdetails = dao.getbookingbyid(bookingid);
@@ -62,7 +66,8 @@ public class FlightServiceImpl {
 		return dao.cancelBooking(bookingId);
 	}
 	
-	public int modifyBooking(String bookingId,Schedule schedule) {
+	public int modifyBooking(String bookingId,Schedule schedule) 
+	{
 		return dao.modifyBooking(bookingId, schedule);
 	}
 }
