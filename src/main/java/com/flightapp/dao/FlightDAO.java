@@ -5,4 +5,5 @@ import com.flightapp.entities.Schedule;
 
 public interface FlightDAO {
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule scedule);
+	public String addFlight(Flight flight);
 }
