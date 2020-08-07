@@ -38,6 +38,8 @@ public class Booking implements Serializable {
 	
 	private Long noOfPassenger;
 	
+	private String status;
+	
 	private String bookingStatus;
 	
 	@ManyToOne
@@ -102,6 +104,14 @@ public class Booking implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getBookingStatus() {
