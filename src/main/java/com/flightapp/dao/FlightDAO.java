@@ -19,6 +19,10 @@ public interface FlightDAO
 
 	public Booking getbookingbyid(String bookingid);
 	
+	public String getBookingByFlightAdmin(String flightId);
+	
+	public String getBookingByIdAdmin(String bookingId);
+	
 	public Booking setbookingstatusbyid(String bookingid);
 
 	public List<Booking> viewBookings(String userId);

@@ -45,6 +45,16 @@ public class FlightServiceImpl {
 		}
 	}
 	
+	public String getBookingByIdAdmin(String bookingId)
+	{
+		return dao.getBookingByIdAdmin(bookingId);
+	}
+	
+	public String getBookingByFlightAdmin(String flightId)
+	{
+		return dao.getBookingByFlightAdmin(flightId);
+	}
+	
 	public int setbookingstatusbyid(String bookingid, String status) {
 		Booking bookingdetails = dao.setbookingstatusbyid(bookingid);
 		String status_before = bookingdetails.getBookingStatus();
