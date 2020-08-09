@@ -29,25 +29,25 @@ public class AdminCancelBookingTest
 	public void isBookingIdValid() 
 	{
 		Booking booking = new Booking();
-		booking.setBookingId("VCLIQR");
-		when(dao.getBookingByIdAdmin("VCLIQR")).thenReturn("Test case failed");
-		assertThat(service.getBookingByIdAdmin("VCLIQR"),is("Test case failed"));
+		booking.setBookingId(897);
+		when(dao.getBookingByIdAdmin(897)).thenReturn("Test case Passed");
+		assertThat(service.getBookingByIdAdmin(897),is("Test case Passed"));
 	}
 	
 	@Test
 	public void isBookingIdInvalid() 
 	{
 		Booking booking = new Booking();
-		booking.setBookingId("VCLIQR");
-		when(dao.getBookingByIdAdmin(" ")).thenReturn("Test case failed");
-		assertThat(service.getBookingByIdAdmin(" "),is("Test case failed"));
+		booking.setBookingId(79);
+		when(dao.getBookingByIdAdmin(null)).thenReturn("Test case failed");
+		assertThat(service.getBookingByIdAdmin(null),is("Test case failed"));
 	}
 	
 	@Test
 	public void isBookingByFlightValid() 
 	{
 		Booking booking = new Booking();
-		booking.setBookingId("IG6996");
+		booking.setBookingId(6996);
 		when(dao.getBookingByFlightAdmin("IG6996")).thenReturn("Test case failed");
 		assertThat(service.getBookingByFlightAdmin("IG6996"),is("Test case failed"));
 	}
@@ -56,8 +56,8 @@ public class AdminCancelBookingTest
 	public void isBookingByFlightInvalid() 
 	{
 		Booking booking = new Booking();
-		booking.setBookingId("AI213");
-		when(dao.getBookingByIdAdmin(" ")).thenReturn("Test case failed");
-		assertThat(service.getBookingByIdAdmin(" "),is("Test case failed"));
+		booking.setBookingId(213);
+		when(dao.getBookingByIdAdmin(null)).thenReturn("Test case failed");
+		assertThat(service.getBookingByIdAdmin(null),is("Test case failed"));
 	}
 }

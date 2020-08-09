@@ -45,7 +45,7 @@ public class FlightServiceImpl {
 		}
 	}
 	
-	public String getBookingByIdAdmin(String bookingId)
+	public String getBookingByIdAdmin(Integer bookingId)
 	{
 		return dao.getBookingByIdAdmin(bookingId);
 	}
@@ -72,7 +72,7 @@ public class FlightServiceImpl {
 	}
 
 
-	public List<Booking> viewBookings(String userId){
+	public List<Booking> viewBookings(Integer userId){
 		return dao.viewBookings(userId);
 	}
 	

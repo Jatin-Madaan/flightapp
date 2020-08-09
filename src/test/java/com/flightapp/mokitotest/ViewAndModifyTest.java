@@ -33,13 +33,13 @@ public class ViewAndModifyTest {
 	@Test
 	public void viewBookings() {
 		User user=new User();
-		user.setUserId("kush14");
+		user.setUserId(14);
 		
 		Booking book=new Booking();
-		book.setBookingId("BK101");
+		book.setBookingId(101);
 		
 		Booking book1=new Booking();
-		book1.setBookingId("BK105");
+		book1.setBookingId(105);
 		
 		List<Booking> booking=new ArrayList<>();
 		booking.add(book);
@@ -48,7 +48,7 @@ public class ViewAndModifyTest {
 		when(dao.viewBookings(user.getUserId())).thenReturn(booking);
 		
 		List<Booking> booking1=new ArrayList<>();
-		booking1=service.viewBookings("kush14");
+		booking1=service.viewBookings(14);
 		
 		assertThat(booking1,is(booking));
 	}

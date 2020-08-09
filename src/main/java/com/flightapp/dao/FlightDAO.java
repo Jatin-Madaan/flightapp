@@ -21,11 +21,11 @@ public interface FlightDAO
 	
 	public String getBookingByFlightAdmin(String flightId);
 	
-	public String getBookingByIdAdmin(String bookingId);
+	public String getBookingByIdAdmin(Integer bookingId);
 	
 	public Booking setbookingstatusbyid(String bookingid);
 
-	public List<Booking> viewBookings(String userId);
+	public List<Booking> viewBookings(Integer userId);
 	
 	public int cancelBooking(String bookingId);
 	
