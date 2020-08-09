@@ -24,7 +24,7 @@ public class User implements Serializable {
 	
 	@Id
 	@Column(name="USER_ID")
-	private String userId;
+	private int userId;
 	
 	private String username;
 	
@@ -44,11 +44,11 @@ public class User implements Serializable {
 	@JsonIgnore
 	private Set<Booking> bookings = new HashSet<Booking>();
 
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 

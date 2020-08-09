@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import static org.mockito.Mockito.when;
+
 import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Airport;
 import com.flightapp.entities.Flight;
@@ -23,7 +24,7 @@ import com.flightapp.service.FlightServiceImpl;
 @RunWith(MockitoJUnitRunner.class)
 class GetFlightTestCase {
 
-FlightDAO dao = Mockito.mock(FlightDAO.class);
+    FlightDAO dao = Mockito.mock(FlightDAO.class);
 	
 	FlightServiceImpl service = new FlightServiceImpl(dao);
 	

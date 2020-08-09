@@ -158,5 +158,4 @@ public class FlightAppScheduleTest {
 		assertThat(msg, is("Test Case Failed"));
 	}
 	
-
 }

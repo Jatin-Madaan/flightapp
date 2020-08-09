@@ -30,9 +30,9 @@ public class FlightServiceImpl {
 		return dao.modifySchedule(schedule);
 	}
 
-	public Booking getbookingbyid(String bookingid, String userid){
+	public Booking getbookingbyid(String bookingid, int userid){
 		Booking bookingdetails = dao.getbookingbyid(bookingid);
-		if(bookingdetails.getUser().getUserId().contentEquals(userid)) {	
+		if(bookingdetails.getUser().getUserId() == userid) {	
 			System.out.println(bookingdetails.getUser().getUserId());
 			return bookingdetails;
 		}

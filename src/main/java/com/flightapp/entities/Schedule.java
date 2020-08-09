@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +29,9 @@ public class Schedule {
 	
 	private LocalDateTime arrivalTime;
 
+	@OneToOne(mappedBy = "schedule")
+	private ScheduleFlight scheduleFlight;
+	
 	public int getScheduleId() {
 		return scheduleId;
 	}
