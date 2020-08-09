@@ -24,6 +24,10 @@ public class FlightServiceImpl {
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule schedule) {
 		return dao.scheduleFlight(availableSeats, flight, schedule);
 	}
+
+	public String addFlight(Flight flight) {
+		return dao.addFlight(flight);}
+
 	
 	public String modifySchedule(Schedule schedule)
 	{
@@ -39,6 +43,16 @@ public class FlightServiceImpl {
 		else {
 			return null;
 		}
+	}
+	
+	public String getBookingByIdAdmin(String bookingId)
+	{
+		return dao.getBookingByIdAdmin(bookingId);
+	}
+	
+	public String getBookingByFlightAdmin(String flightId)
+	{
+		return dao.getBookingByFlightAdmin(flightId);
 	}
 	
 	public int setbookingstatusbyid(String bookingid, String status) {
@@ -69,5 +83,6 @@ public class FlightServiceImpl {
 	public int modifyBooking(String bookingId,Schedule schedule) 
 	{
 		return dao.modifyBooking(bookingId, schedule);
+
 	}
 }

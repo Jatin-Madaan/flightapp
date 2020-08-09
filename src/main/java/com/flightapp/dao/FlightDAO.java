@@ -12,10 +12,16 @@ import com.flightapp.entities.Schedule;
 public interface FlightDAO 
 {
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule scedule);
+
+	public String addFlight(Flight flight);
 	
 	public List<Flight> getFlights(String src, String dest);	
 
 	public Booking getbookingbyid(String bookingid);
+	
+	public String getBookingByFlightAdmin(String flightId);
+	
+	public String getBookingByIdAdmin(String bookingId);
 	
 	public Booking setbookingstatusbyid(String bookingid);
 
@@ -26,5 +32,6 @@ public interface FlightDAO
 	public int modifyBooking(String bookingId,Schedule schedule);
 	
 	public String modifySchedule(Schedule schedule);
+
 
 }
