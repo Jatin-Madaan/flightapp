@@ -33,7 +33,6 @@ public class FlightServiceImpl {
 	public Booking getbookingbyid(String bookingid, String userid){
 		Booking bookingdetails = dao.getbookingbyid(bookingid);
 		if(bookingdetails.getUser().getUserId().contentEquals(userid)) {	
-			System.out.println(bookingdetails.getUser().getUserId());
 			return bookingdetails;
 		}
 		else {
