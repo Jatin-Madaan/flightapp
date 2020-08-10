@@ -28,7 +28,7 @@ public class Booking implements Serializable {
 
 	@Id
 	@Column(name="BOOKING_ID")
-	private String bookingId;
+	private int bookingId;
 	
 	private Date bookingDate;
 	
@@ -37,6 +37,8 @@ public class Booking implements Serializable {
 	private Long ticketPrice;
 	
 	private Long noOfPassenger;
+	
+	private String status;
 	
 	private String bookingStatus;
 	
@@ -48,6 +50,8 @@ public class Booking implements Serializable {
 	@JoinColumn(name="FLIGHT_ID")
 	private Flight flight;
 	
+	@ManyToOne
+	@JoinColumn(name="SCHEDULEFLIGHT_ID")
 	private ScheduleFlight scheduleFlight;
 
 	@OneToMany(mappedBy="booking",cascade=CascadeType.ALL)
@@ -55,11 +59,11 @@ public class Booking implements Serializable {
 	private Set<Passenger> passengers = new HashSet<>();
 	
 	
-	public String getBookingId() {
+	public int getBookingId() {
 		return bookingId;
 	}
 
-	public void setBookingId(String bookingId) {
+	public void setBookingId(int bookingId) {
 		this.bookingId = bookingId;
 	}
 
@@ -102,6 +106,14 @@ public class Booking implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getBookingStatus() {

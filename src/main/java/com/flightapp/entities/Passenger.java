@@ -21,7 +21,7 @@ public class Passenger implements Serializable {
 	}
 	
 	@Id
-	private String pnrNumber;
+	private int pnrNumber;
 
 	private String passengerName;
 	
@@ -37,11 +37,11 @@ public class Passenger implements Serializable {
 	@JoinColumn(name="BOOKING_ID")
 	private Booking booking;
 
-	public String getPnrNumber() {
+	public int getPnrNumber() {
 		return pnrNumber;
 	}
 
-	public void setPnrNumber(String pnrNumber) {
+	public void setPnrNumber(int pnrNumber) {
 		this.pnrNumber = pnrNumber;
 	}
 

@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+//import org.junit.Ignore;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -24,7 +26,7 @@ public class User implements Serializable {
 	
 	@Id
 	@Column(name="USER_ID")
-	private String userId;
+	private int userId;
 	
 	private String username;
 	
@@ -40,15 +42,17 @@ public class User implements Serializable {
 	
 	private String userState;
 	
+	private Long balance = 10000L; 
+	
 	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
 	@JsonIgnore
 	private Set<Booking> bookings = new HashSet<Booking>();
 
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
@@ -106,6 +110,31 @@ public class User implements Serializable {
 
 	public void setUserState(String userState) {
 		this.userState = userState;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Long getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Long balance) {
+		this.balance = balance;
+	}
+
+	@JsonIgnore
+	public Set<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(Set<Booking> bookings) {
+		this.bookings = bookings;
 	}
 	
 	

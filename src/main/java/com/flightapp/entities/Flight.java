@@ -37,6 +37,18 @@ public class Flight implements Serializable{
 	@JsonIgnore
 	private Set<Booking> bookings = new HashSet<>();
 	
+	@OneToMany(mappedBy="flight",cascade=CascadeType.ALL)
+	@JsonIgnore
+	private Set<ScheduleFlight> ScheduleFlights = new HashSet<>();
+	
+	public Set<ScheduleFlight> getScheduleFlights() {
+		return ScheduleFlights;
+	}
+
+	public void setScheduleFlights(Set<ScheduleFlight> scheduleFlights) {
+		ScheduleFlights = scheduleFlights;
+	}
+
 	@JsonIgnore
 	public Set<Booking> getBookings() {
 		return bookings;
