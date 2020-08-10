@@ -1,10 +1,23 @@
 package com.flightapp.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name="SCHEDULEFLIGHT")
 public class ScheduleFlight implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -14,21 +27,23 @@ public class ScheduleFlight implements Serializable{
 	}
 	@Id
 	@Column(name="SCHEDULEFLIGHT_ID")
-	private int ScheduleFlight;
+	private int scheduleFlightId;
 	
 	private int availableSeats;
 	
+	private String status;
+	
+	@ManyToOne
+	@JoinColumn(name="FLIGHT_ID")
 	private Flight flight;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "SCHEDULE_ID")
 	private Schedule schedule;
-
-	public int getScheduleFlight() {
-		return ScheduleFlight;
-	}
-
-	public void setScheduleFlight(int scheduleFlight) {
-		ScheduleFlight = scheduleFlight;
-	}
+	
+	@OneToMany(mappedBy = "scheduleFlight")
+	@JsonIgnore
+	private Set<Booking> bookings = new HashSet<Booking>();
 
 	public int getAvailableSeats() {
 		return availableSeats;
@@ -52,6 +67,30 @@ public class ScheduleFlight implements Serializable{
 
 	public void setSchedule(Schedule schedule) {
 		this.schedule = schedule;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Set<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(Set<Booking> bookings) {
+		this.bookings = bookings;
+	}
+
+	public void setScheduleFlightId(int scheduleFlightId) {
+		this.scheduleFlightId = scheduleFlightId;
+	}
+
+	public int getScheduleFlightId() {
+		return scheduleFlightId;
 	}
 	
 	

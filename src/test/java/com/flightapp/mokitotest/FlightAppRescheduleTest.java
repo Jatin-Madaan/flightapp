@@ -2,11 +2,14 @@ package com.flightapp.mokitotest;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
+
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Airport;
 import com.flightapp.entities.Schedule;
@@ -50,8 +53,8 @@ class FlightAppRescheduleTest
 		schedule.setDestinationAirport(dest);
 		schedule.setSourceAirport(source);
 
-		schedule.setDepartureTime(LocalDateTime.of(2020, 10, 1, 14, 00));
-		schedule.setArrivalTime(LocalDateTime.now());	
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00)));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.now()));	
 		
 		when(dao.modifySchedule(schedule)).thenReturn("wrong");
 		String msg = service.modifySchedule(schedule);
@@ -69,8 +72,8 @@ class FlightAppRescheduleTest
 		schedule.setDestinationAirport(dest);
 		schedule.setSourceAirport(source);
 
-		schedule.setDepartureTime(LocalDateTime.now());
-		schedule.setArrivalTime(LocalDateTime.of(2020, 10, 1, 15, 00));	
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.now()));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 15, 00)));	
 		
 		when(dao.modifySchedule(schedule)).thenReturn("ok");
 		String msg = service.modifySchedule(schedule);
@@ -88,8 +91,8 @@ class FlightAppRescheduleTest
 		schedule.setDestinationAirport(dest);
 		schedule.setSourceAirport(source);
 
-		schedule.setDepartureTime(LocalDateTime.of(2020, 10, 1, 14, 00));
-		schedule.setArrivalTime(LocalDateTime.of(2020, 10, 1, 15, 00));	
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00)));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 15, 00)));	
 		
 		when(dao.modifySchedule(schedule)).thenReturn("ok");
 		String msg = service.modifySchedule(schedule);
@@ -107,8 +110,8 @@ class FlightAppRescheduleTest
 		schedule.setDestinationAirport(dest);
 		schedule.setSourceAirport(source);
 
-		schedule.setDepartureTime(LocalDateTime.of(2020, 10, 1, 15, 00));
-		schedule.setArrivalTime(LocalDateTime.of(2020, 10, 1, 14, 00));	
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 15, 00)));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00)));	
 		
 		when(dao.modifySchedule(schedule)).thenReturn("wrong");
 		String msg = service.modifySchedule(schedule);

@@ -2,6 +2,7 @@ package com.flightapp.mokitotest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import static org.mockito.Mockito.when;
+
 import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Airport;
 import com.flightapp.entities.Flight;
@@ -23,7 +25,7 @@ import com.flightapp.service.FlightServiceImpl;
 @RunWith(MockitoJUnitRunner.class)
 class GetFlightTestCase {
 
-FlightDAO dao = Mockito.mock(FlightDAO.class);
+    FlightDAO dao = Mockito.mock(FlightDAO.class);
 	
 	FlightServiceImpl service = new FlightServiceImpl(dao);
 	
@@ -52,8 +54,8 @@ FlightDAO dao = Mockito.mock(FlightDAO.class);
 		Schedule schedule = new Schedule();
 		schedule.setDestinationAirport(airport2);
 		schedule.setSourceAirport(airport1);
-		schedule.setDepartureTime(LocalDateTime.now());
-		schedule.setArrivalTime(LocalDateTime.of(2020, 2, 13, 15, 56));
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.now()));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 56)));
 		ScheduleFlight scheduleflight = new ScheduleFlight();
 		scheduleflight.setFlight(flight);
 		scheduleflight.setSchedule(schedule);

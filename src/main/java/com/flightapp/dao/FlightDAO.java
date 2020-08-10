@@ -12,14 +12,20 @@ import com.flightapp.entities.Schedule;
 public interface FlightDAO {
 
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule scedule);
+
+	public String addFlight(Flight flight);
 	
 	public List<Flight> getFlights(String src, String dest);	
 
 	public Booking getbookingbyid(String bookingid);
 	
+	public String getBookingByFlightAdmin(String flightId);
+	
+	public String getBookingByIdAdmin(Integer bookingId);
+	
 	public Booking setbookingstatusbyid(String bookingid);
 
-	public List<Booking> viewBookings(String userId);
+	public List<Booking> viewBookings(Integer userId);
 	
 	public int cancelBooking(String bookingId);
 	

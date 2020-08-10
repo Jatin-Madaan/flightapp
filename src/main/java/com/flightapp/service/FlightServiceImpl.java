@@ -24,20 +24,38 @@ public class FlightServiceImpl {
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule schedule) {
 		return dao.scheduleFlight(availableSeats, flight, schedule);
 	}
+
+	public String addFlight(Flight flight) {
+		return dao.addFlight(flight);}
+
 	
 	public String modifySchedule(Schedule schedule)
 	{
 		return dao.modifySchedule(schedule);
 	}
 
-	public Booking getbookingbyid(String bookingid, String userid){
+	public Booking getbookingbyid(String bookingid, int userid){
 		Booking bookingdetails = dao.getbookingbyid(bookingid);
-		if(bookingdetails.getUser().getUserId().contentEquals(userid)) {	
+
+
+		if(bookingdetails.getUser().getUserId() == userid) {	
+			System.out.println(bookingdetails.getUser().getUserId());
+
 			return bookingdetails;
 		}
 		else {
 			return null;
 		}
+	}
+	
+	public String getBookingByIdAdmin(Integer bookingId)
+	{
+		return dao.getBookingByIdAdmin(bookingId);
+	}
+	
+	public String getBookingByFlightAdmin(String flightId)
+	{
+		return dao.getBookingByFlightAdmin(flightId);
 	}
 	
 	public int setbookingstatusbyid(String bookingid, String status) {
@@ -57,7 +75,7 @@ public class FlightServiceImpl {
 	}
 
 
-	public List<Booking> viewBookings(String userId){
+	public List<Booking> viewBookings(Integer userId){
 		return dao.viewBookings(userId);
 	}
 	
@@ -68,5 +86,6 @@ public class FlightServiceImpl {
 	public int modifyBooking(String bookingId,Schedule schedule) 
 	{
 		return dao.modifyBooking(bookingId, schedule);
+
 	}
 }

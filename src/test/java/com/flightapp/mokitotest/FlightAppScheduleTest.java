@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,8 +49,8 @@ public class FlightAppScheduleTest {
 		schedule.setDestinationAirport(null);
 		schedule.setSourceAirport(null);
 		
-		schedule.setArrivalTime(LocalDateTime.now());
-		schedule.setDepartureTime(LocalDateTime.of(2020, 2, 13, 15, 56));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.now()));
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 56)));
 		
 		when(dao.scheduleFlight(10, flight, schedule)).thenReturn("Test Case Failed");
 		
@@ -73,8 +74,8 @@ public class FlightAppScheduleTest {
 		
 		schedule.setDestinationAirport(new Airport());
 		schedule.setSourceAirport(new Airport());
-		schedule.setArrivalTime(LocalDateTime.now());
-		schedule.setDepartureTime(LocalDateTime.of(2020, 2, 13, 15, 56));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.now()));
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 56)));
 		
 		when(dao.scheduleFlight(10, flight, schedule)).thenReturn("Test Case Failed");
 		
@@ -123,9 +124,9 @@ public class FlightAppScheduleTest {
 		schedule.setDestinationAirport(dest);
 		schedule.setSourceAirport(source);
 		
-		schedule.setArrivalTime(LocalDateTime.now());
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.now()));
 		// departure date is less than currrent date
-		schedule.setDepartureTime(LocalDateTime.of(2019, 2, 13, 15, 56));
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2019, 2, 13, 15, 56)));
 		
 		when(dao.scheduleFlight(10, flight, schedule)).thenReturn("Test Case Failed");
 		
@@ -148,9 +149,9 @@ public class FlightAppScheduleTest {
 		schedule.setSourceAirport(source);
 		
 		// departure date is greater than arrival date
-		schedule.setArrivalTime(LocalDateTime.of(2019, 2, 13, 15, 56));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2019, 2, 13, 15, 56)));
 		
-		schedule.setDepartureTime(LocalDateTime.of(2020, 1, 11, 12, 54));
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 1, 11, 12, 54)));
 		
 		when(dao.scheduleFlight(10, flight, schedule)).thenReturn("Test Case Failed");
 		
@@ -158,5 +159,4 @@ public class FlightAppScheduleTest {
 		assertThat(msg, is("Test Case Failed"));
 	}
 	
-
 }

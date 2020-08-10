@@ -2,6 +2,8 @@ package com.flightapp.mokitotest;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
+
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
@@ -14,7 +16,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-
 
 import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Airport;
@@ -59,8 +60,8 @@ class PaymentAndInvoiceTest {
 		Schedule schedule = new Schedule();
 		schedule.setDestinationAirport(airport2);
 		schedule.setSourceAirport(airport1);
-		schedule.setDepartureTime(LocalDateTime.now());
-		schedule.setArrivalTime(LocalDateTime.of(2020, 2, 13, 15, 56));
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.now()));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 56)));
 		ScheduleFlight scheduleflight = new ScheduleFlight();
 		scheduleflight.setFlight(flight);
 		scheduleflight.setSchedule(schedule);
@@ -70,18 +71,18 @@ class PaymentAndInvoiceTest {
 		user.setGender("Male");
 		user.setPassword("prithve");
 		user.setPhone("9500332672");
-		user.setUserId("01");
+		user.setUserId(1);
 		user.setUserName("Prithve Kumar");
 		user.setUserRole("Customer");
 		user.setUserState("Active");
 		Booking booking  = new Booking();
-		booking.setBookingId("1");
+		booking.setBookingId(1);
 		Passenger passenger1 = new Passenger();
 		passenger1.setAge(45);
 		passenger1.setBooking(booking);
 		passenger1.setLuggage("15kg");
 		passenger1.setPassengerName("Palaniswamy K");
-		passenger1.setPnrNumber("ABCD01");
+		passenger1.setPnrNumber(1);
 		passenger1.setSeatNumber("1A");
 		passenger1.setTravelClass("Business Class");
 		Passenger passenger2 = new Passenger();
@@ -89,7 +90,7 @@ class PaymentAndInvoiceTest {
 		passenger2.setBooking(booking);
 		passenger2.setLuggage("15kg");
 		passenger2.setPassengerName("Palaniswamy K");
-		passenger2.setPnrNumber("ABCD01");
+		passenger2.setPnrNumber(1);
 		passenger2.setSeatNumber("1A");
 		passenger2.setTravelClass("Business Class");
 		booking.setBookingDate(date);
@@ -129,8 +130,8 @@ class PaymentAndInvoiceTest {
 		Schedule schedule = new Schedule();
 		schedule.setDestinationAirport(airport2);
 		schedule.setSourceAirport(airport1);
-		schedule.setDepartureTime(LocalDateTime.now());
-		schedule.setArrivalTime(LocalDateTime.of(2020, 2, 13, 15, 56));
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.now()));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 56)));
 		ScheduleFlight scheduleflight = new ScheduleFlight();
 		scheduleflight.setFlight(flight);
 		scheduleflight.setSchedule(schedule);
@@ -140,18 +141,18 @@ class PaymentAndInvoiceTest {
 		user.setGender("Male");
 		user.setPassword("prithve");
 		user.setPhone("9500332672");
-		user.setUserId("01");
+		user.setUserId(1);
 		user.setUserName("Prithve Kumar");
 		user.setUserRole("Customer");
 		user.setUserState("Active");
 		Booking booking  = new Booking();
-		booking.setBookingId("1");
+		booking.setBookingId(1);
 		Passenger passenger1 = new Passenger();
 		passenger1.setAge(45);
 		passenger1.setBooking(booking);
 		passenger1.setLuggage("15kg");
 		passenger1.setPassengerName("Palaniswamy K");
-		passenger1.setPnrNumber("ABCD01");
+		passenger1.setPnrNumber(1);
 		passenger1.setSeatNumber("1A");
 		passenger1.setTravelClass("Business Class");
 		Passenger passenger2 = new Passenger();
@@ -159,7 +160,7 @@ class PaymentAndInvoiceTest {
 		passenger2.setBooking(booking);
 		passenger2.setLuggage("15kg");
 		passenger2.setPassengerName("Palaniswamy K");
-		passenger2.setPnrNumber("ABCD01");
+		passenger2.setPnrNumber(1);
 		passenger2.setSeatNumber("1A");
 		passenger2.setTravelClass("Business Class");
 		booking.setBookingDate(date);
@@ -176,7 +177,7 @@ class PaymentAndInvoiceTest {
 		booking.setUser(user);
 		
 		when(dao.getbookingbyid("1")).thenReturn(booking);
-		assertEquals(booking,c.getbookingbyid("1","01"));
+		assertEquals(booking,c.getbookingbyid("1",1));
 		
 	}
 

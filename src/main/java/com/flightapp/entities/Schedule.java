@@ -1,10 +1,15 @@
 package com.flightapp.entities;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,14 +24,21 @@ public class Schedule {
 	@Column(name="SCHEDULE_ID")
 	private int scheduleId;
 	
+	@ManyToOne
+	@JoinColumn(name="SOURCE_ID")
 	private Airport sourceAirport;
 	
+	@ManyToOne
+	@JoinColumn(name="DEST_ID")
 	private Airport destinationAirport;
 	
-	private LocalDateTime departureTime;
+	private Timestamp departureTime;
 	
-	private LocalDateTime arrivalTime;
+	private Timestamp arrivalTime;
 
+	@OneToOne(mappedBy = "schedule")
+	private ScheduleFlight scheduleFlight;
+	
 	public int getScheduleId() {
 		return scheduleId;
 	}
@@ -51,19 +63,19 @@ public class Schedule {
 		this.destinationAirport = destinationAirport;
 	}
 
-	public LocalDateTime getDepartureTime() {
+	public Timestamp getDepartureTime() {
 		return departureTime;
 	}
 
-	public void setDepartureTime(LocalDateTime departureTime) {
+	public void setDepartureTime(Timestamp departureTime) {
 		this.departureTime = departureTime;
 	}
 
-	public LocalDateTime getArrivalTime() {
+	public Timestamp getArrivalTime() {
 		return arrivalTime;
 	}
 
-	public void setArrivalTime(LocalDateTime arrivalTime) {
+	public void setArrivalTime(Timestamp arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
 	
