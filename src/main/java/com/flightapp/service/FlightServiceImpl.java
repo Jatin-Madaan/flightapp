@@ -2,16 +2,24 @@ package com.flightapp.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Booking;
 import com.flightapp.entities.Flight;
 import com.flightapp.entities.Schedule;
 
-public class FlightServiceImpl 
-{
+@Service
+public class FlightServiceImpl {
 
 	private FlightDAO dao;
 	
+
+	
+	public FlightServiceImpl() {
+
+	}
+
 	public FlightServiceImpl(FlightDAO dao) 
 	{
 		this.dao = dao;
@@ -34,12 +42,13 @@ public class FlightServiceImpl
 	{
 		return dao.modifySchedule(schedule);
 	}
-	public Booking getbookingbyid(String bookingid, int userid)
+	public Booking getbookingbyid(int bookingid, int userid)
 	{
 		Booking bookingdetails = dao.getbookingbyid(bookingid);
 		if(bookingdetails.getUser().getUserId() == userid) 
 		{	
 			System.out.println(bookingdetails.getUser().getUserId());
+			
 			return bookingdetails;
 		}
 		else 
@@ -56,7 +65,7 @@ public class FlightServiceImpl
 	{
 		return dao.getBookingByFlightAdmin(flightId);
 	}
-	public int setbookingstatusbyid(String bookingid, String status) 
+	public int setbookingstatusbyid(int bookingid, String status, int securitynumber, int amount ) 
 	{
 		Booking bookingdetails = dao.setbookingstatusbyid(bookingid);
 		String status_before = bookingdetails.getBookingStatus();
@@ -89,4 +98,6 @@ public class FlightServiceImpl
 		return dao.modifyBooking(bookingId, schedule);
 
 	}
+	
+	
 }

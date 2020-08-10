@@ -34,7 +34,7 @@ class PaymentAndInvoiceTest {
 	
 	FlightDAO dao = Mockito.mock(FlightDAO.class);
 	
-	FlightServiceImpl c = new FlightServiceImpl(dao);
+	FlightServiceImpl service = new FlightServiceImpl(dao);
 	
 	LocalDateTime now = LocalDateTime.now();  
 	
@@ -93,6 +93,7 @@ class PaymentAndInvoiceTest {
 		passenger2.setPnrNumber(1);
 		passenger2.setSeatNumber("1A");
 		passenger2.setTravelClass("Business Class");
+		
 		booking.setBookingDate(date);
 		booking.setBookingStatus("Payment Success");
 		booking.setBookingTime(null);
@@ -106,8 +107,8 @@ class PaymentAndInvoiceTest {
 		booking.setTicketPrice(220000L);
 		booking.setUser(user);
 		
-		when(dao.setbookingstatusbyid("1")).thenReturn(booking);
-		assertEquals(0, c.setbookingstatusbyid("1","Payment Success"));
+		when(dao.setbookingstatusbyid(1)).thenReturn(booking);
+		assertEquals(0, service.setbookingstatusbyid(1,"Payment Success",1231,12000));
 		
 	}
 	
@@ -176,8 +177,8 @@ class PaymentAndInvoiceTest {
 		booking.setTicketPrice(220000L);
 		booking.setUser(user);
 		
-		when(dao.getbookingbyid("1")).thenReturn(booking);
-		assertEquals(booking,c.getbookingbyid("1",1));
+		when(dao.getbookingbyid(1)).thenReturn(booking);
+		assertEquals(booking,service.getbookingbyid(1,1));
 		
 	}
 
