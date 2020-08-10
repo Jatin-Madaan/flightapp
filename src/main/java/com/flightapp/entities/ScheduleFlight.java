@@ -25,6 +25,7 @@ public class ScheduleFlight implements Serializable{
 	public ScheduleFlight() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	@Id
 	@Column(name="SCHEDULEFLIGHT_ID")
 	private int scheduleFlightId;
@@ -32,6 +33,8 @@ public class ScheduleFlight implements Serializable{
 	private int availableSeats;
 	
 	private String status;
+	
+	private Long ticketCost;
 	
 	@ManyToOne
 	@JoinColumn(name="FLIGHT_ID")
@@ -91,6 +94,14 @@ public class ScheduleFlight implements Serializable{
 
 	public int getScheduleFlightId() {
 		return scheduleFlightId;
+	}
+
+	public Long getTicketCost() {
+		return ticketCost;
+	}
+
+	public void setTicketCost(Long ticketCost) {
+		this.ticketCost = ticketCost;
 	}
 	
 	
