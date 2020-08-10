@@ -6,8 +6,6 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -25,6 +23,10 @@ class FlightAppRescheduleTest
 	FlightDAO flightDao = Mockito.mock(FlightDAO.class);
 	FlightServiceImpl flightService = new FlightServiceImpl(flightDao);
 	
+	FlightDAO dao = Mockito.mock(FlightDAO.class);
+	
+	FlightServiceImpl service = new FlightServiceImpl(dao);
+	
 	@Test
 	public void isNull() 
 	{
@@ -38,7 +40,6 @@ class FlightAppRescheduleTest
 
 		schedule.setDepartureTime(null);
 		schedule.setArrivalTime(null);	
-		
 		when(flightDao.modifySchedule(schedule)).thenReturn("wrong");
 		String msg = flightService.modifySchedule(schedule);
 		assertEquals(msg,"wrong");

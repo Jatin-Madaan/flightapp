@@ -14,7 +14,6 @@ public class FlightServiceImpl
 	
 	public FlightServiceImpl(FlightDAO dao) 
 	{
-		// TODO Auto-generated constructor stub
 		this.dao = dao;
 	}
 	
@@ -22,7 +21,6 @@ public class FlightServiceImpl
 	{
 		return dao.getFlights(src, dest);
 	}
-	
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule schedule) 
 	{
 		return dao.scheduleFlight(availableSeats, flight, schedule);
@@ -31,14 +29,11 @@ public class FlightServiceImpl
 	public String addFlight(Flight flight) 
 	{
 		return dao.addFlight(flight);
-	}
-
-	
+	}	
 	public String modifySchedule(Schedule schedule)
 	{
 		return dao.modifySchedule(schedule);
 	}
-
 	public Booking getbookingbyid(String bookingid, int userid)
 	{
 		Booking bookingdetails = dao.getbookingbyid(bookingid);
@@ -52,7 +47,6 @@ public class FlightServiceImpl
 			return null;
 		}
 	}
-	
 	public String getBookingByIdAdmin(Integer bookingId)
 	{
 		return dao.getBookingByIdAdmin(bookingId);
@@ -62,7 +56,6 @@ public class FlightServiceImpl
 	{
 		return dao.getBookingByFlightAdmin(flightId);
 	}
-	
 	public int setbookingstatusbyid(String bookingid, String status) 
 	{
 		Booking bookingdetails = dao.setbookingstatusbyid(bookingid);
@@ -79,11 +72,8 @@ public class FlightServiceImpl
 		{
 			bookingdetails.setBookingStatus(status);
 			return 1;
-		}
-		
+		}	
 	}
-
-
 	public List<Booking> viewBookings(Integer userId)
 	{
 		return dao.viewBookings(userId);
