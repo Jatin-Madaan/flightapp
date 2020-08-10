@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
 import static org.junit.Assert.*;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,8 +90,8 @@ public class ViewAndModifyTest {
 		Schedule schedule=new Schedule();
 		schedule.setDestinationAirport(dest);
 		schedule.setSourceAirport(source);
-		schedule.setDepartureTime(LocalDateTime.of(2020, 2, 13, 15, 00));
-		schedule.setArrivalTime(LocalDateTime.of(2020, 2, 13, 16, 20));
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 00)));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 16, 20)));
 		
 		when(dao.modifyBooking("BK100", schedule)).thenReturn(1);
 		int res=service.modifyBooking("BK100", schedule);
@@ -108,8 +109,8 @@ public class ViewAndModifyTest {
 		Schedule schedule=new Schedule();
 		schedule.setDestinationAirport(dest);
 		schedule.setSourceAirport(source);
-		schedule.setDepartureTime(LocalDateTime.of(2020, 2, 13, 15, 00));
-		schedule.setArrivalTime(LocalDateTime.of(2020, 2, 13, 16, 20));
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 00)));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 16, 20)));
 		
 		when(dao.modifyBooking(null, schedule)).thenReturn(0);
 		int res=service.modifyBooking(null, schedule);
@@ -127,8 +128,8 @@ public class ViewAndModifyTest {
 		Schedule schedule=new Schedule();
 		schedule.setDestinationAirport(dest);
 		schedule.setSourceAirport(source);
-		schedule.setDepartureTime(LocalDateTime.of(2020, 2, 13, 15, 00));
-		schedule.setArrivalTime(LocalDateTime.of(2020, 2, 13, 16, 20));
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 00)));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 16, 20)));
 		
 		when(dao.modifyBooking("BK100", null)).thenReturn(0);
 		int res=service.modifyBooking("BK100", null);

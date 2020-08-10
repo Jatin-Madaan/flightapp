@@ -6,14 +6,18 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
+@Table(name="SCHEDULEFLIGHT")
 public class ScheduleFlight implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -37,7 +41,7 @@ public class ScheduleFlight implements Serializable{
 	@JoinColumn(name = "SCHEDULE_ID")
 	private Schedule schedule;
 	
-	@OneToMany(mappedBy = "scheduleFlight", cascade = CascadeType.REFRESH)
+	@OneToMany(mappedBy = "scheduleFlight")
 	@JsonIgnore
 	private Set<Booking> bookings = new HashSet<Booking>();
 
