@@ -1,4 +1,4 @@
-package com.flightapp;
+package com.flightapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
