@@ -10,11 +10,5 @@ import com.flightapp.entities.Schedule;
 
 @Repository
 public interface IBookingDAO extends JpaRepository<Booking, Integer>{
-	
-	public List<Booking> viewBookings(Integer userId);
-	
-	public int cancelBooking(String bookingId);
-	
-	public int modifyBooking(String bookingId,Schedule schedule);
 
 }

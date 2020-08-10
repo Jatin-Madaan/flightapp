@@ -8,7 +8,7 @@ import com.flightapp.entities.Schedule;
 public interface IViewAndModifyService {
 	
 	public List<Booking> viewBookings(Integer userId);
-	public int cancelBooking(String bookingId);
-	public int modifyBooking(String bookingId,Schedule schedule);
+	public int cancelBooking(int bookingId);
+	public int modifyBooking(int bookingId,Schedule schedule);
 
 }
