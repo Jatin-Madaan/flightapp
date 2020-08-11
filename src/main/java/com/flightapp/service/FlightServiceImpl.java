@@ -15,11 +15,7 @@ private FlightDAO dao;
 	
 
 	
-<<<<<<< HEAD
-=======
 
-	
->>>>>>> ae6a8d57c9660d4d9cb2aa8af0c0940fd400eb7a
 	public FlightServiceImpl() {
 
 	}
