@@ -1,15 +1,11 @@
 package com.flightapp.dao;
 
-
 import java.util.List;
-
-import org.springframework.stereotype.Repository;
 
 import com.flightapp.entities.Booking;
 import com.flightapp.entities.Flight;
 import com.flightapp.entities.Schedule;
 
-@Repository
 public interface FlightDAO {
 
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule scedule);
@@ -28,11 +24,10 @@ public interface FlightDAO {
 
 	public List<Booking> viewBookings(Integer userId);
 	
-	public int cancelBooking(String bookingId);
+	public int cancelBooking(int bookingId);
 	
-	public int modifyBooking(String bookingId,Schedule schedule);
+	public int modifyBooking(int bookingId,Schedule schedule);
 	
 	public String modifySchedule(Schedule schedule);
-
-
+	
 }

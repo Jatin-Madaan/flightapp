@@ -11,11 +11,11 @@ import com.flightapp.entities.Schedule;
 
 @Service
 public class FlightServiceImpl {
-
-	private FlightDAO dao;
+private FlightDAO dao;
 	
 
 	
+
 	public FlightServiceImpl() {
 
 	}
@@ -83,21 +83,5 @@ public class FlightServiceImpl {
 			return 1;
 		}	
 	}
-	public List<Booking> viewBookings(Integer userId)
-	{
-		return dao.viewBookings(userId);
-	}
-	
-	public int cancelBooking(String bookingId) 
-	{
-		return dao.cancelBooking(bookingId);
-	}
-	
-	public int modifyBooking(String bookingId,Schedule schedule) 
-	{
-		return dao.modifyBooking(bookingId, schedule);
-
-	}
-	
 	
 }

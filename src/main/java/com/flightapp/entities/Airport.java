@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,6 +18,7 @@ public class Airport implements Serializable {
 
 	@Id
 	@Column(name="AIRPORT_ID")
+	@GeneratedValue
 	private int airportId;
 	
 	private String airportName;
