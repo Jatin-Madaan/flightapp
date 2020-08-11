@@ -27,9 +27,9 @@ public interface FlightDAO
 
 	public List<Booking> viewBookings(Integer userId);
 	
-	public int cancelBooking(String bookingId);
+	public int cancelBooking(int bookingId);
 	
-	public int modifyBooking(String bookingId,Schedule schedule);
+	public int modifyBooking(int bookingId,Schedule schedule);
 	
 	public String modifySchedule(Schedule schedule);
 
