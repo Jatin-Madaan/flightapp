@@ -1,6 +1,5 @@
 package com.flightapp.mokitotest;
 
-import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
 import static org.junit.Assert.*;
 
@@ -19,8 +18,10 @@ import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Airport;
 import com.flightapp.entities.Booking;
 import com.flightapp.entities.Schedule;
+import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.entities.User;
-import com.flightapp.service.IViewAndModifyService;
+import com.flightapp.service.FlightServiceImpl;
+import com.flightapp.service.IFlightService;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ViewAndModifyTest {
@@ -29,7 +30,7 @@ public class ViewAndModifyTest {
 	FlightDAO dao;
 	
 	@InjectMocks
-	IViewAndModifyService service;
+	IFlightService service=new FlightServiceImpl();
 	
 	@Test
 	public void viewBookings() {
@@ -38,7 +39,6 @@ public class ViewAndModifyTest {
 		
 		Booking book=new Booking();
 		book.setBookingId(101);
-		
 		Booking book1=new Booking();
 		book1.setBookingId(105);
 		
@@ -51,32 +51,39 @@ public class ViewAndModifyTest {
 		List<Booking> booking1=new ArrayList<>();
 		booking1=service.viewBookings(14);
 		
-		assertThat(booking1,is(booking));
+		assertEquals(booking1,booking);
 	}
 	
 	@Test
 	public void viewBookingsNull() {
 		
-		when(dao.viewBookings(null)).thenReturn(null);
-		
+		when(dao.viewBookings(15)).thenReturn(null);
 		List<Booking> booking=new ArrayList<>();
-		booking=service.viewBookings(null);
-		
-		assertThat(null,is(booking));
+		booking=service.viewBookings(15);
+		assertEquals(null,booking);
 	}
 	
 	@Test
 	public void cancelBookings() {
-		when(dao.cancelBooking(10000)).thenReturn(1);
-		//int res=service.cancelBooking(10000);
-		//assertThat(res,is(1));
+		
+		Booking booking=new Booking();
+		booking.setBookingStatus("Cancelled");
+		
+		when(dao.cancelBooking(10000)).thenReturn(booking);
+		
+		Booking res=service.cancelBooking(10000);
+		assertEquals(res.getBookingStatus(),booking.getBookingStatus());
 	}
 	
 	@Test
 	public void cancelBookingsNull() {
-		when(dao.cancelBooking(0)).thenReturn(0);
-		//int res=service.cancelBooking(0);
-		//assertThat(res,is(0));
+		Booking booking=new Booking();
+		booking.setBookingStatus("Success");
+		
+		when(dao.cancelBooking(1000)).thenReturn(booking);
+		
+		Booking res=service.cancelBooking(1000);
+		assertEquals(res.getBookingStatus(),booking.getBookingStatus());
 	}
 	
 	@Test
@@ -93,9 +100,16 @@ public class ViewAndModifyTest {
 		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 00)));
 		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 16, 20)));
 		
-		when(dao.modifyBooking(5000, schedule)).thenReturn(1);
-		//int res=service.modifyBooking(5000, schedule);
-		//assertThat(res,is(1));
+		ScheduleFlight scheduleFlight=new ScheduleFlight();
+		scheduleFlight.setSchedule(schedule);
+		
+		Booking booking=new Booking();
+		booking.setScheduleFlight(scheduleFlight);
+		
+		when(dao.modifyBooking(5000, schedule)).thenReturn(booking);
+		
+		Booking res=service.modifyBooking(5000, schedule);
+		assertEquals(res,booking);
 	}
 
 	@Test
@@ -112,9 +126,15 @@ public class ViewAndModifyTest {
 		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 00)));
 		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 16, 20)));
 		
-		when(dao.modifyBooking(0, schedule)).thenReturn(0);
-		//int res=service.modifyBooking(0, schedule);
-		//assertThat(res,is(0));
+		ScheduleFlight scheduleFlight=new ScheduleFlight();
+		scheduleFlight.setSchedule(schedule);
+		
+		Booking booking=new Booking();
+		booking.setScheduleFlight(scheduleFlight);
+		
+		when(dao.modifyBooking(1000, schedule)).thenReturn(null);
+		Booking res=service.modifyBooking(1000, schedule);
+		assertEquals(res,null);
 	}
 	
 	@Test
@@ -131,8 +151,14 @@ public class ViewAndModifyTest {
 		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 00)));
 		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 16, 20)));
 		
-		when(dao.modifyBooking(5000, null)).thenReturn(0);
-		//int res=service.modifyBooking(5000, null);
-		//assertThat(res,is(0));
+		ScheduleFlight scheduleFlight=new ScheduleFlight();
+		scheduleFlight.setSchedule(schedule);
+		
+		Booking booking=new Booking();
+		booking.setScheduleFlight(scheduleFlight);
+		
+		when(dao.modifyBooking(5000, null)).thenReturn(null);
+		Booking res=service.modifyBooking(5000, null);
+		assertEquals(res,null);
 	}
 }
