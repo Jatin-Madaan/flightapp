@@ -18,14 +18,14 @@ public class AdminCancelBookingController
 	IAdminBookingCancelService bookingCancelService;
 	
 	@GetMapping("/viewAllBooking")  
-	private List<Booking> getAllBooking()   
+	private List<Booking> getAllBooking() throws Exception   
 	{  
 		return bookingCancelService.viewAllBookings();  
 	}  
 	
 	@DeleteMapping("/booking/{bookingId}")  
-	private void deleteBooking(@PathVariable("bookingId") int bookingId)   
+	private String deleteBooking(@PathVariable("bookingId") int bookingId) throws Exception   
 	{  
-	bookingCancelService.cancelBookingById(bookingId);  
+		return bookingCancelService.cancelBookingById(bookingId);  
 	}  
 }
