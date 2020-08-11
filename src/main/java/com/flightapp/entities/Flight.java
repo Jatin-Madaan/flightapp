@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -25,6 +26,7 @@ public class Flight implements Serializable{
 
 	@Id
 	@Column(name="FLIGHT_ID")
+	@GeneratedValue
 	private int flightId;
 	
 	private String carrierName;
@@ -41,6 +43,7 @@ public class Flight implements Serializable{
 	@JsonIgnore
 	private Set<ScheduleFlight> ScheduleFlights = new HashSet<>();
 	
+	@JsonIgnore
 	public Set<ScheduleFlight> getScheduleFlights() {
 		return ScheduleFlights;
 	}

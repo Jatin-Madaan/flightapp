@@ -23,19 +23,17 @@ public class ViewAndModifyServiceImpl implements IViewAndModifyService {
 	}
 
 	@Override
-	public int cancelBooking(int bookingId) {
+	public Booking cancelBooking(int bookingId) {
 		Booking booking=dao.getOne(bookingId);
 		booking.setBookingStatus("Cancelled");
 		booking.getScheduleFlight().setAvailableSeats(booking.getScheduleFlight().getAvailableSeats()+1);
-		dao.save(booking);
-		return 1;
+		return dao.save(booking);
 	}
 
 	@Override
-	public int modifyBooking(int bookingId, Schedule schedule) {
+	public Booking modifyBooking(int bookingId, Schedule schedule) {
 		Booking booking=dao.getOne(bookingId);
 		booking.getScheduleFlight().setSchedule(schedule);
-		dao.save(booking);
-		return 1;
+		return dao.save(booking);
 	}
 }

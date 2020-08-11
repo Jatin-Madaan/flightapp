@@ -14,6 +14,7 @@ public class FlightServiceImpl {
 
 	private FlightDAO dao;
 
+
 	public FlightServiceImpl() {
 
 	}
@@ -75,13 +76,12 @@ public class FlightServiceImpl {
 		return dao.viewBookings(userId);
 	}
 
-	public int cancelBooking(String bookingId) {
+	public int cancelBooking(int bookingId) {
 		return dao.cancelBooking(bookingId);
 	}
 
-	public int modifyBooking(String bookingId, Schedule schedule) {
+	public int modifyBooking(int bookingId, Schedule schedule) {
 		return dao.modifyBooking(bookingId, schedule);
 
 	}
-
 }

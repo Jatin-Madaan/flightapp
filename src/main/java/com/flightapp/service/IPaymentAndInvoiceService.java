@@ -7,8 +7,8 @@ import com.flightapp.entities.Booking;
 
 public interface IPaymentAndInvoiceService {
 	
-	public Booking getbookingbyid(int bookingid);
+	public Booking getbookingbyid(int bookingid) throws Exception;
 	
-	public int setbookingstatusbyid(int bookingid,int userid, String status,long amount);
+	public int setbookingstatusbyid(int bookingid,int userid, String status,long amount) throws Exception;
 
 }

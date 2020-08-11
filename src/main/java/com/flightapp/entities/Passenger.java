@@ -3,6 +3,7 @@ package com.flightapp.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,6 +22,7 @@ public class Passenger implements Serializable {
 	}
 	
 	@Id
+	@GeneratedValue
 	private int pnrNumber;
 
 	private String passengerName;
@@ -85,7 +87,6 @@ public class Passenger implements Serializable {
 		this.travelClass = travelClass;
 	}
 
-	@JsonIgnore
 	public Booking getBooking() {
 		return booking;
 	}

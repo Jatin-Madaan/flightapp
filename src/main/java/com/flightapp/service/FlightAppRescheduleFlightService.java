@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.flightapp.dao.IScheduleFlightDAO;
 import com.flightapp.entities.ScheduleFlight;
+import com.flightapp.exception.IdNotFoundException;
 
 @Service
 public class FlightAppRescheduleFlightService implements IFlightAppRescheduleFlightService 
@@ -17,20 +18,20 @@ public class FlightAppRescheduleFlightService implements IFlightAppRescheduleFli
 		return scheduleFlight.findAll();
 	}
 	@Override
-	public String removeFlightById(int id) 
+	public String removeFlightById(int scheduleFlightId) 
 	{
-		if(scheduleFlight.existsById(id))
+		if(scheduleFlight.existsById(scheduleFlightId))
 		{
-			scheduleFlight.deleteById(id);
+			scheduleFlight.deleteById(scheduleFlightId);
 			return "Successfully Deleted";
 		}
 		else
 		{
-			return "Schedule not deleted";
+			return "Schedule not deleted because ID not Found";
 		}
 	}
 	@Override
-	public String rescheduleFlightSchedule(ScheduleFlight reschedule, Timestamp arrivalTime, Timestamp departureTime) 
+	public String rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) 
 	{
 		if(arrivalTime.compareTo(departureTime) == 0)
 		{
@@ -42,10 +43,15 @@ public class FlightAppRescheduleFlightService implements IFlightAppRescheduleFli
 		}
 		else    																				//Arrival time is be greater then Departure time
 		{
-			if(scheduleFlight.existsById(reschedule.getScheduleFlightId()))
+			if(scheduleFlight.existsById(rescheduleId))
 			{
-				reschedule.getSchedule().setArrivalTime(arrivalTime);
-				reschedule.getSchedule().setDepartureTime(departureTime);
+				scheduleFlight.findById(rescheduleId).map( reschedule ->
+				{
+					reschedule.getSchedule().setArrivalTime(arrivalTime);
+					reschedule.getSchedule().setDepartureTime(departureTime);
+					return scheduleFlight.save(reschedule);
+				}).orElseThrow(() -> new IdNotFoundException("customer not found with id " + rescheduleId));
+				
 				return "Successfully Rescheduled";
 			}
 			else

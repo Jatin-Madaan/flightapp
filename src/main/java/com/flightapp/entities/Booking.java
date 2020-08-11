@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -28,6 +29,7 @@ public class Booking implements Serializable {
 
 	@Id
 	@Column(name="BOOKING_ID")
+	@GeneratedValue
 	private int bookingId;
 	
 	private Date bookingDate;
@@ -99,7 +101,6 @@ public class Booking implements Serializable {
 		this.noOfPassenger = noOfPassenger;
 	}
 
-	@JsonIgnore
 	public User getUser() {
 		return user;
 	}
@@ -133,7 +134,6 @@ public class Booking implements Serializable {
 		this.passengers = passengers;
 	}
 
-	@JsonIgnore
 	public Flight getFlight() {
 		return flight;
 	}
@@ -142,6 +142,7 @@ public class Booking implements Serializable {
 		this.flight = flight;
 	}
 
+	@JsonIgnore
 	public ScheduleFlight getScheduleFlight() {
 		return scheduleFlight;
 	}
