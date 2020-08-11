@@ -4,6 +4,5 @@ import org.springframework.stereotype.Repository;
 import com.flightapp.entities.Booking;
 
 @Repository
-public interface IBookingDAO extends JpaRepository<Booking, Integer>{
-
-}
+public interface IBookingDAO extends JpaRepository<Booking, Integer>
+{ }

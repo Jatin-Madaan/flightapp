@@ -2,6 +2,7 @@ package com.flightapp.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.flightapp.dao.FlightDAO;
@@ -10,94 +11,88 @@ import com.flightapp.entities.Flight;
 import com.flightapp.entities.Schedule;
 
 @Service
-public class FlightServiceImpl {
-private FlightDAO dao;
-	
+public class FlightServiceImpl implements IFlightService{
 
+	private FlightDAO dao;
 	
-
 	public FlightServiceImpl() {
-
-	}
-
-	public FlightServiceImpl(FlightDAO dao) 
-	{
-		this.dao = dao;
+		// TODO Auto-generated constructor stub
 	}
 	
-	public List<Flight> getFlights(String src, String dest)
-	{
+	public FlightServiceImpl(FlightDAO dao) {
+		this.dao=dao;
+	}
+
+	@Override
+	public List<Flight> getFlights(String src, String dest) {
 		return dao.getFlights(src, dest);
 	}
-	public String scheduleFlight(int availableSeats, Flight flight, Schedule schedule) 
-	{
+
+	@Override
+	public String scheduleFlight(int availableSeats, Flight flight, Schedule schedule) {
 		return dao.scheduleFlight(availableSeats, flight, schedule);
 	}
 
-	public String addFlight(Flight flight) 
-	{
+	@Override
+	public String addFlight(Flight flight) {
 		return dao.addFlight(flight);
-	}	
-	public String modifySchedule(Schedule schedule)
-	{
+	}
+
+	@Override
+	public String modifySchedule(Schedule schedule) {
 		return dao.modifySchedule(schedule);
 	}
-	public Booking getbookingbyid(int bookingid, int userid)
-	{
+
+	@Override
+	public Booking getbookingbyid(int bookingid, int userid) {
 		Booking bookingdetails = dao.getbookingbyid(bookingid);
-		if(bookingdetails.getUser().getUserId() == userid) 
-		{	
+		if (bookingdetails.getUser().getUserId() == userid) {
 			System.out.println(bookingdetails.getUser().getUserId());
-			
+
 			return bookingdetails;
-		}
-		else 
-		{
+		} else {
 			return null;
 		}
 	}
-	public String getBookingByIdAdmin(Integer bookingId)
-	{
+
+	@Override
+	public String getBookingByIdAdmin(Integer bookingId) {
 		return dao.getBookingByIdAdmin(bookingId);
 	}
-	
-	public String getBookingByFlightAdmin(String flightId)
-	{
+
+	@Override
+	public String getBookingByFlightAdmin(String flightId) {
 		return dao.getBookingByFlightAdmin(flightId);
 	}
-	public int setbookingstatusbyid(int bookingid, String status, int securitynumber, int amount ) 
-	{
+
+	@Override
+	public int setbookingstatusbyid(int bookingid, String status, int securitynumber, int amount) {
 		Booking bookingdetails = dao.setbookingstatusbyid(bookingid);
 		String status_before = bookingdetails.getBookingStatus();
-		if(status_before.equals("Failed")) 
-		{
+		if (status_before.equals("Failed")) {
 			return -1;
 		}
-		if(status_before.contentEquals(status)) 
-		{
+		if (status_before.contentEquals(status)) {
 			return 0;
-		}
-		else 
-		{
+		} else {
 			bookingdetails.setBookingStatus(status);
 			return 1;
-		}	
+		}
 	}
-	public List<Booking> viewBookings(Integer userId)
-	{
+
+	@Override
+	public List<Booking> viewBookings(int userId) {
 		return dao.viewBookings(userId);
 	}
-	
-	public int cancelBooking(String bookingId) 
-	{
+
+	@Override
+	public Booking cancelBooking(int bookingId) {
 		return dao.cancelBooking(bookingId);
 	}
-	
-	public int modifyBooking(String bookingId,Schedule schedule) 
-	{
+
+	@Override
+	public Booking modifyBooking(int bookingId, Schedule schedule) {
 		return dao.modifyBooking(bookingId, schedule);
 
 	}
-	
-	
 }

@@ -81,7 +81,7 @@ public class ScheduleFlight implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+
 	@JsonIgnore
 	public Set<Booking> getBookings() {
 		return bookings;

@@ -87,7 +87,6 @@ public class Passenger implements Serializable {
 		this.travelClass = travelClass;
 	}
 
-
 	public Booking getBooking() {
 		return booking;
 	}
