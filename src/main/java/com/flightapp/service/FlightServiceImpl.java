@@ -2,16 +2,24 @@ package com.flightapp.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Booking;
 import com.flightapp.entities.Flight;
 import com.flightapp.entities.Schedule;
 
+@Service
 public class FlightServiceImpl {
 private FlightDAO dao;
 	
 
 	
+<<<<<<< HEAD
+=======
+
+	
+>>>>>>> ae6a8d57c9660d4d9cb2aa8af0c0940fd400eb7a
 	public FlightServiceImpl() {
 
 	}
@@ -94,4 +102,6 @@ private FlightDAO dao;
 		return dao.modifyBooking(bookingId, schedule);
 
 	}
+	
+	
 }

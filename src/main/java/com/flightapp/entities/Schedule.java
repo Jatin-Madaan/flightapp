@@ -1,16 +1,16 @@
 package com.flightapp.entities;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name="SCHEDULE_MASTER")
@@ -22,6 +22,7 @@ public class Schedule {
 
 	@Id
 	@Column(name="SCHEDULE_ID")
+	@GeneratedValue
 	private int scheduleId;
 	
 	@ManyToOne
@@ -32,8 +33,10 @@ public class Schedule {
 	@JoinColumn(name="DEST_ID")
 	private Airport destinationAirport;
 	
+	@NotNull
 	private Timestamp departureTime;
 	
+	@NotNull
 	private Timestamp arrivalTime;
 
 	@OneToOne(mappedBy = "schedule")
