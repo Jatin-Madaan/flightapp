@@ -101,7 +101,6 @@ public class Booking implements Serializable {
 		this.noOfPassenger = noOfPassenger;
 	}
 
-	@JsonIgnore
 	public User getUser() {
 		return user;
 	}
@@ -135,7 +134,6 @@ public class Booking implements Serializable {
 		this.passengers = passengers;
 	}
 
-	@JsonIgnore
 	public Flight getFlight() {
 		return flight;
 	}
@@ -152,8 +150,4 @@ public class Booking implements Serializable {
 	public void setScheduleFlight(ScheduleFlight scheduleFlight) {
 		this.scheduleFlight = scheduleFlight;
 	}
-	
-	
-	
-	
 }
