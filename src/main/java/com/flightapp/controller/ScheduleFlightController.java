@@ -1,5 +1,7 @@
 package com.flightapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,13 +25,18 @@ public class ScheduleFlightController {
 		return scheduleFlightService.addScheduleFlight(scheduleFlight);
 	}
 
-	@RequestMapping("/scheduleFlight/id/{scheduleFlightId")
+	@RequestMapping(method = RequestMethod.GET, value="/scheduleFlight/id/{scheduleFlightId}")
 	public ScheduleFlight getScheduleFlightById(@PathVariable int scheduleFlightId) {
 		return scheduleFlightService.getScheduleFlightById(scheduleFlightId);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/scheduleFlight/remove")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/scheduleFlight/remove")
 	public void removeScheduleFlight(@RequestBody ScheduleFlight scheduleFlight) {
 		scheduleFlightService.removeScheduleFlight(scheduleFlight);
+	}
+	
+	@RequestMapping("/scheduleFlight/all")
+	public List<ScheduleFlight> getAllScheduleFlights(){
+		return scheduleFlightService.getAllScheduleFlights();
 	}
 }
