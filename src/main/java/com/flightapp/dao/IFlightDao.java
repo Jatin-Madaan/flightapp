@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.flightapp.entities.Flight;
 
 @Repository
-public interface IFlightDAO extends JpaRepository<Flight, Integer>{
+public interface IFlightDao extends JpaRepository<Flight, Integer>{
+
 
 }

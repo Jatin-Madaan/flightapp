@@ -1,6 +1,5 @@
 package com.flightapp.mokitotest;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.sql.Timestamp;
@@ -17,6 +16,12 @@ import com.flightapp.service.FlightServiceImpl;
 @RunWith(MockitoJUnitRunner.class)
 class FlightAppRescheduleTest 
 {
+//	@Mock
+//	FlightDAO dao;
+//	@InjectMocks
+//	FlightServiceImpl service;
+	FlightDAO flightDao = Mockito.mock(FlightDAO.class);
+	FlightServiceImpl flightService = new FlightServiceImpl(flightDao);
 	
 	FlightDAO dao = Mockito.mock(FlightDAO.class);
 	
@@ -35,11 +40,10 @@ class FlightAppRescheduleTest
 
 		schedule.setDepartureTime(null);
 		schedule.setArrivalTime(null);	
-		
-		when(dao.modifySchedule(schedule)).thenReturn("wrong");
-		String msg = service.modifySchedule(schedule);
-		//assertEquals(msg,"wrong");
-		assertThat(msg, is("wrong"));
+		when(flightDao.modifySchedule(schedule)).thenReturn("wrong");
+		String msg = flightService.modifySchedule(schedule);
+		assertEquals(msg,"wrong");
+//		assertThat(msg, is("wrong"));
 	}
 	
 	@Test
@@ -56,9 +60,10 @@ class FlightAppRescheduleTest
 		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00)));
 		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.now()));	
 		
-		when(dao.modifySchedule(schedule)).thenReturn("wrong");
-		String msg = service.modifySchedule(schedule);
-		assertThat(msg, is("wrong"));
+		when(flightDao.modifySchedule(schedule)).thenReturn("wrong");
+		String msg = flightService.modifySchedule(schedule);
+		assertEquals(msg,"wrong");
+//		assertThat(msg, is("wrong"));
 	}
 	
 	@Test
@@ -75,9 +80,10 @@ class FlightAppRescheduleTest
 		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.now()));
 		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 15, 00)));	
 		
-		when(dao.modifySchedule(schedule)).thenReturn("ok");
-		String msg = service.modifySchedule(schedule);
-		assertThat(msg, is("ok"));
+		when(flightDao.modifySchedule(schedule)).thenReturn("ok");
+		String msg = flightService.modifySchedule(schedule);
+		assertEquals(msg, "ok");
+//		assertThat(msg, is("ok"));
 	}
 	
 	@Test
@@ -94,9 +100,10 @@ class FlightAppRescheduleTest
 		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00)));
 		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 15, 00)));	
 		
-		when(dao.modifySchedule(schedule)).thenReturn("ok");
-		String msg = service.modifySchedule(schedule);
-		assertThat(msg, is("ok"));
+		when(flightDao.modifySchedule(schedule)).thenReturn("ok");
+		String msg = flightService.modifySchedule(schedule);
+		assertEquals(msg, "ok");
+//		assertThat(msg, is("ok"));
 	}
 	
 	@Test
@@ -113,8 +120,9 @@ class FlightAppRescheduleTest
 		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 15, 00)));
 		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00)));	
 		
-		when(dao.modifySchedule(schedule)).thenReturn("wrong");
-		String msg = service.modifySchedule(schedule);
-		assertThat(msg, is("wrong"));
+		when(flightDao.modifySchedule(schedule)).thenReturn("wrong");
+		String msg = flightService.modifySchedule(schedule);
+		assertEquals(msg,"wrong");
+//		assertThat(msg, is("wrong"));
 	}
 }
