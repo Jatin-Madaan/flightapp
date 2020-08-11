@@ -20,7 +20,7 @@ public class ViewAndModifyServiceImpl implements IViewAndModifyService {
 	private Logger logger = Logger.getLogger(getClass());
 	
 	@Override
-	public List<Booking> viewBookings(Integer userId) {
+	public List<Booking> viewBookings(int userId) {
 		List<Booking> booking=dao.findAll();
 		
 		if(booking==null) {
