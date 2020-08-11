@@ -20,7 +20,7 @@ public class ViewAndModifyServiceImpl implements IViewAndModifyService {
 	private Logger logger = Logger.getLogger(getClass());
 	
 	@Override
-	public List<Booking> viewBookings(int userId) {
+	public List<Booking> viewBookings(int userId) throws BookingNotExistsException{
 		List<Booking> booking=dao.findAll();
 		
 		if(booking==null) {
@@ -40,7 +40,7 @@ public class ViewAndModifyServiceImpl implements IViewAndModifyService {
 	}
 
 	@Override
-	public Booking cancelBooking(int bookingId) {
+	public Booking cancelBooking(int bookingId) throws BookingNotExistsException{
 		Booking booking=dao.getOne(bookingId);
 		
 		if(booking==null) {
@@ -55,7 +55,7 @@ public class ViewAndModifyServiceImpl implements IViewAndModifyService {
 	}
 
 	@Override
-	public Booking modifyBooking(int bookingId, Schedule schedule) {
+	public Booking modifyBooking(int bookingId, Schedule schedule) throws BookingNotExistsException{
 		Booking booking=dao.getOne(bookingId);
 		
 		if(booking==null) {
