@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.flightapp.entities.Booking;
 
-
+@Service
 public interface IPaymentAndInvoiceService {
 	
 	public Booking getbookingbyid(int bookingid) throws Exception;

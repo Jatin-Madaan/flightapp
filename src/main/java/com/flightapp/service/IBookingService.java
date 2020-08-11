@@ -4,5 +4,5 @@ import com.flightapp.entities.Booking;
 
 public interface IBookingService 
 {
-	public Booking addBooking(Booking booking);
+	public Booking addBooking(Booking booking) throws Exception;
 }
