@@ -1,5 +1,7 @@
 package com.flightapp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ public class ScheduleFlightService implements IScheduleFlightService {
 
 	@Override
 	public ScheduleFlight addScheduleFlight(ScheduleFlight scheduleFlight) {
+		System.out.println(scheduleFlight);
 		return scheduleFlightDAO.save(scheduleFlight);
 	}
 
@@ -25,6 +28,11 @@ public class ScheduleFlightService implements IScheduleFlightService {
 	@Override
 	public void removeScheduleFlight(ScheduleFlight scheduleFlight) {
 		scheduleFlightDAO.delete(scheduleFlight);
+	}
+
+	@Override
+	public List<ScheduleFlight> getAllScheduleFlights() {
+		return scheduleFlightDAO.findAll();
 	}
 
 }
