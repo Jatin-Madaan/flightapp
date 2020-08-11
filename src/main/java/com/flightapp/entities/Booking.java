@@ -22,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="BOOKING_MASTER")
 public class Booking implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	public Booking() {
 		// TODO Auto-generated constructor stub
@@ -101,7 +103,6 @@ public class Booking implements Serializable {
 		this.noOfPassenger = noOfPassenger;
 	}
 
-	@JsonIgnore
 	public User getUser() {
 		return user;
 	}
@@ -135,7 +136,6 @@ public class Booking implements Serializable {
 		this.passengers = passengers;
 	}
 
-	@JsonIgnore
 	public Flight getFlight() {
 		return flight;
 	}

@@ -1,4 +1,4 @@
-package com.flightapp.controller;
+package com.flightapp.exception;
 
 public class ErrorInfo { 
 	private String url; 

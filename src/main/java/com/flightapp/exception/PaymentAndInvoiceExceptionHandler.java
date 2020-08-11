@@ -1,5 +1,4 @@
-package com.flightapp.controller;
-
+package com.flightapp.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,9 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-
 @ControllerAdvice
-public class GlobalExceptionHandler {
+public class PaymentAndInvoiceExceptionHandler {
 	@ResponseBody
 	 @ResponseStatus(value=HttpStatus.BAD_REQUEST)
 	 @ExceptionHandler(value = {Exception.class})
@@ -21,5 +19,4 @@ public class GlobalExceptionHandler {
 		 String uri = req.getRequestURL().toString();
 		return new ErrorInfo(uri,bodyOfResponse); 
 	 }
-
 }

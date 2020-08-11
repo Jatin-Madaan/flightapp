@@ -43,6 +43,7 @@ public class Flight implements Serializable{
 	@JsonIgnore
 	private Set<ScheduleFlight> ScheduleFlights = new HashSet<>();
 	
+	@JsonIgnore
 	public Set<ScheduleFlight> getScheduleFlights() {
 		return ScheduleFlights;
 	}

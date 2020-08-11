@@ -1,5 +1,6 @@
 package com.flightapp.entities;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +15,9 @@ import com.sun.istack.NotNull;
 
 @Entity
 @Table(name="SCHEDULE_MASTER")
-public class Schedule {
+public class Schedule implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	public Schedule() {
 		// TODO Auto-generated constructor stub
