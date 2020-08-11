@@ -13,7 +13,6 @@ import com.flightapp.entities.Schedule;
 @Service
 public class FlightServiceImpl implements IFlightService{
 
-	@Autowired
 	private FlightDAO dao;
 	
 	public FlightServiceImpl() {
