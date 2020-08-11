@@ -1,7 +1,7 @@
 package com.flightapp.dao;
 
-
 import java.util.List;
+
 
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +9,6 @@ import com.flightapp.entities.Booking;
 import com.flightapp.entities.Flight;
 import com.flightapp.entities.Schedule;
 
-@Repository
 public interface FlightDAO {
 
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule scedule);
@@ -35,4 +34,8 @@ public interface FlightDAO {
 	public String modifySchedule(Schedule schedule);
 
 
+
+
 }
+
+

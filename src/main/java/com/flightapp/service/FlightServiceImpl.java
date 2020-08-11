@@ -11,11 +11,11 @@ import com.flightapp.entities.Schedule;
 
 @Service
 public class FlightServiceImpl {
-
-	private FlightDAO dao;
+private FlightDAO dao;
 	
 
 	
+
 	public FlightServiceImpl() {
 
 	}
