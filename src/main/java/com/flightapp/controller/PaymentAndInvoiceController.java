@@ -36,9 +36,9 @@ public class PaymentAndInvoiceController {
 	 * @author Prithve
 	 */
 	@GetMapping(path="/getbookingbyid/{bookingid}")
-	public Booking getbookingbyid(@PathVariable int bookingid) throws Exception{
+	public Booking GetBookingById(@PathVariable int bookingid) throws Exception{
 		logger.info("Getting the details from frontend for getbookingbyid function");
-		return paymentAndInvoiceService.getbookingbyid(bookingid);
+		return paymentAndInvoiceService.getBookingById(bookingid);
 		
 	}
 	
@@ -52,9 +52,9 @@ public class PaymentAndInvoiceController {
 	 * @author Prithve
 	 */
 	@GetMapping(path="/setbookingstatusbyid/{bookingid}/{userid}/{status}/{amount}")
-	public int setbookingstatusbyid(@PathVariable int bookingid,@PathVariable int userid,@PathVariable String status,@PathVariable long amount) throws Exception {
+	public int SetBookingStatusById(@PathVariable int bookingid,@PathVariable int userid,@PathVariable String status,@PathVariable long amount) throws Exception {
 		logger.info("Getting the details from frontend for setbookingstatusbyid function");
-		return paymentAndInvoiceService.setbookingstatusbyid(bookingid, userid, status, amount);
+		return paymentAndInvoiceService.setBookingStatusById(bookingid, userid, status, amount);
 	}
 
 }

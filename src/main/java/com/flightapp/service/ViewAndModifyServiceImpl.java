@@ -41,7 +41,8 @@ public class ViewAndModifyServiceImpl implements IViewAndModifyService {
 
 	@Override
 	public Booking cancelBooking(int bookingId) throws BookingNotExistsException{
-		Booking booking=dao.getOne(bookingId);
+		Booking booking=null;
+		booking=dao.getOne(bookingId);
 		
 		if(booking==null) {
 			logger.error("No booking found with given Id..!!");
@@ -56,7 +57,8 @@ public class ViewAndModifyServiceImpl implements IViewAndModifyService {
 
 	@Override
 	public Booking modifyBooking(int bookingId, Schedule schedule) throws BookingNotExistsException{
-		Booking booking=dao.getOne(bookingId);
+		Booking booking=null;
+		booking=dao.getOne(bookingId);
 		
 		if(booking==null) {
 			logger.error("No booking found with given Id..!!");

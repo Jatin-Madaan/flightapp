@@ -1,36 +1,38 @@
-package com.flightapp.mokitotest;
+package com.flightapp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.flightapp.entities.Booking;
+import com.flightapp.exception.ErrorInfo;
+import com.flightapp.exception.PaymentAndInvoiceExceptionHandler;
 import com.flightapp.service.IPaymentAndInvoiceService;
 
-
-
 @SpringBootTest
-class PaymentAndInvoiceTest {
+class PaymentAndInvoiceJunitTest {
 	
 	@Autowired
 	IPaymentAndInvoiceService paymentAndInvoiceService;
 
 	@Test
-	void getbookingbyidtest() throws Exception {
+	void GetBookingByIdTest() throws Exception {
 		Booking booking = paymentAndInvoiceService.getBookingById(103);
 		assertEquals(103, booking.getBookingId());
 	}
 	
+	@Test
+	void WhenAlreadyCancelledTest() throws Exception {
+		int i = paymentAndInvoiceService.setBookingStatusById(103,200002,"Cancelled",2000L);
+		assertEquals(-1,i);
+	}
 	
 	@Test
-	void setbookingstatusbyidtest() throws Exception {
-		int i = paymentAndInvoiceService.setBookingStatusById(104,200002,"Cancelled",1200);
-		assertEquals(-1,i);
-		
+	void WhenAlreadyBookedTest() throws Exception {
+		int i = paymentAndInvoiceService.setBookingStatusById(104,200002,"Payment Success",2000L);
+		assertEquals(0,i);
 	}
 
 }
