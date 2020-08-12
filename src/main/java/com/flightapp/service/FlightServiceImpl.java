@@ -24,11 +24,6 @@ public class FlightServiceImpl implements IFlightService{
 	}
 
 	@Override
-	public List<Flight> getFlights(String src, String dest) {
-		return dao.getFlights(src, dest);
-	}
-
-	@Override
 	public String scheduleFlight(int availableSeats, Flight flight, Schedule schedule) {
 		return dao.scheduleFlight(availableSeats, flight, schedule);
 	}
