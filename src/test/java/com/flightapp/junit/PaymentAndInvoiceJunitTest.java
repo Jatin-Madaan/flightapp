@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.flightapp.entities.Booking;
 import com.flightapp.exception.ErrorInfo;
-import com.flightapp.exception.PaymentAndInvoiceExceptionHandler;
+import com.flightapp.exception.GlobalExceptionHandler;
 import com.flightapp.service.IPaymentAndInvoiceService;
 
 @SpringBootTest

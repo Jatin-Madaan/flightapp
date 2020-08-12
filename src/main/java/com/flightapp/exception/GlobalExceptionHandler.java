@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class PaymentAndInvoiceExceptionHandler {
+public class GlobalExceptionHandler {
 	@ResponseBody
 	@ResponseStatus(value=HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(value = {Exception.class})

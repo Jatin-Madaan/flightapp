@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flightapp.entities.Schedule;
+import com.flightapp.exception.ScheduleException;
 import com.flightapp.service.IScheduleService;
 
 /**
@@ -35,10 +36,10 @@ public class ScheduleController {
 	 * Description: Adding Schedule obj to table
 	 * @param schedule
 	 * @return Schedule
-	 * @throws Exception
+	 * @throws ScheduleException
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/Schedule/add")
-	public Schedule addSchedule(@RequestBody Schedule schedule)  throws Exception{
+	public Schedule addSchedule(@RequestBody Schedule schedule)  throws ScheduleException{
 		logger.info("adding schedule");
 		return scheduleService.addSchedule(schedule);
 	}
@@ -48,10 +49,10 @@ public class ScheduleController {
 	 * Description: getting Schedule obj from table by providing id
 	 * @param schedule
 	 * @return Schedule
-	 * @throws Exception
+	 * @throws ScheduleException
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/Schedule/id/{scheduleId}")
-	public Schedule getScheduleById(@PathVariable int scheduleId)  throws Exception{
+	public Schedule getScheduleById(@PathVariable int scheduleId)  throws ScheduleException{
 		logger.info("getting Schedule by ID");
 		return scheduleService.getScheduleById(scheduleId);
 	}
@@ -61,10 +62,10 @@ public class ScheduleController {
 	 * Description: removing Schedule obj to table
 	 * @param schedule
 	 * @return 
-	 * @throws Exception
+	 * @throws ScheduleException
 	 */
 	@RequestMapping(method = RequestMethod.DELETE, value = "/Schedule/remove")
-	public void removeSchedule(@RequestBody Schedule schedule)  throws Exception {
+	public void removeSchedule(@RequestBody Schedule schedule)  throws ScheduleException {
 		logger.info("removing the Schedule");
 		scheduleService.removeSchedule(schedule);
 	}
@@ -74,10 +75,10 @@ public class ScheduleController {
 	 * Description: getting Schedule obj lists from table
 	 * @param
 	 * @return List<Schedule>
-	 * @throws Exception
+	 * @throws ScheduleException
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/Schedule/all")
-	public List<Schedule> getAllSchedules() throws Exception{
+	public List<Schedule> getAllSchedules() throws ScheduleException{
 		logger.info("getting the list of schedules");
 		return scheduleService.getAllSchedules();
 	}

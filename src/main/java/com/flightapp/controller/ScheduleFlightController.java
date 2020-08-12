@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flightapp.entities.ScheduleFlight;
+import com.flightapp.exception.ScheduleException;
+import com.flightapp.exception.ScheduleFlightException;
 import com.flightapp.service.IScheduleFlightService;
 
 /**
@@ -34,7 +36,7 @@ public class ScheduleFlightController {
 	 * @throws Exception
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/scheduleFlight/add")
-	public ScheduleFlight addScheduleFlight(@RequestBody ScheduleFlight scheduleFlight) throws Exception {
+	public ScheduleFlight addScheduleFlight(@RequestBody ScheduleFlight scheduleFlight) throws ScheduleFlightException {
 		return scheduleFlightService.addScheduleFlight(scheduleFlight);
 	}
 
@@ -46,7 +48,7 @@ public class ScheduleFlightController {
 	 * @throws Exception
 	 */
 	@RequestMapping(method = RequestMethod.GET, value="/scheduleFlight/id/{scheduleFlightId}")
-	public ScheduleFlight getScheduleFlightById(@PathVariable int scheduleFlightId) throws Exception {
+	public ScheduleFlight getScheduleFlightById(@PathVariable int scheduleFlightId) throws ScheduleFlightException {
 		return scheduleFlightService.getScheduleFlightById(scheduleFlightId);
 	}
 	
@@ -57,7 +59,7 @@ public class ScheduleFlightController {
 	 * @throws Exception
 	 */
 	@RequestMapping(method = RequestMethod.DELETE, value = "/scheduleFlight/remove")
-	public void removeScheduleFlight(@RequestBody ScheduleFlight scheduleFlight) throws Exception {
+	public void removeScheduleFlight(@RequestBody ScheduleFlight scheduleFlight) throws ScheduleFlightException {
 		scheduleFlightService.removeScheduleFlight(scheduleFlight);
 	}
 	
@@ -68,7 +70,7 @@ public class ScheduleFlightController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/scheduleFlight/all")
-	public List<ScheduleFlight> getAllScheduleFlights() throws Exception{
+	public List<ScheduleFlight> getAllScheduleFlights() throws ScheduleFlightException{
 		return scheduleFlightService.getAllScheduleFlights();
 	}
 }
