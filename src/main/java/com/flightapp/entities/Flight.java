@@ -1,6 +1,6 @@
 package com.flightapp.entities;
 
-import java.io.Serializable;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="FLIGHT_MASTER")
-public class Flight implements Serializable{
+public class Flight {
 	
-	private static final long serialVersionUID = 1L;
+	
 
 	public Flight() {
 		// TODO Auto-generated constructor stub
@@ -29,6 +29,14 @@ public class Flight implements Serializable{
 	@GeneratedValue
 	private int flightId;
 	
+	public Flight(int flightId, String carrierName, String flightModel, int seatCapacity) {
+		super();
+		this.flightId = flightId;
+		this.carrierName = carrierName;
+		this.flightModel = flightModel;
+		this.seatCapacity = seatCapacity;
+	}
+
 	private String carrierName;
 	
 	private String flightModel;
