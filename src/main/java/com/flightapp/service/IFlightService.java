@@ -12,8 +12,6 @@ public interface IFlightService {
 
 	public String addFlight(Flight flight);
 	
-	public List<Flight> getFlights(String src, String dest);	
-
 	public Booking getbookingbyid(int bookingid,int userId);
 	
 	public String getBookingByFlightAdmin(String flightId);
