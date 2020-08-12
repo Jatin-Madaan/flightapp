@@ -144,7 +144,6 @@ public class Booking implements Serializable {
 		this.flight = flight;
 	}
 
-	@JsonIgnore
 	public ScheduleFlight getScheduleFlight() {
 		return scheduleFlight;
 	}
