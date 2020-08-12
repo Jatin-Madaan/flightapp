@@ -41,7 +41,7 @@ public class Booking implements Serializable {
 	
 	private Long ticketPrice;
 	
-	private Long noOfPassenger;
+	private int noOfPassenger;
 	
 	private String status;
 	
@@ -96,11 +96,11 @@ public class Booking implements Serializable {
 		this.ticketPrice = ticketPrice;
 	}
 
-	public Long getNoOfPassenger() {
+	public int getNoOfPassenger() {
 		return noOfPassenger;
 	}
 
-	public void setNoOfPassenger(Long noOfPassenger) {
+	public void setNoOfPassenger(int noOfPassenger) {
 		this.noOfPassenger = noOfPassenger;
 	}
 
