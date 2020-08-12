@@ -22,11 +22,11 @@ public interface FlightDAO {
 	
 	public Booking setbookingstatusbyid(int bookingid);
 
-	public List<Booking> viewBookings(Integer userId);
+	public List<Booking> viewBookings(int userId);
 	
-	public int cancelBooking(int bookingId);
+	public Booking cancelBooking(int bookingId);
 	
-	public int modifyBooking(int bookingId,Schedule schedule);
+	public Booking modifyBooking(int bookingId,Schedule schedule);
 	
 	public String modifySchedule(Schedule schedule);
 	
