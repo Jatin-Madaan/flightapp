@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.flightapp.entities.ScheduleFlight;
+import com.flightapp.exception.RescheduleException;
 import com.flightapp.service.IRescheduleAndDeleteService;
 
 @ControllerAdvice
@@ -41,9 +42,9 @@ public class ReschedulingController
 	 * @author YashYo
 	 */
 	@DeleteMapping(path="/deleteSchedule/{scheduleFlightId}")
-	public String removeSchedule(@PathVariable int scheduleFlightId)
+	public void removeSchedule(@PathVariable int scheduleFlightId) throws RescheduleException
 	{
-		return rescheduleFlightService.removeFlightById(scheduleFlightId);
+		rescheduleFlightService.removeFlightById(scheduleFlightId);
 	}
 	
 	/** Method: rescheduleFlightSchedule
@@ -52,7 +53,7 @@ public class ReschedulingController
 	 * @author YashYo
 	 */
 	@PutMapping(path="/rescheduleFlightSchedule/{rescheduleId}/{arrivalTime}/{departureTime}")
-	public String rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime)
+	public ScheduleFlight rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) throws Exception
 	{
 		return rescheduleFlightService.rescheduleFlightSchedule(rescheduleId, arrivalTime, departureTime);
 	}
