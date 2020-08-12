@@ -34,10 +34,16 @@ public class GetFlightServiceImpl implements IGetFlightService {
 	@Override
 	public List<Flight> getFlights(String source, String destination, LocalDateTime searchDate) {
 				
+
+		logger.info("Fetching scheduled flights between "+source+" - "+destination);
+		
 		List<ScheduleFlight> scheduleFlightObjs = scheduleFlight.findAll();
 		
 		List<Flight> flights = new ArrayList<Flight>();
-		logger.info("Fetching scheduled flights between "+source+" - "+destination);
+		
+		if(!scheduleFlightObjs.isEmpty())
+		{
+		
 		for(int i=0;i<scheduleFlightObjs.size();i++)
 		{			
 			if(scheduleFlightObjs.get(i).getSchedule().getSourceAirport().getAddress().equals(source) && scheduleFlightObjs.get(i).getSchedule().getDestinationAirport().getAddress().equals(destination)
@@ -47,8 +53,9 @@ public class GetFlightServiceImpl implements IGetFlightService {
 					flights.add(scheduleFlightObjs.get(i).getFlight());
 			}
 		}
+		}
 		
-		if(flights.isEmpty())
+		if(scheduleFlightObjs.isEmpty() || flights.isEmpty())
 		{
 			logger.error("No scheduled flights available between "+source+" - "+destination);
 			throw new NoFlightsAvaliableException("No scheduled flights available");					
