@@ -29,7 +29,7 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 	}
 	
 	@Override
-	public String cancelBookingById(int bookingId) throws BookingException 
+	public String cancelBookingById(int bookingId)  
 	{
 		if(bookingDao.existsById(bookingId))
 		{
@@ -38,7 +38,7 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 		}
 		else
 		{
-			throw new BookingException("Error: Cancelling the data which is not present!");
+			return "Error: Cancelling the data which is not present!";
 		}
 	}
 }
