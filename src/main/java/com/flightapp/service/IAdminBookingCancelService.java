@@ -9,4 +9,5 @@ public interface IAdminBookingCancelService
 {
 	public List<Booking> viewAllBookings() throws Exception;
 	public String cancelBookingById(int bookingId) throws Exception;
+
 }
