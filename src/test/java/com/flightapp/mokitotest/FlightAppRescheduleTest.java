@@ -1,131 +1,74 @@
 package com.flightapp.mokitotest;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.when;
-
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import com.flightapp.service.IFlightAppRescheduleFlightService;
 
-import com.flightapp.dao.FlightDAO;
-import com.flightapp.entities.Airport;
-import com.flightapp.entities.Schedule;
-import com.flightapp.service.FlightServiceImpl;
-
-@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class FlightAppRescheduleTest 
 {
-	
-	@Mock
-	FlightDAO flightDao;
-	@InjectMocks
-	FlightServiceImpl flightService;
-	
-	FlightDAO dao = Mockito.mock(FlightDAO.class);
-	
-	FlightServiceImpl service = new FlightServiceImpl(dao);
+	@Autowired
+	IFlightAppRescheduleFlightService flightAppRescheduleFlightService;
 	
 	@Test
-	public void isNull() 
+	public void idNotFoundTest() 
 	{
-		Schedule schedule = new Schedule();
-		Airport dest = new Airport();
-		dest.setAddress("Delhi");
-		Airport source = new Airport();
-		source.setAddress("Mumbai");
-		schedule.setDestinationAirport(dest);
-		schedule.setSourceAirport(source);
-
-		schedule.setDepartureTime(null);
-		schedule.setArrivalTime(null);	
-		when(flightDao.modifySchedule(schedule)).thenReturn("wrong");
-		String msg = flightService.modifySchedule(schedule);
-		assertEquals(msg,"wrong");
-//		assertThat(msg, is("wrong"));
+		String msg = flightAppRescheduleFlightService.removeFlightById(01);
+		System.out.println(msg);
+		assertEquals(msg, "Schedule not deleted because ID not Found");
 	}
 	
 	@Test
-	public void isDeprtTimeInvalid() 
+	public void timeStampAreSameTest() 
 	{
-		Schedule schedule = new Schedule();
-		Airport dest = new Airport();
-		dest.setAddress("Delhi");
-		Airport source = new Airport();
-		source.setAddress("Mumbai");
-		schedule.setDestinationAirport(dest);
-		schedule.setSourceAirport(source);
-
-		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00)));
-		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.now()));	
-		
-		when(flightDao.modifySchedule(schedule)).thenReturn("wrong");
-		String msg = flightService.modifySchedule(schedule);
-		assertEquals(msg,"wrong");
-//		assertThat(msg, is("wrong"));
+		Timestamp arrivalTime = Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00));
+		Timestamp departureTime = Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00));
+		String msg = flightAppRescheduleFlightService.rescheduleFlightSchedule(15, arrivalTime , departureTime );
+		System.out.println(msg);
+		assertEquals(msg,"Arrivaltime and Departuretime can not be euqal");
 	}
 	
 	@Test
-	public void isDeprtTimeValid() 
+	public void arrivalTimeTest1() 
 	{
-		Schedule schedule = new Schedule();
-		Airport dest = new Airport();
-		dest.setAddress("Delhi");
-		Airport source = new Airport();
-		source.setAddress("Mumbai");
-		schedule.setDestinationAirport(dest);
-		schedule.setSourceAirport(source);
-
-		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.now()));
-		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 15, 00)));	
-		
-		when(flightDao.modifySchedule(schedule)).thenReturn("ok");
-		String msg = flightService.modifySchedule(schedule);
-		assertEquals(msg, "ok");
-//		assertThat(msg, is("ok"));
+		Timestamp arrivalTime = Timestamp.valueOf(LocalDateTime.of(2021, 1, 1, 15, 00));
+		Timestamp departureTime = Timestamp.valueOf(LocalDateTime.now());
+		String msg = flightAppRescheduleFlightService.rescheduleFlightSchedule(15, arrivalTime , departureTime );
+		System.out.println(msg);
+		assertEquals(msg, "Arrivaltime can not be less then Departuretime");
 	}
 	
 	@Test
-	public void isNotNullValid() 
+	public void arrivalTimeTest2() 
 	{
-		Schedule schedule = new Schedule();
-		Airport dest = new Airport();
-		dest.setAddress("Delhi");
-		Airport source = new Airport();
-		source.setAddress("Mumbai");
-		schedule.setDestinationAirport(dest);
-		schedule.setSourceAirport(source);
-
-		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00)));
-		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 15, 00)));	
-		
-		when(flightDao.modifySchedule(schedule)).thenReturn("ok");
-		String msg = flightService.modifySchedule(schedule);
-		assertEquals(msg, "ok");
-//		assertThat(msg, is("ok"));
+		Timestamp arrivalTime = Timestamp.valueOf(LocalDateTime.of(2021, 1, 1, 15, 00));
+		Timestamp departureTime = Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00));
+		String msg = flightAppRescheduleFlightService.rescheduleFlightSchedule(15, arrivalTime , departureTime );
+		System.out.println(msg);
+		assertEquals(msg, "Arrivaltime can not be less then Departuretime");
 	}
 	
 	@Test
-	public void isNotNullButInvalid() 
+	public void invalidIdTest() 
 	{
-		Schedule schedule = new Schedule();
-		Airport dest = new Airport();
-		dest.setAddress("Delhi");
-		Airport source = new Airport();
-		source.setAddress("Mumbai");
-		schedule.setDestinationAirport(dest);
-		schedule.setSourceAirport(source);
-
-		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 15, 00)));
-		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00)));	
-		
-		when(flightDao.modifySchedule(schedule)).thenReturn("wrong");
-		String msg = flightService.modifySchedule(schedule);
-		assertEquals(msg,"wrong");
-//		assertThat(msg, is("wrong"));
+		Timestamp arrivalTime = Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 14, 00));
+		Timestamp departureTime = Timestamp.valueOf(LocalDateTime.of(2020, 10, 1, 15, 00));
+		String msg = flightAppRescheduleFlightService.rescheduleFlightSchedule(15, arrivalTime , departureTime );
+		System.out.println(msg);
+		assertEquals(msg, "Rescheduling Failed because Id not found");
+	}
+	
+	@Test
+	public void validTimestampIdTest() 
+	{
+		Timestamp arrivalTime = Timestamp.valueOf(LocalDateTime.of(2021, 1, 1, 15, 00));
+		Timestamp departureTime = Timestamp.valueOf(LocalDateTime.now());
+		String msg = flightAppRescheduleFlightService.rescheduleFlightSchedule(11111, arrivalTime , departureTime );
+		System.out.println(msg);
+		assertEquals(msg, "Arrivaltime can not be less then Departuretime");
 	}
 }
