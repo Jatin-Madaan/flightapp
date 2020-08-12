@@ -2,25 +2,30 @@ package com.flightapp.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.flightapp.dao.IFlightDao;
 import com.flightapp.entities.Flight;
 import com.flightapp.entities.Schedule;
+import com.flightapp.exception.NoFlightIdException;
 
-public class AddFlightService implements IAddFlightService{
+@Service
+public class AddFlightService implements IAddFlightService {
 
-	private IFlightDao flightDao;
-	
-	public AddFlightService(IFlightDao flightDao) {
-		// TODO Auto-generated constructor stub
-		this.flightDao = flightDao;
+	@Autowired
+	IFlightDao flightDao;
+
+
+	public AddFlightService() {
+
 	}
 
 	@Override
 	public Flight save(Flight flight) {
 		// TODO Auto-generated method stub
 		return flightDao.save(flight);
-		
+
 	}
 
 	@Override
@@ -30,16 +35,27 @@ public class AddFlightService implements IAddFlightService{
 	}
 
 	@Override
-	public Flight fetchByFlightId(int flightId) {
+	public Flight fetchByFlightId(int flightId) throws NoFlightIdException {
 		// TODO Auto-generated method stub
-		return flightDao.findById(flightId).get();
+
+		if (flightDao.existsById(flightId)) {
+			Flight flight = flightDao.findById(flightId).get();
+			return flight;
+		} else
+			throw new NoFlightIdException("Flight Id not found");
 	}
 
 	@Override
-	public void deleteById(int flightId) {
+	public String deleteById(int flightId) {
 		// TODO Auto-generated method stub
-		 flightDao.deleteById(flightId);
+		Flight flight = flightDao.findById(flightId).get();
+		if (flight != null) {
+			flightDao.deleteById(flightId);
+			return "DELETED";
+
+		}
+		return null;
+
 	}
-	
-	
+
 }
