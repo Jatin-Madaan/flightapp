@@ -51,6 +51,7 @@ public class Flight {
 	@JsonIgnore
 	private Set<ScheduleFlight> ScheduleFlights = new HashSet<>();
 	
+	@JsonIgnore
 	public Set<ScheduleFlight> getScheduleFlights() {
 		return ScheduleFlights;
 	}

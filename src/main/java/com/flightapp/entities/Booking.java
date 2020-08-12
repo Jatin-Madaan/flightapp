@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -22,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="BOOKING_MASTER")
 public class Booking implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	public Booking() {
 		// TODO Auto-generated constructor stub
@@ -101,7 +104,6 @@ public class Booking implements Serializable {
 		this.noOfPassenger = noOfPassenger;
 	}
 
-	@JsonIgnore
 	public User getUser() {
 		return user;
 	}
@@ -135,7 +137,6 @@ public class Booking implements Serializable {
 		this.passengers = passengers;
 	}
 
-	@JsonIgnore
 	public Flight getFlight() {
 		return flight;
 	}
@@ -151,8 +152,4 @@ public class Booking implements Serializable {
 	public void setScheduleFlight(ScheduleFlight scheduleFlight) {
 		this.scheduleFlight = scheduleFlight;
 	}
-	
-	
-	
-	
 }

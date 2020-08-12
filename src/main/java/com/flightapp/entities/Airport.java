@@ -48,8 +48,11 @@ public class Airport implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
-	
+
+	public Airport(String airportName, String address) {
+		this.airportName = airportName;
+		this.address = address;
+	}
+		
 	
 }

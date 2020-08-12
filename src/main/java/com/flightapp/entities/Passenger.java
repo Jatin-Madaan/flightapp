@@ -87,7 +87,6 @@ public class Passenger implements Serializable {
 		this.travelClass = travelClass;
 	}
 
-	@JsonIgnore
 	public Booking getBooking() {
 		return booking;
 	}
