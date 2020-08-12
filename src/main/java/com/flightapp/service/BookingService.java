@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.flightapp.dao.IBookingDAO;
 import com.flightapp.entities.Booking;
+import com.flightapp.exception.BookingException;
 
 @Service
 public class BookingService implements IAdminBookingCancelService, IBookingService
@@ -28,7 +29,7 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 	}
 	
 	@Override
-	public String cancelBookingById(int bookingId) throws Exception 
+	public String cancelBookingById(int bookingId) throws BookingException 
 	{
 		if(bookingDao.existsById(bookingId))
 		{
@@ -37,7 +38,22 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 		}
 		else
 		{
-			throw new Exception("Error: Cancelling the data which is not present!");
+			throw new BookingException("Error: Cancelling the data which is not present!");
 		}
+	}
+	
+	@Override
+	public String cancelBookingByFlight(int flightId) throws BookingException
+	{
+		if(bookingDao.findByFlight(flightId) != null)
+		{
+			bookingDao.deleteById(flightId);
+			return "Cancelled Successfully";
+		}
+		else
+		{
+			throw new BookingException("Error: Cancelling the data which is not present!");
+		}
+		
 	}
 }
