@@ -55,7 +55,7 @@ public class ScheduleFlight implements Serializable{
 	public void setAvailableSeats(int availableSeats) {
 		this.availableSeats = availableSeats;
 	}
-
+    @JsonIgnore
 	public Flight getFlight() {
 		return flight;
 	}
