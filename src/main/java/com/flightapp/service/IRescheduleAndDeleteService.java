@@ -14,7 +14,7 @@ import com.flightapp.entities.ScheduleFlight;
  */
 
 
-public interface IFlightAppRescheduleFlightService
+public interface IRescheduleAndDeleteService
 {
 	public List<ScheduleFlight> viewAllFlightSchedules();
 	public String removeFlightById(int scheduleFlightId);

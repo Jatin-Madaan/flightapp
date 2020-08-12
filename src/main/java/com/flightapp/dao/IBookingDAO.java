@@ -9,7 +9,5 @@ import com.flightapp.entities.Booking;
 
 @Repository
 public interface IBookingDAO extends JpaRepository<Booking, Integer>
-{ 
-	@Query(value = "SELECT * FROM Booking WHERE FLIGHT_ID = :FLIGHT_ID")
-	List<Booking> findByFlight(@Param("FLIGHT_ID") int flightId);
+{
 }

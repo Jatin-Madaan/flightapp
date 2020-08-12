@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.flightapp.entities.ScheduleFlight;
-import com.flightapp.service.IFlightAppRescheduleFlightService;
+import com.flightapp.service.IRescheduleAndDeleteService;
 
 @ControllerAdvice
 @RestController
@@ -20,7 +20,7 @@ import com.flightapp.service.IFlightAppRescheduleFlightService;
 public class ReschedulingController 
 {
 	@Autowired
-	IFlightAppRescheduleFlightService rescheduleFlightService;
+	IRescheduleAndDeleteService rescheduleFlightService;
 	
 	@GetMapping(path="/scheduleFlight/viewAll")
 	public List<ScheduleFlight> getbookingbyid() 
