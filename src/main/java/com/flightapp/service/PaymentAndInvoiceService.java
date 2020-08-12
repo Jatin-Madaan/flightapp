@@ -32,7 +32,8 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	 * @author Prithve
 	 */
 	@Override
-	public Booking GetBookingById(int bookingid) throws Exception {
+	public Booking getBookingById(int bookingid) throws Exception {
+
 		
 		if(bookingdao.existsById(bookingid)) {
 			LOGGER.info("Retrieve the data from booking table based on bookingid for getbookingbyid function");
@@ -60,8 +61,8 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	 * @author Prithve
 	 */
 	@Override
-	public int SetBookingStatusById(int bookingid,int userid, String status,long amount) throws Exception {
-		if(bookingdao.existsById(bookingid)) {
+	public int setBookingStatusById(int bookingid,int userid, String status,long amount) throws Exception {
+			if(bookingdao.existsById(bookingid)) {
 
 			Booking bookingdetails = bookingdao.getOne(bookingid);
 			LOGGER.info("Retrieve the data from booking table based on bookingid for setbookingstatusbyid function");

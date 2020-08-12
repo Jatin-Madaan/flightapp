@@ -22,7 +22,7 @@ public class ReschedulingController
 	@Autowired
 	IFlightAppRescheduleFlightService rescheduleFlightService;
 	
-	@GetMapping(path="/viewAll")
+	@GetMapping(path="/scheduleFlight/viewAll")
 	public List<ScheduleFlight> getbookingbyid() 
 	{
 		return rescheduleFlightService.viewAllFlightSchedules();

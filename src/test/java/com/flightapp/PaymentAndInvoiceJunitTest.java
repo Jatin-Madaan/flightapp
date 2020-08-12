@@ -19,19 +19,19 @@ class PaymentAndInvoiceJunitTest {
 
 	@Test
 	void GetBookingByIdTest() throws Exception {
-		Booking booking = paymentAndInvoiceService.GetBookingById(103);
+		Booking booking = paymentAndInvoiceService.getBookingById(103);
 		assertEquals(103, booking.getBookingId());
 	}
 	
 	@Test
 	void WhenAlreadyCancelledTest() throws Exception {
-		int i = paymentAndInvoiceService.SetBookingStatusById(103,200002,"Cancelled",2000L);
+		int i = paymentAndInvoiceService.setBookingStatusById(103,200002,"Cancelled",2000L);
 		assertEquals(-1,i);
 	}
 	
 	@Test
 	void WhenAlreadyBookedTest() throws Exception {
-		int i = paymentAndInvoiceService.SetBookingStatusById(104,200002,"Payment Success",2000L);
+		int i = paymentAndInvoiceService.setBookingStatusById(104,200002,"Payment Success",2000L);
 		assertEquals(0,i);
 	}
 
