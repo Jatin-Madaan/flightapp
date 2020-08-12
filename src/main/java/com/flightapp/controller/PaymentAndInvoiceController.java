@@ -39,6 +39,7 @@ public class PaymentAndInvoiceController {
 	public Booking GetBookingById(@PathVariable int bookingid) throws Exception{
 		logger.info("Getting the details from frontend for getbookingbyid function");
 		return paymentAndInvoiceService.getBookingById(bookingid);
+
 		
 	}
 	

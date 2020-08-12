@@ -11,4 +11,5 @@ public interface IPaymentAndInvoiceService {
 	
 	public int setBookingStatusById(int bookingid,int userid, String status,long amount) throws Exception;
 
+
 }
