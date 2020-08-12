@@ -19,21 +19,38 @@ import com.flightapp.service.IRescheduleAndDeleteService;
 @CrossOrigin(origins = "*")
 public class ReschedulingController 
 {
+	
 	@Autowired
 	IRescheduleAndDeleteService rescheduleFlightService;
 	
+	
+	/** Method: getbookingbyid
+	 * Description: get mapping for getting the list of all SchedulesFlight
+	 * @return List<ScheduleFlight>: It returns the list of all SchedulesFlight
+	 * @author YashYo
+	 */
 	@GetMapping(path="/scheduleFlight/viewAll")
 	public List<ScheduleFlight> getbookingbyid() 
 	{
 		return rescheduleFlightService.viewAllFlightSchedules();
 	}
 	
+	/** Method: removeSchedule
+	 * Description: delete mapping for deleting the SchedulesFlight for a given id.
+	 * @return string: feedback message.
+	 * @author YashYo
+	 */
 	@DeleteMapping(path="/deleteSchedule/{scheduleFlightId}")
 	public String removeSchedule(@PathVariable int scheduleFlightId)
 	{
 		return rescheduleFlightService.removeFlightById(scheduleFlightId);
 	}
 	
+	/** Method: rescheduleFlightSchedule
+	 * Description: put mapping for rescheduling the SchedulesFlight for a given id.
+	 * @return string: feedback message.
+	 * @author YashYo
+	 */
 	@PutMapping(path="/rescheduleFlightSchedule/{rescheduleId}/{arrivalTime}/{departureTime}")
 	public String rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime)
 	{

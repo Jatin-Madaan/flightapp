@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class PaymentAndInvoiceExceptionHandler {
 	@ResponseBody
-	 @ResponseStatus(value=HttpStatus.BAD_REQUEST)
-	 @ExceptionHandler(value = {Exception.class})
+	@ResponseStatus(value=HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(value = {Exception.class})
 	protected ErrorInfo handleconflict(Exception e,HttpServletRequest req) {
 		 String bodyOfResponse = e.getMessage();
 		 String uri = req.getRequestURL().toString();

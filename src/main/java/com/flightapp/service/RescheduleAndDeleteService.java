@@ -17,11 +17,25 @@ public class RescheduleAndDeleteService implements IRescheduleAndDeleteService
 	
 	Logger logger = LoggerFactory.getLogger(RescheduleAndDeleteService.class);
 	
+	/**
+	 * Method: viewAllFlightSchedules
+	 * Description: Used to fetch that List of all the ScheduleFlight.
+	 * @return List: It returns the list of ScheduledFlight
+	 * @author YashYo
+	 */
 	@Override
 	public java.util.List<ScheduleFlight> viewAllFlightSchedules() 
 	{
 		return scheduleFlight.findAll();
 	}
+	
+	/**
+	 * Method: removeFlightById
+	 * Description: Used to delete the ScheduleFlight via givin Id.
+	 * @param int: scheduleFlightId
+	 * @return List: It returns feedback message.
+	 * @author YashYo
+	 */
 	@Override
 	public String removeFlightById(int scheduleFlightId) 
 	{
@@ -38,6 +52,16 @@ public class RescheduleAndDeleteService implements IRescheduleAndDeleteService
 			return "Schedule not deleted because ID not Found";
 		}
 	}
+	
+	/**
+	 * Method: rescheduleFlightSchedule
+	 * Description: Used to delete the ScheduleFlight via givin Id.
+	 * @param int: rescheduleId
+	 * @param Timestamp: arrivalTime
+	 * @param Timestamp: departureTime
+	 * @return List: It returns feedback message.
+	 * @author YashYo
+	 */
 	@Override
 	public String rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) 
 	{
