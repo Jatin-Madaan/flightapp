@@ -1,29 +1,29 @@
 package com.flightapp.mokitotest;
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.flightapp.dao.FlightDAO;
 import com.flightapp.entities.Airport;
 import com.flightapp.entities.Schedule;
 import com.flightapp.service.FlightServiceImpl;
+
 @RunWith(MockitoJUnitRunner.class)
-class FlightAppRescheduleTest 
+public class FlightAppRescheduleTest 
 {
-//	@Mock
-//	FlightDAO dao;
-//	@InjectMocks
-//	FlightServiceImpl service;
-	FlightDAO flightDao = Mockito.mock(FlightDAO.class);
-	FlightServiceImpl flightService = new FlightServiceImpl(flightDao);
+	
+	@Mock
+	FlightDAO flightDao;
+	@InjectMocks
+	FlightServiceImpl flightService;
 	
 	@Test
 	public void isNull() 
