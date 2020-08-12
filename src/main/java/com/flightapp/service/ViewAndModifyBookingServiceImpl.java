@@ -9,30 +9,30 @@ import org.springframework.stereotype.Service;
 import com.flightapp.dao.IBookingDAO;
 import com.flightapp.entities.Booking;
 import com.flightapp.entities.Schedule;
-import com.flightapp.exception.BookingNotExistsException;
+import com.flightapp.exception.BookingException;
 
 @Service
-public class ViewAndModifyServiceImpl implements IViewAndModifyService {
+public class ViewAndModifyBookingServiceImpl implements IViewAndModifyBookingService {
 	
 	@Autowired
-	private IBookingDAO dao;
+	private IBookingDAO bookingDao;
 	
 	private Logger logger = Logger.getLogger(getClass());
 	
 	@Override
-	public List<Booking> viewBookings(int userId) throws BookingNotExistsException{
-		List<Booking> booking=dao.findAll();
+	public List<Booking> viewBookings(int userId) throws BookingException{
+		List<Booking> booking=bookingDao.findAll();
 		
 		if(booking==null) {
 			logger.error("Error while fetching bookings..!!");
-			throw new BookingNotExistsException("Error while fetching bookings..!!");
+			throw new BookingException("Error while fetching bookings..!!");
 		}
 		
 		booking=booking.stream().filter(e->e.getUser().getUserId()==userId).collect(Collectors.toList());
 		
 		if(booking.size()==0) {
 			logger.error("No bookings found for the given User..!!");
-			throw new BookingNotExistsException("No bookings found..!!");
+			throw new BookingException("No bookings found..!!");
 		}
 		
 		logger.info("Returned list of bookings...!!");
@@ -40,33 +40,33 @@ public class ViewAndModifyServiceImpl implements IViewAndModifyService {
 	}
 
 	@Override
-	public Booking cancelBooking(int bookingId) throws BookingNotExistsException{
+	public Booking cancelBooking(int bookingId) throws BookingException{
 		Booking booking=null;
-		booking=dao.getOne(bookingId);
+		booking=bookingDao.getOne(bookingId);
 		
 		if(booking==null) {
 			logger.error("No booking found with given Id..!!");
-			throw new BookingNotExistsException("Error while fetching the booking..!!");
+			throw new BookingException("Error while fetching the booking..!!");
 		}
 		
 		booking.setBookingStatus("Cancelled");
 		booking.getScheduleFlight().setAvailableSeats(booking.getScheduleFlight().getAvailableSeats()+1);
 		logger.info("Successfully cancelled the booking..!!");
-		return dao.save(booking);
+		return bookingDao.save(booking);
 	}
 
 	@Override
-	public Booking modifyBooking(int bookingId, Schedule schedule) throws BookingNotExistsException{
+	public Booking modifyBooking(int bookingId, Schedule schedule) throws BookingException{
 		Booking booking=null;
-		booking=dao.getOne(bookingId);
+		booking=bookingDao.getOne(bookingId);
 		
 		if(booking==null) {
 			logger.error("No booking found with given Id..!!");
-			throw new BookingNotExistsException("Error while fetching the booking..!!");
+			throw new BookingException("Error while fetching the booking..!!");
 		}
 		
 		booking.getScheduleFlight().setSchedule(schedule);
 		logger.info("Successfully modified the booking..!!");
-		return dao.save(booking);
+		return bookingDao.save(booking);
 	}
 }
