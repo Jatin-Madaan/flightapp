@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.flightapp.entities.Airport;
 
+/**
+ * @author Jatin
+ *
+ */
 @Repository
 public interface IAirportDAO extends JpaRepository<Airport, Integer> {
 
