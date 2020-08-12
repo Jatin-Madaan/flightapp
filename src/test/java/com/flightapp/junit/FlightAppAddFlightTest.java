@@ -1,4 +1,4 @@
-package com.flightapp.mokitotest;
+package com.flightapp.junit;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;

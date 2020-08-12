@@ -1,4 +1,4 @@
-package com.flightapp;
+package com.flightapp.junit;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
