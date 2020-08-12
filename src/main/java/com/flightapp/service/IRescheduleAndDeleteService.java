@@ -9,8 +9,11 @@ import java.util.List;
 import com.flightapp.entities.ScheduleFlight;
 
 /**
+ * Description: Declaring functions: 
+ * for getting list of all ScheduleFLight, 
+ * deleting a particular ScheduleFLight via known ID, 
+ * and rescheduling any current schedule via Id.
  * @author YashYo
- *
  */
 
 
