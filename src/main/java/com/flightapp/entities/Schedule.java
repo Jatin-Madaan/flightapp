@@ -84,6 +84,15 @@ public class Schedule implements Serializable {
 	public void setArrivalTime(Timestamp arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
+
+	public Schedule(Airport sourceAirport, Airport destinationAirport, Timestamp departureTime, Timestamp arrivalTime) {
+		super();
+		this.sourceAirport = sourceAirport;
+		this.destinationAirport = destinationAirport;
+		this.departureTime = departureTime;
+		this.arrivalTime = arrivalTime;
+		this.scheduleFlight = scheduleFlight;
+	}
 	
 	
 }
