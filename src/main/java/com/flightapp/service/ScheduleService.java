@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 import com.flightapp.dao.IScheduleDAO;
 import com.flightapp.entities.Schedule;
 
+/**
+ * @author Jatin
+ *
+ */
 @Service
 public class ScheduleService implements IScheduleService {
 
@@ -18,6 +22,13 @@ public class ScheduleService implements IScheduleService {
 	
 	Logger LOGGER = LoggerFactory.getLogger(ScheduleService.class);
 	
+	/**
+	 * Method: addSchedule
+	 * Description: adding schedule to table
+	 * @param schedule
+	 * @return Schedule
+	 * @throws Exception
+	 */
 	@Override
 	public Schedule addSchedule(Schedule schedule) throws Exception {
 		if(schedule.getDepartureTime().after(schedule.getArrivalTime())) {
@@ -33,6 +44,13 @@ public class ScheduleService implements IScheduleService {
 		return scheduleDAO.save(schedule);
 	}
 
+	/**
+	 * Method: getScheduleById
+	 * Description: getting schedule from table by providing id
+	 * @param scheduleId
+	 * @return Schedule
+	 * @throws Exception
+	 */
 	@Override
 	public Schedule getScheduleById(int scheduleId) throws Exception {
 		// TODO Auto-generated method stub
@@ -46,6 +64,13 @@ public class ScheduleService implements IScheduleService {
 		}
 	}
 
+	/**
+	 * Method: removeSchedule
+	 * Description: removing schedule from table 
+	 * @param scheduleId
+	 * @return
+	 * @throws Exception
+	 */
 	@Override
 	public void removeSchedule(Schedule schedule) throws Exception {
 		if(scheduleDAO.existsById(schedule.getScheduleId())) {
@@ -58,6 +83,13 @@ public class ScheduleService implements IScheduleService {
 		}
 	}
 
+	/**
+	 * Method: getAllSchedules
+	 * Description: getting lists of schedules from table
+	 * @param 
+	 * @return List<Schedule>
+	 * @throws Exception
+	 */
 	@Override
 	public List<Schedule> getAllSchedules() throws Exception {
 		LOGGER.info("getting list of schedules");
