@@ -41,19 +41,4 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 			throw new BookingException("Error: Cancelling the data which is not present!");
 		}
 	}
-	
-	@Override
-	public String cancelBookingByFlight(int flightId) throws BookingException
-	{
-		if(bookingDao.findByFlight(flightId) != null)
-		{
-			bookingDao.deleteById(flightId);
-			return "Cancelled Successfully";
-		}
-		else
-		{
-			throw new BookingException("Error: Cancelling the data which is not present!");
-		}
-		
-	}
 }

@@ -8,6 +8,5 @@ import com.flightapp.exception.BookingException;
 public interface IAdminBookingCancelService 
 {
 	public List<Booking> viewAllBookings() throws Exception;
-	public String cancelBookingById(int bookingId) throws Exception;
-	String cancelBookingByFlight(int flightId) throws BookingException;
+	public String cancelBookingById(int bookingId) throws Exception;	
 }
