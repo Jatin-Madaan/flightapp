@@ -21,6 +21,7 @@ class FlightAppRescheduleTest
 //	@InjectMocks
 //	FlightServiceImpl service;
 	FlightDAO flightDao = Mockito.mock(FlightDAO.class);
+	
 	FlightServiceImpl flightService = new FlightServiceImpl(flightDao);
 	
 	FlightDAO dao = Mockito.mock(FlightDAO.class);
