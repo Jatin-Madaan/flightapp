@@ -1,5 +1,7 @@
 package com.flightapp.service;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import com.flightapp.entities.User;
 
 
 @Service
+@Transactional
 public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	
 	@Autowired
@@ -82,13 +85,13 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 					throw new Exception("The Payment is already done");
 				}
 				else {
-					if(balance > amount) {
-						if(status.equals("Payment Cancelled") || status.equals("Cancelled")) {
-							LOGGER.info("The satus of booking is updated as: "+status);
-							bookingdetails.setBookingStatus(status);
-							bookingdao.save(bookingdetails);
-							return 1;
-						}
+					if(status.equals("Payment Cancelled") || status.equals("Cancelled")) {
+						LOGGER.info("The satus of booking is updated as: "+status);
+						bookingdetails.setBookingStatus(status);
+						bookingdao.save(bookingdetails);
+						return 1;
+					}
+					if(balance >= amount) {
 						LOGGER.info("The satus of booking is updated as: "+status);
 						bookingdetails.setBookingStatus(status);
 						balance = balance - amount;
@@ -96,11 +99,12 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 						bookingdao.save(bookingdetails);
 						userdao.save(userdetails);
 						return 1;
-					}
+						}
 					LOGGER.error("The balance is low");
 					throw new Exception("The balance is low,Please contact the customercare service");
+					}
+					
 				}
-			}
 			LOGGER.error("The Userid is not matching with the booking details");
 			throw new Exception("The Userid is not matching with the booking details");	
 		}
