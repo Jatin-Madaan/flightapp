@@ -17,18 +17,35 @@ class PaymentAndInvoiceJunitTest {
 	@Autowired
 	IPaymentAndInvoiceService paymentAndInvoiceService;
 
+	/*
+	 * GetBookingById function
+	 */
 	@Test
 	void GetBookingByIdTest() throws Exception {
 		Booking booking = paymentAndInvoiceService.GetBookingById(103);
 		assertEquals(103, booking.getBookingId());
 	}
 	
+	/*
+	 * GetBookingById function
+	 */
+	@Test
+	void IfBookingNotFound() throws Exception {
+		assertThrows(Exception.class, ()->{ paymentAndInvoiceService.GetBookingById(106); });
+	}
+	
+	/*
+	 * SetBookingStatusById function
+	 */
 	@Test
 	void WhenAlreadyCancelledTest() throws Exception {
 		int i = paymentAndInvoiceService.SetBookingStatusById(103,200002,"Cancelled",2000L);
 		assertEquals(-1,i);
 	}
 	
+	/*
+	 * SetBookingStatusById function
+	 */
 	@Test
 	void WhenAlreadyBookedTest() throws Exception {
 		int i = paymentAndInvoiceService.SetBookingStatusById(104,200002,"Payment Success",2000L);
