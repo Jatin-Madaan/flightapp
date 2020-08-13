@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class FlightExceptionHandler {
 	
-	@ExceptionHandler(BookingNotExistsException.class)
-	public ResponseEntity<Object> throwException(BookingNotExistsException exception){
+	@ExceptionHandler(BookingException.class)
+	public ResponseEntity<Object> throwException(BookingException exception){
 		return new ResponseEntity<Object>(exception.getLocalizedMessage(),HttpStatus.BAD_REQUEST);
 	}
 }

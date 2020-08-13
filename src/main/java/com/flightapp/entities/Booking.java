@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -40,7 +41,7 @@ public class Booking implements Serializable {
 	
 	private Long ticketPrice;
 	
-	private Long noOfPassenger;
+	private int noOfPassenger;
 	
 	private String status;
 	
@@ -95,11 +96,11 @@ public class Booking implements Serializable {
 		this.ticketPrice = ticketPrice;
 	}
 
-	public Long getNoOfPassenger() {
+	public int getNoOfPassenger() {
 		return noOfPassenger;
 	}
 
-	public void setNoOfPassenger(Long noOfPassenger) {
+	public void setNoOfPassenger(int noOfPassenger) {
 		this.noOfPassenger = noOfPassenger;
 	}
 
