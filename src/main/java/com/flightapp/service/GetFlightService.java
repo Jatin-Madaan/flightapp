@@ -15,12 +15,12 @@ import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.exception.NoFlightsAvaliableException;
 
 @Service
-public class GetFlightServiceImpl implements IGetFlightService {
+public class GetFlightService implements IGetFlightService {
 	
 	@Autowired
 	IScheduleFlightDAO scheduleFlight;
 	
-	Logger logger = LoggerFactory.getLogger(GetFlightServiceImpl.class);
+	Logger logger = LoggerFactory.getLogger(GetFlightService.class);
 
 	/**
 	 * Method: getFlights
@@ -32,7 +32,7 @@ public class GetFlightServiceImpl implements IGetFlightService {
 	 * @author Adithya 
 	 */
 	@Override
-	public List<Flight> getFlights(String source, String destination, LocalDateTime searchDate) {
+	public List<Flight> getFlights(String source, String destination, LocalDateTime searchDate) throws NoFlightsAvaliableException {
 				
 
 		logger.info("Fetching scheduled flights between "+source+" - "+destination);
