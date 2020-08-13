@@ -31,25 +31,39 @@ class PaymentAndInvoiceJunitTest {
 	 */
 	@Test
 	void IfBookingNotFound() throws Exception {
-		assertThrows(Exception.class, ()->{ paymentAndInvoiceService.GetBookingById(106); });
+		assertThrows(Exception.class, ()->{ paymentAndInvoiceService.getBookingById(109); });
 	}
 	
 	/*
 	 * SetBookingStatusById function
 	 */
 	@Test
-	void WhenAlreadyCancelledTest() throws Exception {
-		int i = paymentAndInvoiceService.setBookingStatusById(103,200002,"Cancelled",2000L);
-		assertEquals(-1,i);
+	void WhenAlreadyPaidForBookingTest() throws Exception {
+		assertThrows(Exception.class, ()->{ paymentAndInvoiceService.setBookingStatusById(101,10001,"Payment Success",2000L);});
 	}
 	
 	/*
 	 * SetBookingStatusById function
 	 */
 	@Test
-	void WhenAlreadyBookedTest() throws Exception {
-		int i = paymentAndInvoiceService.setBookingStatusById(104,200002,"Payment Success",2000L);
-		assertEquals(0,i);
+	void WhenAlreadyCancelledTheBooking() throws Exception {
+		assertThrows(Exception.class, ()->{ paymentAndInvoiceService.setBookingStatusById(103,200002,"Payment Success",2000L);});
+	}
+	
+	/*
+	 * SetBookingStatusById function
+	 */
+	@Test
+	void WhenUseridDonotMatchWithBooking() throws Exception {
+		assertThrows(Exception.class, ()->{ paymentAndInvoiceService.setBookingStatusById(103,10001,"Payment Success",2000L);});
+	}
+	
+	/*
+	 * SetBookingStatusById function
+	 */
+	@Test
+	void WhenUserBalanceIsLow() throws Exception {
+		assertThrows(Exception.class, ()->{ paymentAndInvoiceService.setBookingStatusById(106,200002,"Payment Success",2000L);});
 	}
 
 }
