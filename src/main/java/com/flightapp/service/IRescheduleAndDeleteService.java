@@ -22,5 +22,5 @@ public interface IRescheduleAndDeleteService
 {
 	public List<ScheduleFlight> viewAllFlightSchedules();
 	public void removeFlightById(int scheduleFlightId) throws RescheduleException;
-	public ScheduleFlight rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) throws Exception;
+	public ScheduleFlight rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) throws RescheduleException;
 }

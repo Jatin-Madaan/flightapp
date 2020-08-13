@@ -57,8 +57,8 @@ public class ViewAndModifyBookingServiceImpl implements IViewAndModifyBookingSer
 
 	@Override
 	public Booking modifyBooking(int bookingId, Schedule schedule) throws BookingException{
-		Booking booking=null;
-		booking=bookingDao.getOne(bookingId);
+//		Booking booking=null;
+		Booking booking=bookingDao.getOne(bookingId);
 		
 		if(booking==null) {
 			logger.error("No booking found with given Id..!!");

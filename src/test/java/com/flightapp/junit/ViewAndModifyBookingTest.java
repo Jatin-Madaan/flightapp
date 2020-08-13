@@ -14,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.flightapp.entities.Booking;
 import com.flightapp.entities.Schedule;
 import com.flightapp.exception.BookingException;
+import com.flightapp.service.IScheduleService;
 import com.flightapp.service.IViewAndModifyBookingService;
 
 @SpringBootTest
@@ -21,6 +22,9 @@ public class ViewAndModifyBookingTest {
 
 	@Autowired
 	IViewAndModifyBookingService bookingService;
+	
+	@Autowired
+	IScheduleService scheduleService;
 	
 	@Test
 	public void listBookingTest() throws BookingException{
@@ -49,8 +53,8 @@ public class ViewAndModifyBookingTest {
 	}
 	
 	@Test
-	public void modifyBookingTest() throws BookingException{
-		Schedule schedule=new Schedule();
+	public void modifyBookingTest() throws BookingException, Exception{
+		Schedule schedule= scheduleService.getScheduleById(109);
 		Booking booking=bookingService.modifyBooking(102, schedule);
 		assertEquals(102,booking.getBookingId());
 	}

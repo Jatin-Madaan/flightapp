@@ -62,17 +62,17 @@ public class RescheduleAndDeleteService implements IRescheduleAndDeleteService
 	 * @author YashYo
 	 */
 	@Override
-	public ScheduleFlight rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) throws Exception 
+	public ScheduleFlight rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) throws RescheduleException 
 	{
 		if(arrivalTime.compareTo(departureTime) == 0)
 		{
 			logger.error("Arrivaltime and Departuretime can not be euqal");
-			throw new Exception("Arrivaltime and Departuretime can not be euqal");
+			throw new RescheduleException("Arrivaltime and Departuretime can not be euqal");
 		}
 		else if(arrivalTime.compareTo(departureTime) > 0)
 		{
 			logger.error("Arrivaltime can not be less then Departuretime");
-			throw new Exception("Arrivaltime can not be less then Departuretime");
+			throw new RescheduleException("Arrivaltime can not be less then Departuretime");
 		}
 		else    																				//Arrival time is be greater then Departure time
 		{
@@ -88,7 +88,7 @@ public class RescheduleAndDeleteService implements IRescheduleAndDeleteService
 			else
 			{
 				logger.error("Rescheduling Failed because Id not found");
-				throw new Exception("Rescheduling Failed because Id not found");
+				throw new RescheduleException("Rescheduling Failed because Id not found");
 			}
 		}
 	}
