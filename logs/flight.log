@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2020/08/12 18:02:53.101  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
  2020/08/12 18:02:55.418  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
  2020/08/12 18:08:39.055  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
@@ -8,4 +9,8 @@
  2020/08/12 18:14:25.927  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
  2020/08/12 18:22:34.248  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
  2020/08/12 18:22:37.351  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+=======
+2020/08/12 18:02:28.185  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/12 18:02:31.438  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+>>>>>>> 0c686757ff75689ab0ac1baa3f2bb842d760449b
  

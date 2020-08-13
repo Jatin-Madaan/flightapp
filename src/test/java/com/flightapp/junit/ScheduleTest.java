@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.flightapp.dao.IAirportDAO;
 import com.flightapp.entities.Airport;
 import com.flightapp.entities.Schedule;
+import com.flightapp.exception.AirportException;
+import com.flightapp.exception.ScheduleException;
 import com.flightapp.service.IAirportService;
 import com.flightapp.service.IScheduleService;
 
@@ -27,13 +29,13 @@ class ScheduleTest {
 	
 	
 	@Test
-	void getScheduleByIdTest() throws Exception{
+	void getScheduleByIdTest() throws ScheduleException{
 		Schedule schedule = scheduleService.getScheduleById(41);
 		assertEquals(41, schedule.getScheduleId());
 	}
 	
 	@Test
-	void addSchedule() throws Exception{
+	void addSchedule() throws ScheduleException, AirportException{
 		Airport dest = new Airport("PAT", "Patna");
 		Airport src = new Airport("CHN", "Chennai");
 		
@@ -48,9 +50,9 @@ class ScheduleTest {
 	}
 
 	@Test
-	void getScheduleByIdExceptionTest() throws Exception{
+	void getScheduleByIdExceptionTest() throws ScheduleException{
 		
-		Assertions.assertThrows(Exception.class, () -> {
+		Assertions.assertThrows(ScheduleException.class, () -> {
 			Schedule schedule = scheduleService.getScheduleById(789);
 		});
 	}

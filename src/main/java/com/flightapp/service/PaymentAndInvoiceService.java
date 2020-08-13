@@ -1,5 +1,7 @@
 package com.flightapp.service;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import com.flightapp.entities.User;
 
 
 @Service
+@Transactional
 public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	
 	@Autowired
@@ -66,38 +69,44 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 
 			Booking bookingdetails = bookingdao.getOne(bookingid);
 			LOGGER.info("Retrieve the data from booking table based on bookingid for setbookingstatusbyid function");
-			User userdetails = userdao.getOne(userid);
-			LOGGER.info("Retrieve the data from User table based on userid");
-			long balance = userdetails.getBalance();
-			String status_before = bookingdetails.getBookingStatus();
-			
-			if(status_before.equals("Payment Cancelled")|| status_before.equals("Cancelled")) {
-				LOGGER.info("The payment status for this is already cancelled");
-				return -1;
-			}
-			else if(status_before.contentEquals(status)) {
-				LOGGER.info("'The payment status for this is already:"+status);
-				return 0;
-			}
-			else {
-				if(balance > amount) {
+			if(bookingdetails.getUser().getUserId() == userid) {
+				
+				User userdetails = userdao.getOne(userid);
+				LOGGER.info("Retrieve the data from User table based on userid");
+				long balance = userdetails.getBalance();
+				String status_before = bookingdetails.getBookingStatus();
+				
+				if(status_before.equals("Payment Cancelled")|| status_before.equals("Cancelled")) {
+					LOGGER.info("The payment status for this is already cancelled");
+					throw new Exception("The boooking is already cancelled ");
+				}
+				else if(status_before.contentEquals(status)) {
+					LOGGER.info("'The payment status for this is already:"+status);
+					throw new Exception("The Payment is already done");
+				}
+				else {
 					if(status.equals("Payment Cancelled") || status.equals("Cancelled")) {
 						LOGGER.info("The satus of booking is updated as: "+status);
 						bookingdetails.setBookingStatus(status);
 						bookingdao.save(bookingdetails);
 						return 1;
 					}
-					LOGGER.info("The satus of booking is updated as: "+status);
-					bookingdetails.setBookingStatus(status);
-					balance = balance - amount;
-					userdetails.setBalance(balance);
-					bookingdao.save(bookingdetails);
-					userdao.save(userdetails);
-					return 1;
+					if(balance >= amount) {
+						LOGGER.info("The satus of booking is updated as: "+status);
+						bookingdetails.setBookingStatus(status);
+						balance = balance - amount;
+						userdetails.setBalance(balance);
+						bookingdao.save(bookingdetails);
+						userdao.save(userdetails);
+						return 1;
+						}
+					LOGGER.error("The balance is low");
+					throw new Exception("The balance is low,Please contact the customercare service");
+					}
+					
 				}
-				LOGGER.error("The balance is low");
-				throw new Exception("The balance is low,Please contact the customercare service");
-			}
+			LOGGER.error("The Userid is not matching with the booking details");
+			throw new Exception("The Userid is not matching with the booking details");	
 		}
 		LOGGER.error("The bookingid is not found");
 		throw new Exception("The bookingid is not found");

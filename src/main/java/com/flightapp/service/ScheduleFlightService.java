@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.flightapp.dao.IScheduleFlightDAO;
 import com.flightapp.entities.ScheduleFlight;
+import com.flightapp.exception.ScheduleFlightException;
 
 /**
  * @author Jatin
@@ -26,10 +27,10 @@ public class ScheduleFlightService implements IScheduleFlightService {
 	 * Description: adding ScheduleFlight objs to table
 	 * @param scheduleFlight
 	 * @return ScheduleFlight
-	 * @throws Exception
+	 * @throws ScheduleFlightException
 	 */
 	@Override
-	public ScheduleFlight addScheduleFlight(ScheduleFlight scheduleFlight) throws Exception{
+	public ScheduleFlight addScheduleFlight(ScheduleFlight scheduleFlight) throws ScheduleFlightException{
 		LOGGER.info("adding scheduleFlight");
 		return scheduleFlightDAO.save(scheduleFlight);
 	}
@@ -39,16 +40,16 @@ public class ScheduleFlightService implements IScheduleFlightService {
 	 * Description: adding ScheduleFlight objs to table
 	 * @param scheduleId
 	 * @return ScheduleFlight
-	 * @throws Exception
+	 * @throws ScheduleFlightException
 	 */
 	@Override
-	public ScheduleFlight getScheduleFlightById(int scheduleFlightId) throws Exception {
+	public ScheduleFlight getScheduleFlightById(int scheduleFlightId) throws ScheduleFlightException {
 		LOGGER.info("getting ScheduleFlight by Id");
 		if(scheduleFlightDAO.existsById(scheduleFlightId)) {
 			return scheduleFlightDAO.getOne(scheduleFlightId);
 		}
 		else {
-			throw new Exception("schedule flight id doesn't exists");
+			throw new ScheduleFlightException("schedule flight id doesn't exists");
 		}
 	}
 
@@ -60,7 +61,7 @@ public class ScheduleFlightService implements IScheduleFlightService {
 	 * @throws Exception
 	 */
 	@Override
-	public void removeScheduleFlight(ScheduleFlight scheduleFlight) throws Exception{
+	public void removeScheduleFlight(ScheduleFlight scheduleFlight) throws ScheduleFlightException{
 		LOGGER.info("removing ScheduleFlight");
 		scheduleFlightDAO.delete(scheduleFlight);
 	}
@@ -73,11 +74,11 @@ public class ScheduleFlightService implements IScheduleFlightService {
 	 * @throws Exception
 	 */
 	@Override
-	public List<ScheduleFlight> getAllScheduleFlights() throws Exception{
+	public List<ScheduleFlight> getAllScheduleFlights() throws ScheduleFlightException{
 		LOGGER.info("getting ScheduleFlights list");
 		List<ScheduleFlight> scheduleList = scheduleFlightDAO.findAll();
 		if(scheduleList.size() == 0) {
-			throw new Exception("No Scheduled Flights Exists");
+			throw new ScheduleFlightException("No Scheduled Flights Exists");
 		}
 		return scheduleList;
 	}
