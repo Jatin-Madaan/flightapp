@@ -3,12 +3,15 @@ package com.flightapp.junit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.flightapp.entities.Airport;
 import com.flightapp.entities.Booking;
 import com.flightapp.entities.Schedule;
 import com.flightapp.exception.BookingException;
@@ -64,7 +67,18 @@ public class ViewAndModifyBookingTest {
 	
 	@Test
 	public void modifyBookingTest() throws BookingException{
+		
+		Airport dest = new Airport();
+		dest.setAddress("Pune");
+		Airport source = new Airport();
+		source.setAddress("Goa");
+		
 		Schedule schedule=new Schedule();
+		schedule.setDestinationAirport(dest);
+		schedule.setSourceAirport(source);
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 00)));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 16, 20)));
+		
 		Booking booking=bookingService.modifyBooking(103, schedule);
 		assertEquals(103,booking.getBookingId());
 	}
@@ -73,7 +87,18 @@ public class ViewAndModifyBookingTest {
 	
 	@Test
 	public void modifyBookingTest2() throws BookingException{
+		
+		Airport dest = new Airport();
+		dest.setAddress("Pune");
+		Airport source = new Airport();
+		source.setAddress("Goa");
+		
 		Schedule schedule=new Schedule();
+		schedule.setDestinationAirport(dest);
+		schedule.setSourceAirport(source);
+		schedule.setDepartureTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 15, 00)));
+		schedule.setArrivalTime(Timestamp.valueOf(LocalDateTime.of(2020, 2, 13, 16, 20)));
+		
 		assertThrows(BookingException.class,()->{
 			bookingService.modifyBooking(32432434,schedule);
 		});
