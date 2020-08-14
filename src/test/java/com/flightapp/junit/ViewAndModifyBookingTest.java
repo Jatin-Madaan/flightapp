@@ -44,7 +44,7 @@ public class ViewAndModifyBookingTest {
 	// canceling a booking  by user test
 	@Test
 	public void cancelBookingTest() throws BookingException{
-		Booking booking=bookingService.cancelBooking(104);
+		Booking booking=bookingService.cancelBooking(103);
 		assertEquals("Cancelled",booking.getBookingStatus());
 	}
 	
@@ -62,8 +62,8 @@ public class ViewAndModifyBookingTest {
 	@Test
 	public void modifyBookingTest() throws BookingException{
 		Schedule schedule=new Schedule();
-		Booking booking=bookingService.modifyBooking(102, schedule);
-		assertEquals(102,booking.getBookingId());
+		Booking booking=bookingService.modifyBooking(103, schedule);
+		assertEquals(103,booking.getBookingId());
 	}
 	
 	//wrong booking id provided for modify booking test
