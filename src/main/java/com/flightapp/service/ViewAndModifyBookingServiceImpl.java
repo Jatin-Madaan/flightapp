@@ -80,7 +80,7 @@ public class ViewAndModifyBookingServiceImpl implements IViewAndModifyBookingSer
 
 	@Override
 	public Booking modifyBooking(int bookingId, Schedule schedule) throws BookingException{
-		
+
 		//fetching the booking from database to modify
 		Optional<Booking> booking=bookingDao.findById(bookingId);
 		

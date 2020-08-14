@@ -1,3 +1,13 @@
+2020/08/12 18:02:53.101  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/12 18:02:55.418  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/12 18:08:39.055  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/12 18:08:41.183  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/12 18:10:45.168  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/12 18:10:48.446  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/12 18:14:22.725  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/12 18:14:25.927  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/12 18:22:34.248  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/12 18:22:37.351  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
 2020/08/12 18:02:28.185  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
  2020/08/12 18:02:31.438  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
  2020/08/13 09:02:18.394  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
@@ -26,4 +36,3 @@
  2020/08/13 09:36:53.126  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
  2020/08/13 09:36:53.836  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully cancelled the booking..!!
  2020/08/13 09:36:54.988  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
- 

@@ -53,7 +53,7 @@ public class ReschedulingController
 	 * @author YashYo
 	 */
 	@PutMapping(path="/rescheduleFlightSchedule/{rescheduleId}/{arrivalTime}/{departureTime}")
-	public ScheduleFlight rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) throws Exception
+	public ScheduleFlight rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) throws RescheduleException
 	{
 		return rescheduleFlightService.rescheduleFlightSchedule(rescheduleId, arrivalTime, departureTime);
 	}

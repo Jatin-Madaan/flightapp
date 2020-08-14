@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.flightapp.entities.Airport;
 import com.flightapp.entities.Schedule;
+import com.flightapp.exception.AirportException;
 import com.flightapp.service.IAirportService;
 
 /**
@@ -34,7 +35,7 @@ public class AirportController {
 	 * @return Airport
 	 */
 	@RequestMapping(value = "/airports/id/{airportId}")
-	public Airport getAirportById(@PathVariable int airportId) throws Exception {
+	public Airport getAirportById(@PathVariable int airportId) throws AirportException {
 		return airportService.getAirportById(airportId);
 	}
 	
@@ -44,7 +45,7 @@ public class AirportController {
 	 * @return List<Airport>
 	 */
 	@RequestMapping(value = "/airports/all")
-	public List<Airport> getAllAirports() throws Exception {
+	public List<Airport> getAllAirports() throws AirportException {
 		return airportService.getAllAirports();
 	}
 	
@@ -54,7 +55,7 @@ public class AirportController {
 	 * @return Airport
 	 */
 	@RequestMapping(method = RequestMethod.POST , value = "/airports/add")
-	public Airport addAirport( @RequestBody Airport airport) throws Exception {
+	public Airport addAirport( @RequestBody Airport airport) throws AirportException {
 		return airportService.addAirport(airport);
 	}
 }

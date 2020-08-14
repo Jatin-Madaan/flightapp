@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.flightapp.entities.Booking;
 import com.flightapp.entities.Schedule;
 import com.flightapp.exception.BookingException;
+import com.flightapp.service.IScheduleService;
 import com.flightapp.service.IViewAndModifyBookingService;
 
 // Junit testing for the flight app
@@ -24,8 +25,10 @@ public class ViewAndModifyBookingTest {
 	@Autowired
 	IViewAndModifyBookingService bookingService;
 	
+	@Autowired
+	IScheduleService scheduleService;
+
 	// testing list of booking service
-	
 	@Test
 	public void listBookingTest() throws BookingException{
 		List<Booking> booking=bookingService.viewBookings(200002);
