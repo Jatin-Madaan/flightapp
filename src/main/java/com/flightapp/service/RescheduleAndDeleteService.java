@@ -5,10 +5,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.flightapp.dao.IScheduleFlightDAO;
 import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.exception.RescheduleException;
 
+@Transactional
 @Service
 public class RescheduleAndDeleteService implements IRescheduleAndDeleteService 
 {	

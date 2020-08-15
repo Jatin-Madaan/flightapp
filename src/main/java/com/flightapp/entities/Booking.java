@@ -58,7 +58,7 @@ public class Booking implements Serializable {
 	private ScheduleFlight scheduleFlight;
 
 	@OneToMany(mappedBy="booking",cascade=CascadeType.ALL)
-	@JsonIgnore
+	
 	private Set<Passenger> passengers = new HashSet<>();
 	
 	
