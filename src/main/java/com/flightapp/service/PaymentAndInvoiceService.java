@@ -78,11 +78,11 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 				
 				if(status_before.equals("Payment Cancelled")|| status_before.equals("Cancelled")) {
 					LOGGER.info("The payment status for this is already cancelled");
-					throw new Exception("The boooking is already cancelled ");
+					throw new Exception("The payment is already cancelled ");
 				}
-				else if(status_before.contentEquals(status)) {
-					LOGGER.info("'The payment status for this is already:"+status);
-					throw new Exception("The Payment is already done");
+				if(status_before.equals("Payment Success")|| status_before.equals("Success")) {
+					LOGGER.info("The payment status for this is already completed");
+					throw new Exception("The payment is already completed ");
 				}
 				else {
 					if(status.equals("Payment Cancelled") || status.equals("Cancelled")) {
