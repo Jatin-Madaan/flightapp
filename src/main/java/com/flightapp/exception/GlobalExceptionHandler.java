@@ -3,7 +3,7 @@ package com.flightapp.exception;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,4 +19,15 @@ public class GlobalExceptionHandler {
 		 String uri = req.getRequestURL().toString();
 		return new ErrorInfo(uri,bodyOfResponse); 
 	 }
+	
+	@ExceptionHandler(BookingException.class)
+	public ResponseEntity<Object> throwException(BookingException exception){
+		return new ResponseEntity<Object>(exception.getLocalizedMessage(),HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(NoFlightsAvaliableException.class)
+    public final ResponseEntity<String> exceptionHandler(NoFlightsAvaliableException e) 
+    {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }

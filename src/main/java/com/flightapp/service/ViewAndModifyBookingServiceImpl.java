@@ -1,7 +1,10 @@
 package com.flightapp.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,7 @@ import com.flightapp.entities.Schedule;
 import com.flightapp.exception.BookingException;
 
 @Service
+@Transactional
 public class ViewAndModifyBookingServiceImpl implements IViewAndModifyBookingService {
 	
 	//Injecting dao layer dependency to perform crud operations
@@ -55,42 +59,42 @@ public class ViewAndModifyBookingServiceImpl implements IViewAndModifyBookingSer
 	public Booking cancelBooking(int bookingId) throws BookingException{
 		
 		//fetching the booking from database to cancel
-		Booking booking=bookingDao.getOne(bookingId);
+		Optional<Booking> booking=bookingDao.findById(bookingId);
 		
 		//if the booking is not found
-		if(booking==null) {
+		if(!booking.isPresent()) {
 			logger.error("No booking found with given Id..!!");
 			throw new BookingException("Error while fetching the booking..!!");
 		}
 		
 		//setting the status after fetching
-		booking.setBookingStatus("Cancelled");
+		booking.get().setBookingStatus("Cancelled");
 		
 		//increasing number of seats
-		booking.getScheduleFlight().setAvailableSeats(booking.getScheduleFlight().getAvailableSeats()+booking.getNoOfPassenger());
+		booking.get().getScheduleFlight().setAvailableSeats(booking.get().getScheduleFlight().getAvailableSeats()+booking.get().getNoOfPassenger());
 		
 		//saving the changes in database
 		logger.info("Successfully cancelled the booking..!!");
-		return bookingDao.save(booking);
+		return bookingDao.save(booking.get());
 	}
 
 	@Override
 	public Booking modifyBooking(int bookingId, Schedule schedule) throws BookingException{
 
 		//fetching the booking from database to modify
-		Booking booking=bookingDao.getOne(bookingId);
+		Optional<Booking> booking=bookingDao.findById(bookingId);
 		
 		//if the booking is not found
-		if(booking==null) {
+		if(!booking.isPresent()) {
 			logger.error("No booking found with given Id..!!");
 			throw new BookingException("Error while fetching the booking..!!");
 		}
 		
 		//setting the new schedule
-		booking.getScheduleFlight().setSchedule(schedule);
+		booking.get().getScheduleFlight().setSchedule(schedule);
 		
 		//saving changes in database
 		logger.info("Successfully modified the booking..!!");
-		return bookingDao.save(booking);
+		return bookingDao.save(booking.get());
 	}
 }

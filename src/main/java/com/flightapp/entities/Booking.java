@@ -2,7 +2,6 @@ package com.flightapp.entities;
 
 import java.io.Serializable;
 import java.sql.Time;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +9,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -60,7 +58,7 @@ public class Booking implements Serializable {
 	private ScheduleFlight scheduleFlight;
 
 	@OneToMany(mappedBy="booking",cascade=CascadeType.ALL)
-	@JsonIgnore
+	
 	private Set<Passenger> passengers = new HashSet<>();
 	
 	
