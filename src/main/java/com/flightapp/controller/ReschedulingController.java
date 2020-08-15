@@ -25,13 +25,13 @@ public class ReschedulingController
 	IRescheduleAndDeleteService rescheduleFlightService;
 	
 	
-	/** Method: getbookingbyid
+	/** Method: getSchedulesFlights
 	 * Description: get mapping for getting the list of all SchedulesFlight
 	 * @return List<ScheduleFlight>: It returns the list of all SchedulesFlight
 	 * @author YashYo
 	 */
 	@GetMapping(path="/scheduleFlight/viewAll")
-	public List<ScheduleFlight> getbookingbyid() 
+	public List<ScheduleFlight> getSchedulesFlights() 
 	{
 		return rescheduleFlightService.viewAllFlightSchedules();
 	}
