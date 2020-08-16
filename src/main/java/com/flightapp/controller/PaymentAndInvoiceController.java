@@ -1,5 +1,7 @@
 package com.flightapp.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flightapp.entities.Booking;
+import com.flightapp.entities.Passenger;
 import com.flightapp.service.IPaymentAndInvoiceService;
 
 import org.slf4j.Logger;
@@ -56,6 +59,11 @@ public class PaymentAndInvoiceController {
 	public int SetBookingStatusById(@PathVariable int bookingid,@PathVariable int userid,@PathVariable String status,@PathVariable long amount) throws Exception {
 		logger.info("Getting the details from frontend for setbookingstatusbyid function");
 		return paymentAndInvoiceService.setBookingStatusById(bookingid, userid, status, amount);
+	}
+	
+	@GetMapping(path="/getpassengerdetails/{bookingid}")
+	public List<Passenger> getpassengerdetails(@PathVariable int bookingid){
+		return paymentAndInvoiceService.getpassengerdetails(bookingid);
 	}
 
 }

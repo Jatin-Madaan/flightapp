@@ -1,5 +1,9 @@
 package com.flightapp.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
@@ -9,8 +13,10 @@ import org.springframework.stereotype.Service;
 
 import com.flightapp.controller.PaymentAndInvoiceController;
 import com.flightapp.dao.IBookingDAO;
+import com.flightapp.dao.IPassengerDAO;
 import com.flightapp.dao.IUserDAO;
 import com.flightapp.entities.Booking;
+import com.flightapp.entities.Passenger;
 import com.flightapp.entities.User;
 
 
@@ -23,6 +29,9 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	
 	@Autowired
 	IUserDAO userdao;
+	
+	@Autowired
+	IPassengerDAO passengerdao;
 	
 	Logger LOGGER = LoggerFactory.getLogger(PaymentAndInvoiceService.class);
 	
@@ -110,6 +119,23 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 		}
 		LOGGER.error("The bookingid is not found");
 		throw new Exception("The bookingid is not found");
+	}
+
+
+
+
+
+	@Override
+	public List<Passenger> getpassengerdetails(int bookingid) {
+		List<Passenger> listofall =  passengerdao.findAll();
+		List<Passenger> passengers = new ArrayList<Passenger>();
+		for (Passenger passenger : listofall) {
+			if(passenger.getBooking().getBookingId() == bookingid) {
+				passengers.add(passenger);
+			}
+		}
+		return passengers;
+		
 	}
 
 }
