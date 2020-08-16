@@ -106,6 +106,12 @@ public class ScheduleFlight implements Serializable{
 	public void setTicketCost(Long ticketCost) {
 		this.ticketCost = ticketCost;
 	}
+
+	public ScheduleFlight(int scheduleFlightId, Schedule schedule) {
+		super();
+		this.scheduleFlightId = scheduleFlightId;
+		this.schedule = schedule;
+	}
 	
 	
 	
