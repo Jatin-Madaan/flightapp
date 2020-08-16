@@ -3,8 +3,6 @@
  */
 package com.flightapp.service;
 
-
-import java.sql.Timestamp;
 import java.util.List;
 import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.exception.RescheduleException;
@@ -22,5 +20,5 @@ public interface IRescheduleAndDeleteService
 {
 	public List<ScheduleFlight> viewAllFlightSchedules();
 	public void removeFlightById(int scheduleFlightId) throws RescheduleException;
-	public ScheduleFlight rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) throws RescheduleException;
+	public ScheduleFlight rescheduleFlightSchedule(int rescheduleId, ScheduleFlight updatedSchedule) throws RescheduleException;
 }
