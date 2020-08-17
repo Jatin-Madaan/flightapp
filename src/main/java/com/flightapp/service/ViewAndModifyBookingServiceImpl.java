@@ -68,10 +68,19 @@ public class ViewAndModifyBookingServiceImpl implements IViewAndModifyBookingSer
 		}
 		
 		//setting the status after fetching
-		booking.get().setBookingStatus("Cancelled");
+		if(booking.get().getStatus().equals("Booked")) {
+			booking.get().setStatus("Cancelled");
+		}
+		else {
+			logger.error("Can't cancel this booking..!!");
+			throw new BookingException("Can't cancel this booking..!!");
+		}
 		
 		//increasing number of seats
 		booking.get().getScheduleFlight().setAvailableSeats(booking.get().getScheduleFlight().getAvailableSeats()+booking.get().getNoOfPassenger());
+		
+		//refunding money
+		booking.get().getUser().setBalance(booking.get().getUser().getBalance()+booking.get().getTicketPrice());
 		
 		//saving the changes in database
 		logger.info("Successfully cancelled the booking..!!");
@@ -91,7 +100,14 @@ public class ViewAndModifyBookingServiceImpl implements IViewAndModifyBookingSer
 		}
 		
 		//setting the new schedule
-		booking.get().getScheduleFlight().setSchedule(schedule);
+		if(booking.get().getStatus().equals("Booked")) {
+			booking.get().getScheduleFlight().setSchedule(schedule);
+		}
+		
+		else {
+			logger.error("Can't modify this booking..!!");
+			throw new BookingException("Can't modify this booking..!!");
+		}
 		
 		//saving changes in database
 		logger.info("Successfully modified the booking..!!");
