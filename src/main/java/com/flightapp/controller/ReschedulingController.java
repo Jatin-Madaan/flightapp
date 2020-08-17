@@ -29,7 +29,7 @@ public class ReschedulingController
 	 * @return List<ScheduleFlight>: It returns the list of all SchedulesFlight
 	 * @author YashYo
 	 */
-	@GetMapping(path="/scheduleFlight/viewAll")
+	@GetMapping(path="/admin/scheduleFlight/viewAll")
 	public List<ScheduleFlight> getSchedulesFlights() 
 	{
 		return rescheduleFlightService.viewAllFlightSchedules();
@@ -40,7 +40,7 @@ public class ReschedulingController
 	 * @return string: feedback message.
 	 * @author YashYo
 	 */
-	@DeleteMapping(path="/deleteSchedule/{scheduleFlightId}")
+	@DeleteMapping(path="/admin/deleteSchedule/{scheduleFlightId}")
 	public void removeSchedule(@PathVariable int scheduleFlightId) throws RescheduleException
 	{
 		rescheduleFlightService.removeFlightById(scheduleFlightId);
@@ -51,7 +51,7 @@ public class ReschedulingController
 	 * @return string: feedback message.
 	 * @author YashYo
 	 */
-	@PutMapping(path="/rescheduleFlightSchedule/{rescheduleId}")
+	@PutMapping(path="/admin/rescheduleFlightSchedule/{rescheduleId}")
 	public ScheduleFlight rescheduleFlightSchedule(@PathVariable int rescheduleId, @RequestBody ScheduleFlight updatedScheduled) throws RescheduleException
 	{
 		return rescheduleFlightService.rescheduleFlightSchedule(rescheduleId,updatedScheduled);
