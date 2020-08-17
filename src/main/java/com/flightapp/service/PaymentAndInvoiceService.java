@@ -89,7 +89,7 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 					LOGGER.info("The payment status for this is already cancelled");
 					throw new Exception("The payment is already cancelled ");
 				}
-				if(status_before.equals("Payment Success")|| status_before.equals("Success")) {
+				if(status_before.equals("Payment Successful")|| status_before.equals("Successful")) {
 					LOGGER.info("The payment status for this is already completed");
 					throw new Exception("The payment is already completed ");
 				}
@@ -97,12 +97,14 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 					if(status.equals("Payment Cancelled") || status.equals("Cancelled")) {
 						LOGGER.info("The satus of booking is updated as: "+status);
 						bookingdetails.setBookingStatus(status);
+						bookingdetails.setStatus("Not Booked");
 						bookingdao.save(bookingdetails);
 						return 1;
 					}
 					if(balance >= amount) {
 						LOGGER.info("The satus of booking is updated as: "+status);
 						bookingdetails.setBookingStatus(status);
+						bookingdetails.setStatus("Booked");
 						balance = balance - amount;
 						userdetails.setBalance(balance);
 						bookingdao.save(bookingdetails);
