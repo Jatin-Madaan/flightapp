@@ -1,8 +1,6 @@
 package com.flightapp.controller;
 
-import java.sql.Timestamp;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.exception.RescheduleException;
@@ -52,9 +51,9 @@ public class ReschedulingController
 	 * @return string: feedback message.
 	 * @author YashYo
 	 */
-	@PutMapping(path="/rescheduleFlightSchedule/{rescheduleId}/{arrivalTime}/{departureTime}")
-	public ScheduleFlight rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime) throws RescheduleException
+	@PutMapping(path="/rescheduleFlightSchedule/{rescheduleId}")
+	public ScheduleFlight rescheduleFlightSchedule(@PathVariable int rescheduleId, @RequestBody ScheduleFlight updatedScheduled) throws RescheduleException
 	{
-		return rescheduleFlightService.rescheduleFlightSchedule(rescheduleId, arrivalTime, departureTime);
+		return rescheduleFlightService.rescheduleFlightSchedule(rescheduleId,updatedScheduled);
 	}
 }
