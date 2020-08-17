@@ -1,5 +1,6 @@
 package com.flightapp.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,36 +33,36 @@ public class GetFlightService implements IGetFlightService {
 	 * @author Adithya 
 	 */
 	@Override
-	public List<Flight> getFlights(String source, String destination, LocalDateTime searchDate) throws NoFlightsAvaliableException {
+	public List<ScheduleFlight> getFlights(String source, String destination, LocalDate searchDate,int passengers) throws NoFlightsAvaliableException {
 				
 
 		logger.info("Fetching scheduled flights between "+source+" - "+destination);
 		
 		List<ScheduleFlight> scheduleFlightObjs = scheduleFlight.findAll();
 		
-		List<Flight> flights = new ArrayList<Flight>();
+		List<ScheduleFlight> scheduleFlights = new ArrayList<ScheduleFlight>();
 		
 		if(!scheduleFlightObjs.isEmpty())
 		{
 		
-		for(int i=0;i<scheduleFlightObjs.size();i++)
-		{			
-			if(scheduleFlightObjs.get(i).getSchedule().getSourceAirport().getAddress().equals(source) && scheduleFlightObjs.get(i).getSchedule().getDestinationAirport().getAddress().equals(destination)
-				&& scheduleFlightObjs.get(i).getAvailableSeats()>0)
-//					&& scheduleFlightObjs.get(i).getSchedule().getDepartureTime().toLocalDateTime().equals(searchDate)) 
+		for(ScheduleFlight scheduleFlightObj: scheduleFlightObjs)
+		{		
+			if(scheduleFlightObj.getSchedule().getSourceAirport().getAddress().equals(source) && scheduleFlightObj.getSchedule().getDestinationAirport().getAddress().equals(destination)
+				&& scheduleFlightObj.getAvailableSeats()>passengers
+				&& scheduleFlightObj.getSchedule().getDepartureTime().toLocalDateTime().toLocalDate().equals(searchDate)) 
 			{				
-					flights.add(scheduleFlightObjs.get(i).getFlight());
+					scheduleFlights.add(scheduleFlightObj);
 			}
 		}
 		}
 		
-		if(scheduleFlightObjs.isEmpty() || flights.isEmpty())
+		if(scheduleFlightObjs.isEmpty() || scheduleFlights.isEmpty())
 		{
 			logger.error("No scheduled flights available between "+source+" - "+destination);
 			throw new NoFlightsAvaliableException("No scheduled flights available");					
 		}
 		
 		logger.info("Returning scheduled flights between "+source+" - "+destination);
-		return flights;
+		return scheduleFlights;
 	}
 }
