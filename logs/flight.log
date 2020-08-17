@@ -1,4 +1,3 @@
-
 2020/08/12 18:02:53.101  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
  2020/08/12 18:02:55.418  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
  2020/08/12 18:08:39.055  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
@@ -54,5 +53,227 @@
  2020/08/15 13:43:03.265  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
  2020/08/15 13:43:07.457  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
  2020/08/15 13:43:18.624  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/15 23:40:20.760  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:09:01.246  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:17:53.519  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:18:34.500  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:18:40.264  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:36:23.600  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:37:30.562  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:37:37.098  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:37:44.971  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:39:44.572  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:40:56.130  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:41:02.250  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:43:47.109  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:44:22.705  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:44:32.810  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:44:38.713  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:44:44.268  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:44:48.671  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:45:29.345  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:55:14.556  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:57:31.019  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:57:56.014  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 10:59:28.710  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:00:11.850  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:03:07.279  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:03:23.560  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:04:00.021  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:04:42.398  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:04:46.980  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:08:25.236  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:08:28.836  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:08:32.486  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:08:38.920  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:08:46.821  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:08:53.944  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:08:57.165  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:09:02.716  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:09:10.298  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:18:58.975  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:19:21.060  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:19:32.222  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:19:54.072  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:22:50.271  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:24:09.528  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:24:18.515  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:24:27.900  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:24:40.884  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:25:27.762  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:25:40.274  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:26:30.842  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:26:38.149  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:26:47.028  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:27:03.566  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:27:11.399  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:27:15.672  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:28:52.440  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:29:31.946  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:29:41.155  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:29:46.120  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:29:55.687  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:29:59.388  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:30:54.428  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:33:23.371  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:33:27.936  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:33:39.624  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:35:52.892  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:36:54.279  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:37:33.626  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:37:43.147  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:38:00.097  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:38:04.459  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:41:34.640  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:41:35.641  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:41:35.877  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:41:49.007  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:43:05.389  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:43:17.207  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:43:30.698  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:43:35.172  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:43:43.405  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:43:46.376  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:43:52.292  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:44:16.881  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:44:29.755  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:45:38.844  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:45:44.798  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:45:55.136  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:46:02.685  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:46:10.558  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:46:26.286  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:46:33.564  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:47:09.223  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:47:59.762  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:48:11.114  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:48:21.361  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:48:37.478  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:48:51.463  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:49:30.800  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:49:31.516  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:49:39.893  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:50:01.173  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:50:11.551  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:54:09.190  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:55:17.233  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:55:36.053  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:56:20.192  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:56:25.554  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:56:36.895  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:56:51.220  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:56:52.811  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:56:57.473  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:57:00.239  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:57:03.136  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:57:09.657  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:57:14.845  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:57:28.392  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:57:33.760  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:57:39.151  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:57:58.768  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:58:01.135  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:58:06.368  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:58:17.896  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:58:19.240  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:58:22.640  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:58:48.236  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:58:59.518  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:59:05.696  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:59:09.831  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:59:15.733  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:59:41.602  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:59:44.808  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 11:59:59.957  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:04:24.161  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:05:34.374  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:05:37.245  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:05:58.700  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:06:04.660  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:06:09.180  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:06:12.247  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:06:14.766  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:06:30.294  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:06:34.736  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:06:41.281  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:06:46.606  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:07:20.416  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:07:52.037  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:08:11.670  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:08:53.620  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:09:03.902  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:10:36.545  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:11:20.682  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully cancelled the booking..!!
+ 2020/08/16 12:11:53.793  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:12:27.810  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:12:41.375  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:12:58.692  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:15:21.713  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully cancelled the booking..!!
+ 2020/08/16 12:15:35.393  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully cancelled the booking..!!
+ 2020/08/16 12:20:18.161  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:20:25.160  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:20:47.705  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:20:55.851  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:21:11.705  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:21:13.645  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 12:32:16.726  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 20:48:17.966  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/16 20:49:16.015  ERROR -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/17 09:45:57.624  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 09:48:13.980  ERROR -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/17 09:48:37.333  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 09:49:43.164  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully cancelled the booking..!!
+ 2020/08/17 09:50:13.371  ERROR -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 09:55:32.747  ERROR -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Can't modify this booking..!!
+ 2020/08/17 09:56:25.485  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 09:57:30.743  ERROR -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 09:58:36.588  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:00:09.599  INFO  -  [http-nio-8085-exec-9] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:04:58.141  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:04:58.895  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 10:04:59.520  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:05:02.399  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/17 10:05:03.060  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 10:08:06.325  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:13:49.008  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:13:49.702  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 10:13:50.307  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:13:53.208  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/17 10:13:53.826  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 10:14:33.667  INFO  -  [http-nio-8085-exec-3] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:18:14.243  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:19:42.196  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:20:35.594  INFO  -  [http-nio-8085-exec-6] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:21:10.789  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:22:59.165  INFO  -  [http-nio-8085-exec-4] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:27:39.038  INFO  -  [http-nio-8085-exec-7] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:29:36.438  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:29:37.334  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 10:29:38.064  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:29:40.670  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/17 10:29:41.409  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 10:31:25.984  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:32:37.125  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:32:37.854  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 10:32:38.728  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:32:42.063  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/17 10:32:44.306  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 10:34:20.775  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:35:19.468  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:36:23.808  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:36:51.895  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:37:32.275  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:37:54.890  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:38:38.534  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:44:55.221  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:44:56.605  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 10:44:57.462  INFO  -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:45:00.121  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No bookings found for the given User..!!
+ 2020/08/17 10:45:00.773  ERROR -  [main] com.flightapp.service.ViewAndModifyBookingServiceImpl : No booking found with given Id..!!
+ 2020/08/17 10:47:46.260  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:52:30.948  INFO  -  [http-nio-8085-exec-10] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:53:44.572  INFO  -  [http-nio-8085-exec-1] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:54:11.738  INFO  -  [http-nio-8085-exec-2] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
+ 2020/08/17 10:55:07.132  INFO  -  [http-nio-8085-exec-5] com.flightapp.service.ViewAndModifyBookingServiceImpl : Successfully modified the booking..!!
+ 2020/08/17 10:55:31.792  INFO  -  [http-nio-8085-exec-8] com.flightapp.service.ViewAndModifyBookingServiceImpl : Returned list of bookings...!!
  
-
