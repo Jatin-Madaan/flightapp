@@ -42,7 +42,7 @@ public class ScheduleFlight implements Serializable{
 	@JoinColumn(name="FLIGHT_ID")
 	private Flight flight;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name = "SCHEDULE_ID")
 	private Schedule schedule;
 	
