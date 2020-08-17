@@ -25,6 +25,7 @@ public class Airport implements Serializable {
 	
 	private String address;
 
+	
 	public int getAirportId() {
 		return airportId;
 	}
