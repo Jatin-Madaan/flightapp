@@ -33,7 +33,11 @@ public class AirportService implements IAirportService {
 	@Override
 	public List<Airport> getAllAirports() throws AirportException {
 		logger.info("getting all airports");
-		return airportDAO.findAll();
+		List<Airport> airports = airportDAO.findAll();
+		if(airports.isEmpty()) {
+			throw new AirportException("No Airport Exists");
+		}
+		return airports;
 	}
 
 	/**

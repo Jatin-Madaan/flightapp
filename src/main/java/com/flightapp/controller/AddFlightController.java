@@ -18,7 +18,7 @@ import com.flightapp.exception.NoFlightIdException;
 import com.flightapp.service.AddFlightService;
 import com.flightapp.service.IAddFlightService;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 public class AddFlightController {
 
