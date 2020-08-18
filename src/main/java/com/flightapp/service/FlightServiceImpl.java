@@ -84,10 +84,4 @@ public class FlightServiceImpl implements IFlightService{
 	public Booking cancelBooking(int bookingId) {
 		return dao.cancelBooking(bookingId);
 	}
-
-	@Override
-	public Booking modifyBooking(int bookingId, Schedule schedule) {
-		return dao.modifyBooking(bookingId, schedule);
-
-	}
 }

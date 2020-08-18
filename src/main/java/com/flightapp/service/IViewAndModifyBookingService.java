@@ -11,6 +11,5 @@ public interface IViewAndModifyBookingService {
 	
 	public List<Booking> viewBookings(int userId);
 	public Booking cancelBooking(int bookingId);
-	public Booking modifyBooking(int bookingId,Schedule schedule);
 
 }

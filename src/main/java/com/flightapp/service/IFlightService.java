@@ -24,8 +24,6 @@ public interface IFlightService {
 	
 	public Booking cancelBooking(int bookingId);
 	
-	public Booking modifyBooking(int bookingId,Schedule schedule);
-	
 	public String modifySchedule(Schedule schedule);
 
 }
