@@ -27,10 +27,10 @@ public class ScheduleFlightController {
 
 	@Autowired
 	IScheduleFlightService scheduleFlightService;
-	
+
 	/**
-	 * Method: addScheduleFlight
-	 * Description: For adding ScheduleFlight Obj to Table
+	 * Method: addScheduleFlight Description: For adding ScheduleFlight Obj to Table
+	 * 
 	 * @param scheduleFlight
 	 * @return ScheduleFlight
 	 * @throws Exception
@@ -41,20 +41,22 @@ public class ScheduleFlightController {
 	}
 
 	/**
-	 * Method: getScheduleFlightById
-	 * Description: For getting ScheduleFlight Obj by providing Id
+	 * Method: getScheduleFlightById Description: For getting ScheduleFlight Obj by
+	 * providing Id
+	 * 
 	 * @param scheduleFlightId
 	 * @return ScheduleFlight
 	 * @throws Exception
 	 */
-	@RequestMapping(method = RequestMethod.GET, value="/scheduleFlight/id/{scheduleFlightId}")
+	@RequestMapping(method = RequestMethod.GET, value = "/scheduleFlight/id/{scheduleFlightId}")
 	public ScheduleFlight getScheduleFlightById(@PathVariable int scheduleFlightId) throws ScheduleFlightException {
 		return scheduleFlightService.getScheduleFlightById(scheduleFlightId);
 	}
-	
+
 	/**
-	 * Method: removeScheduleFlight
-	 * Description: For removing ScheduleFlight Obj from  table
+	 * Method: removeScheduleFlight Description: For removing ScheduleFlight Obj
+	 * from table
+	 * 
 	 * @param scheduleFlight
 	 * @throws Exception
 	 */
@@ -62,15 +64,16 @@ public class ScheduleFlightController {
 	public void removeScheduleFlight(@RequestBody ScheduleFlight scheduleFlight) throws ScheduleFlightException {
 		scheduleFlightService.removeScheduleFlight(scheduleFlight);
 	}
-	
+
 	/**
-	 * Method: getAllScheduleFlights
-	 * Description: For getting lists of ScheduledFlight objects 
+	 * Method: getAllScheduleFlights Description: For getting lists of
+	 * ScheduledFlight objects
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("/scheduleFlight/all")
-	public List<ScheduleFlight> getAllScheduleFlights() throws ScheduleFlightException{
+	public List<ScheduleFlight> getAllScheduleFlights() throws ScheduleFlightException {
 		return scheduleFlightService.getAllScheduleFlights();
 	}
 }
