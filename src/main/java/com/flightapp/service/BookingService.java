@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.flightapp.dao.IBookingDAO;
+import com.flightapp.dao.IPassengerDAO;
 import com.flightapp.entities.Booking;
+import com.flightapp.entities.Passenger;
 import com.flightapp.exception.BookingException;
 
 @Service
@@ -16,6 +18,10 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 {
 	@Autowired
 	IBookingDAO bookingDao;
+	
+	@Autowired
+	IPassengerDAO passengerDao;
+	
 	
 	Logger LOGGER = LoggerFactory.getLogger(BookingService.class);
 	
@@ -40,10 +46,10 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 	 * @author Maneesh Kumar
 	 */
 	@Override
-	public Booking addBooking(Booking booking) throws BookingException
+	public Passenger addPassenger(Passenger passenger) throws BookingException
 	{
-		LOGGER.info("Saving new Booking...");
-		return bookingDao.save(booking);
+		LOGGER.info("Saving passenger details...");
+		return passengerDao.save(passenger);
 	}
 	
 	
