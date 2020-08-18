@@ -9,13 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flightapp.entities.Booking;
-import com.flightapp.entities.Schedule;
 import com.flightapp.service.IViewAndModifyBookingService;
 
 @RestController
@@ -41,12 +39,5 @@ public class ViewAndModifyBookingController {
 	@GetMapping(value="/cancelBooking/{bookingId}")
 	public ResponseEntity<Booking> cancelBooking(@PathVariable int bookingId) {
 		return new ResponseEntity<Booking>(bookingService.cancelBooking(bookingId),HttpStatus.OK);
-	}
-	
-	//controller to modify a booking
-	
-	@PutMapping(value="/modifyBookings/{bookingId}")
-	public ResponseEntity<Booking> modifyBooking(@PathVariable int bookingId,@RequestBody Schedule schedule) {
-		return new ResponseEntity<Booking>(bookingService.modifyBooking(bookingId, schedule),HttpStatus.OK);
 	}
 }
