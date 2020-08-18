@@ -36,6 +36,13 @@ public class RescheduleAndDeleteService implements IRescheduleAndDeleteService
 	public java.util.List<ScheduleFlight> viewAllFlightSchedules() 
 	{
 		List<ScheduleFlight> scheduleFlightList = scheduleFlight.findAll();
+//		for (ScheduleFlight scheduleFlightTemp : scheduleFlightList) 
+//		{
+//			if(scheduleFlightTemp.getAvailableSeats() == scheduleFlightTemp.getFlight().getSeatCapacity())
+//			{
+//				scheduleFlightList.remove(scheduleFlightTemp);
+//			}
+//		}		
 		if(scheduleFlightList.isEmpty())
 		{
 			logger.warn("The Database is empty");
