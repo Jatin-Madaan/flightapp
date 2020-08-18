@@ -1,5 +1,9 @@
 package com.flightapp.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
@@ -9,8 +13,10 @@ import org.springframework.stereotype.Service;
 
 import com.flightapp.controller.PaymentAndInvoiceController;
 import com.flightapp.dao.IBookingDAO;
+import com.flightapp.dao.IPassengerDAO;
 import com.flightapp.dao.IUserDAO;
 import com.flightapp.entities.Booking;
+import com.flightapp.entities.Passenger;
 import com.flightapp.entities.User;
 
 
@@ -23,6 +29,9 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	
 	@Autowired
 	IUserDAO userdao;
+	
+	@Autowired
+	IPassengerDAO passengerdao;
 	
 	Logger LOGGER = LoggerFactory.getLogger(PaymentAndInvoiceService.class);
 	
@@ -78,22 +87,24 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 				
 				if(status_before.equals("Payment Cancelled")|| status_before.equals("Cancelled")) {
 					LOGGER.info("The payment status for this is already cancelled");
-					throw new Exception("The boooking is already cancelled ");
+					throw new Exception("The payment is already cancelled ");
 				}
-				else if(status_before.contentEquals(status)) {
-					LOGGER.info("'The payment status for this is already:"+status);
-					throw new Exception("The Payment is already done");
+				if(status_before.equals("Payment Successful")|| status_before.equals("Successful")) {
+					LOGGER.info("The payment status for this is already completed");
+					throw new Exception("The payment is already completed ");
 				}
 				else {
 					if(status.equals("Payment Cancelled") || status.equals("Cancelled")) {
 						LOGGER.info("The satus of booking is updated as: "+status);
 						bookingdetails.setBookingStatus(status);
+						bookingdetails.setStatus("Not Booked");
 						bookingdao.save(bookingdetails);
 						return 1;
 					}
 					if(balance >= amount) {
 						LOGGER.info("The satus of booking is updated as: "+status);
 						bookingdetails.setBookingStatus(status);
+						bookingdetails.setStatus("Booked");
 						balance = balance - amount;
 						userdetails.setBalance(balance);
 						bookingdao.save(bookingdetails);
@@ -110,6 +121,23 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 		}
 		LOGGER.error("The bookingid is not found");
 		throw new Exception("The bookingid is not found");
+	}
+
+
+
+
+
+	@Override
+	public List<Passenger> getpassengerdetails(int bookingid) {
+		List<Passenger> listofall =  passengerdao.findAll();
+		List<Passenger> passengers = new ArrayList<Passenger>();
+		for (Passenger passenger : listofall) {
+			if(passenger.getBooking().getBookingId() == bookingid) {
+				passengers.add(passenger);
+			}
+		}
+		return passengers;
+		
 	}
 
 }

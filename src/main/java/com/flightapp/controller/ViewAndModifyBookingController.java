@@ -36,14 +36,14 @@ public class ViewAndModifyBookingController {
 		return new ResponseEntity<List<Booking>>(booking,HttpStatus.OK);
 	}
 	
-	//controller for canceling a booking
+	//controller to cancel a booking
 	
 	@GetMapping(value="/cancelBooking/{bookingId}")
 	public ResponseEntity<Booking> cancelBooking(@PathVariable int bookingId) {
 		return new ResponseEntity<Booking>(bookingService.cancelBooking(bookingId),HttpStatus.OK);
 	}
 	
-	//controller for modifying a booking
+	//controller to modify a booking
 	
 	@PutMapping(value="/modifyBookings/{bookingId}")
 	public ResponseEntity<Booking> modifyBooking(@PathVariable int bookingId,@RequestBody Schedule schedule) {

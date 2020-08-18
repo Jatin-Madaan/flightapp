@@ -16,8 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name="BOOKING_MASTER")
 public class Booking implements Serializable {
@@ -58,7 +56,7 @@ public class Booking implements Serializable {
 	private ScheduleFlight scheduleFlight;
 
 	@OneToMany(mappedBy="booking",cascade=CascadeType.ALL)
-	@JsonIgnore
+	
 	private Set<Passenger> passengers = new HashSet<>();
 	
 	
@@ -126,7 +124,7 @@ public class Booking implements Serializable {
 		this.bookingStatus = bookingStatus;
 	}
 
-	@JsonIgnore
+	
 	public Set<Passenger> getPassengers() {
 		return passengers;
 	}

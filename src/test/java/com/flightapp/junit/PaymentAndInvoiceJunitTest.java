@@ -31,7 +31,6 @@ class PaymentAndInvoiceJunitTest {
 	 */
 	@Test
 	void IfBookingNotFound() throws Exception {
-		assertThrows(Exception.class, ()->{ paymentAndInvoiceService.getBookingById(106); });
 		assertThrows(Exception.class, ()->{ paymentAndInvoiceService.getBookingById(109); });
 	}
 	
