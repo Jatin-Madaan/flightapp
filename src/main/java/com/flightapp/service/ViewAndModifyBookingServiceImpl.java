@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.flightapp.dao.IBookingDAO;
 import com.flightapp.entities.Booking;
-import com.flightapp.entities.Schedule;
 import com.flightapp.exception.BookingException;
 
 @Service
@@ -84,33 +83,6 @@ public class ViewAndModifyBookingServiceImpl implements IViewAndModifyBookingSer
 		
 		//saving the changes in database
 		logger.info("Successfully cancelled the booking..!!");
-		return bookingDao.save(booking.get());
-	}
-
-	@Override
-	public Booking modifyBooking(int bookingId, Schedule schedule) throws BookingException{
-
-		//fetching the booking from database to modify
-		Optional<Booking> booking=bookingDao.findById(bookingId);
-		
-		//if the booking is not found
-		if(!booking.isPresent()) {
-			logger.error("No booking found with given Id..!!");
-			throw new BookingException("Error while fetching the booking..!!");
-		}
-		
-		//setting the new schedule
-		if(booking.get().getStatus().equals("Booked")) {
-			booking.get().getScheduleFlight().setSchedule(schedule);
-		}
-		
-		else {
-			logger.error("Can't modify this booking..!!");
-			throw new BookingException("Can't modify this booking..!!");
-		}
-		
-		//saving changes in database
-		logger.info("Successfully modified the booking..!!");
 		return bookingDao.save(booking.get());
 	}
 }
