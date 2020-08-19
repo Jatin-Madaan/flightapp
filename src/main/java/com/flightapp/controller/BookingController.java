@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.flightapp.entities.Booking;
 import com.flightapp.entities.Passenger;
 import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.service.IBookingService;
@@ -45,5 +46,11 @@ public class BookingController
 		List<ScheduleFlight> sc = new ArrayList<ScheduleFlight>();
 		sc.add(scheduleFlight);
 		return sc;
+	}
+	
+	@PostMapping("/addBooking")
+	public int addBooking(@RequestBody Booking booking)
+	{
+		return bookingService.addBooking(booking);
 	}
 }
