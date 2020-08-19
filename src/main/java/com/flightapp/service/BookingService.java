@@ -1,6 +1,10 @@
 package com.flightapp.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +31,7 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 	@Autowired
 	IScheduleFlightDAO scheduleFlightDao;
 	
-	
+	static int bookingId = 1000;
 	Logger LOGGER = LoggerFactory.getLogger(BookingService.class);
 	
 	
@@ -88,7 +92,37 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 		// TODO Auto-generated method stub
 		
 		ScheduleFlight scheduleFlight = scheduleFlightDao.getOne(scheduleFlightId);
-		System.out.println(scheduleFlight);
 		return scheduleFlight;
+	}
+
+
+	@Override
+	@Transactional
+	public int addBooking(Booking booking) {
+		List<Booking> booking2 = bookingDao.findAll();
+		if(booking2.isEmpty())
+		{
+			int newBookingId = bookingId++;
+			booking.setBookingId(newBookingId);
+			bookingDao.save(booking);
+			ScheduleFlight scheduleFlight = scheduleFlightDao.getOne(booking.getScheduleFlight().getScheduleFlightId());
+			scheduleFlight.setAvailableSeats(booking.getScheduleFlight().getAvailableSeats()-1);
+			return newBookingId;
+		}
+
+		List<Integer> bookingIds = new ArrayList<Integer>();
+		for(int i = 0; i< booking2.size();i++)
+		{
+			bookingIds.add(booking2.get(i).getBookingId());
+		}
+		Collections.sort(bookingIds);
+		int count = bookingIds.size();
+		int maxBookingId = bookingIds.get(count);
+		int newBookingId = maxBookingId++;
+		booking.setBookingId( newBookingId);
+		bookingDao.save(booking);
+		ScheduleFlight scheduleFlight = scheduleFlightDao.getOne(booking.getScheduleFlight().getScheduleFlightId());
+		scheduleFlight.setAvailableSeats(booking.getScheduleFlight().getAvailableSeats()-1);
+		return newBookingId;	
 	}
 }

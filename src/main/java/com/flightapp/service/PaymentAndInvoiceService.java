@@ -14,9 +14,11 @@ import org.springframework.stereotype.Service;
 import com.flightapp.controller.PaymentAndInvoiceController;
 import com.flightapp.dao.IBookingDAO;
 import com.flightapp.dao.IPassengerDAO;
+import com.flightapp.dao.IScheduleFlightDAO;
 import com.flightapp.dao.IUserDAO;
 import com.flightapp.entities.Booking;
 import com.flightapp.entities.Passenger;
+import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.entities.User;
 
 
@@ -32,6 +34,9 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	
 	@Autowired
 	IPassengerDAO passengerdao;
+	
+	@Autowired
+	IScheduleFlightDAO scheduleFlightDao;
 	
 	Logger LOGGER = LoggerFactory.getLogger(PaymentAndInvoiceService.class);
 	
@@ -73,6 +78,7 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	 * @author Prithve
 	 */
 	@Override
+	@Transactional
 	public int setBookingStatusById(int bookingid,int userid, String status,long amount) throws Exception {
 			if(bookingdao.existsById(bookingid)) {
 
