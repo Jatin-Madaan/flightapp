@@ -104,8 +104,6 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 						LOGGER.info("The satus of booking is updated as: "+status);
 						bookingdetails.setBookingStatus(status);
 						bookingdetails.setStatus("Not Booked");
-						ScheduleFlight scheduleFlight = scheduleFlightDao.getOne(bookingdetails.getScheduleFlight().getScheduleFlightId());
-						scheduleFlight.setAvailableSeats(bookingdetails.getScheduleFlight().getAvailableSeats()+1);
 						bookingdao.save(bookingdetails);
 						return 1;
 					}
