@@ -28,7 +28,6 @@ public class Booking implements Serializable {
 
 	@Id
 	@Column(name="BOOKING_ID")
-	@GeneratedValue
 	private int bookingId;
 	
 	private Date bookingDate;
