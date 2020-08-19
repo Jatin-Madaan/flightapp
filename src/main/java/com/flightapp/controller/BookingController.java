@@ -1,5 +1,6 @@
 package com.flightapp.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,12 @@ public class BookingController
 	}
 	
 	@GetMapping("/getFlightById/{scheduleFlightId}")
-	public ScheduleFlight getScheduleFlightById(@PathVariable int scheduleFlightId)
+	public List<ScheduleFlight> getScheduleFlightById(@PathVariable int scheduleFlightId)
 	{
 		
-		return bookingService.getScheduleFlightById(scheduleFlightId);
+		ScheduleFlight scheduleFlight = bookingService.getScheduleFlightById(scheduleFlightId);
+		List<ScheduleFlight> sc = new ArrayList<ScheduleFlight>();
+		sc.add(scheduleFlight);
+		return sc;
 	}
 }
