@@ -1,7 +1,7 @@
 package com.flightapp.controller;
 
 import java.util.List;
-import java.util.NoSuchElementException;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,15 +11,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flightapp.entities.Flight;
 import com.flightapp.exception.NoFlightIdException;
-import com.flightapp.service.AddFlightService;
+
 import com.flightapp.service.IAddFlightService;
 
 @CrossOrigin
 @RestController
+@RequestMapping("Admin/flights")
 public class AddFlightController {
 
 	@Autowired
@@ -57,9 +59,10 @@ public class AddFlightController {
 	@DeleteMapping(value = "/removeFlight/{flightId}")
 	public String removeFlight(@PathVariable int flightId) throws NoFlightIdException
 
-	{
-		 return addFlightService.deleteById(flightId);
-		
+	{ Flight flight=addFlightService.fetchByFlightId(flightId);
+	if(flight!=null)
+		 return addFlightService.deleteById(flight);
+	return null;
 
 	}
 }
