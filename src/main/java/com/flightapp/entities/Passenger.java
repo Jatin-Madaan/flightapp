@@ -27,13 +27,9 @@ public class Passenger implements Serializable {
 
 	private String passengerName;
 	
-	private int age;
-	
 	private String luggage;
 	
 	private String seatNumber;
-	
-	private String travelClass;
 	
 	@ManyToOne
 	@JoinColumn(name="BOOKING_ID")
@@ -55,14 +51,6 @@ public class Passenger implements Serializable {
 		this.passengerName = passengerName;
 	}
 
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public String getLuggage() {
 		return luggage;
 	}
@@ -77,14 +65,6 @@ public class Passenger implements Serializable {
 
 	public void setSeatNumber(String seatNumber) {
 		this.seatNumber = seatNumber;
-	}
-
-	public String getTravelClass() {
-		return travelClass;
-	}
-
-	public void setTravelClass(String travelClass) {
-		this.travelClass = travelClass;
 	}
 
 	@JsonIgnore
