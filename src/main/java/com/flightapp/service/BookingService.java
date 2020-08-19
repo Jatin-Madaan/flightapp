@@ -85,6 +85,8 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 			return "Error: Cancelling the data which is not present!";
 		}
 	}
+	
+	
 
 
 	@Override
@@ -124,5 +126,13 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 		ScheduleFlight scheduleFlight = scheduleFlightDao.getOne(booking.getScheduleFlight().getScheduleFlightId());
 		scheduleFlight.setAvailableSeats(booking.getScheduleFlight().getAvailableSeats()-1);
 		return newBookingId;	
+	}
+
+
+	@Override
+	public Booking modifyBooking(Booking booking) 
+	{
+		// TODO Auto-generated method stub
+		return bookingDao.save(booking);
 	}
 }
