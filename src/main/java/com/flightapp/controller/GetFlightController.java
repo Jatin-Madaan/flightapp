@@ -18,7 +18,7 @@ import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.service.IGetFlightService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping("/customer")
 public class GetFlightController {
 	
