@@ -2,7 +2,6 @@ package com.flightapp.entities;
 
 import java.io.Serializable;
 import java.sql.Time;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,15 +9,12 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="BOOKING_MASTER")
@@ -32,7 +28,6 @@ public class Booking implements Serializable {
 
 	@Id
 	@Column(name="BOOKING_ID")
-	@GeneratedValue
 	private int bookingId;
 	
 	private Date bookingDate;
@@ -41,7 +36,7 @@ public class Booking implements Serializable {
 	
 	private Long ticketPrice;
 	
-	private Long noOfPassenger;
+	private int noOfPassenger;
 	
 	private String status;
 	
@@ -60,7 +55,7 @@ public class Booking implements Serializable {
 	private ScheduleFlight scheduleFlight;
 
 	@OneToMany(mappedBy="booking",cascade=CascadeType.ALL)
-	@JsonIgnore
+	
 	private Set<Passenger> passengers = new HashSet<>();
 	
 	
@@ -96,11 +91,11 @@ public class Booking implements Serializable {
 		this.ticketPrice = ticketPrice;
 	}
 
-	public Long getNoOfPassenger() {
+	public int getNoOfPassenger() {
 		return noOfPassenger;
 	}
 
-	public void setNoOfPassenger(Long noOfPassenger) {
+	public void setNoOfPassenger(int noOfPassenger) {
 		this.noOfPassenger = noOfPassenger;
 	}
 
@@ -128,7 +123,7 @@ public class Booking implements Serializable {
 		this.bookingStatus = bookingStatus;
 	}
 
-	@JsonIgnore
+	
 	public Set<Passenger> getPassengers() {
 		return passengers;
 	}

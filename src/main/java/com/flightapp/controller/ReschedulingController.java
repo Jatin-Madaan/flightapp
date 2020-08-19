@@ -1,8 +1,6 @@
 package com.flightapp.controller;
 
-import java.sql.Timestamp;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,8 +8,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.flightapp.entities.ScheduleFlight;
+import com.flightapp.exception.RescheduleException;
 import com.flightapp.service.IRescheduleAndDeleteService;
 
 @ControllerAdvice
@@ -19,24 +19,41 @@ import com.flightapp.service.IRescheduleAndDeleteService;
 @CrossOrigin(origins = "*")
 public class ReschedulingController 
 {
+	
 	@Autowired
 	IRescheduleAndDeleteService rescheduleFlightService;
 	
-	@GetMapping(path="/scheduleFlight/viewAll")
-	public List<ScheduleFlight> getbookingbyid() 
+	
+	/** Method: getSchedulesFlights
+	 * Description: get mapping for getting the list of all SchedulesFlight
+	 * @return List<ScheduleFlight>: It returns the list of all SchedulesFlight
+	 * @author YashYo
+	 */
+	@GetMapping(path="/admin/scheduleFlight/viewAll")
+	public List<ScheduleFlight> getSchedulesFlights() 
 	{
 		return rescheduleFlightService.viewAllFlightSchedules();
 	}
 	
-	@DeleteMapping(path="/deleteSchedule/{scheduleFlightId}")
-	public String removeSchedule(@PathVariable int scheduleFlightId)
+	/** Method: removeSchedule
+	 * Description: delete mapping for deleting the SchedulesFlight for a given id.
+	 * @return string: feedback message.
+	 * @author YashYo
+	 */
+	@DeleteMapping(path="/admin/deleteSchedule/{scheduleFlightId}")
+	public void removeSchedule(@PathVariable int scheduleFlightId) throws RescheduleException
 	{
-		return rescheduleFlightService.removeFlightById(scheduleFlightId);
+		rescheduleFlightService.removeFlightById(scheduleFlightId);
 	}
 	
-	@PutMapping(path="/rescheduleFlightSchedule/{rescheduleId}/{arrivalTime}/{departureTime}")
-	public String rescheduleFlightSchedule(int rescheduleId, Timestamp arrivalTime, Timestamp departureTime)
+	/** Method: rescheduleFlightSchedule
+	 * Description: put mapping for rescheduling the SchedulesFlight for a given id.
+	 * @return string: feedback message.
+	 * @author YashYo
+	 */
+	@PutMapping(path="/admin/rescheduleFlightSchedule/{rescheduleId}")
+	public ScheduleFlight rescheduleFlightSchedule(@PathVariable int rescheduleId, @RequestBody ScheduleFlight updatedScheduled) throws RescheduleException
 	{
-		return rescheduleFlightService.rescheduleFlightSchedule(rescheduleId, arrivalTime, departureTime);
+		return rescheduleFlightService.rescheduleFlightSchedule(rescheduleId,updatedScheduled);
 	}
 }

@@ -1,5 +1,11 @@
 package com.flightapp.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,12 +13,17 @@ import org.springframework.stereotype.Service;
 
 import com.flightapp.controller.PaymentAndInvoiceController;
 import com.flightapp.dao.IBookingDAO;
+import com.flightapp.dao.IPassengerDAO;
+import com.flightapp.dao.IScheduleFlightDAO;
 import com.flightapp.dao.IUserDAO;
 import com.flightapp.entities.Booking;
+import com.flightapp.entities.Passenger;
+import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.entities.User;
 
 
 @Service
+@Transactional
 public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	
 	@Autowired
@@ -20,6 +31,12 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	
 	@Autowired
 	IUserDAO userdao;
+	
+	@Autowired
+	IPassengerDAO passengerdao;
+	
+	@Autowired
+	IScheduleFlightDAO scheduleFlightDao;
 	
 	Logger LOGGER = LoggerFactory.getLogger(PaymentAndInvoiceService.class);
 	
@@ -61,46 +78,74 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 	 * @author Prithve
 	 */
 	@Override
+	@Transactional
 	public int setBookingStatusById(int bookingid,int userid, String status,long amount) throws Exception {
 			if(bookingdao.existsById(bookingid)) {
 
 			Booking bookingdetails = bookingdao.getOne(bookingid);
 			LOGGER.info("Retrieve the data from booking table based on bookingid for setbookingstatusbyid function");
-			User userdetails = userdao.getOne(userid);
-			LOGGER.info("Retrieve the data from User table based on userid");
-			long balance = userdetails.getBalance();
-			String status_before = bookingdetails.getBookingStatus();
-			
-			if(status_before.equals("Payment Cancelled")|| status_before.equals("Cancelled")) {
-				LOGGER.info("The payment status for this is already cancelled");
-				return -1;
-			}
-			else if(status_before.contentEquals(status)) {
-				LOGGER.info("'The payment status for this is already:"+status);
-				return 0;
-			}
-			else {
-				if(balance > amount) {
+			if(bookingdetails.getUser().getUserId() == userid) {
+				
+				User userdetails = userdao.getOne(userid);
+				LOGGER.info("Retrieve the data from User table based on userid");
+				long balance = userdetails.getBalance();
+				String status_before = bookingdetails.getBookingStatus();
+				
+				if(status_before.equals("Payment Cancelled")|| status_before.equals("Cancelled")) {
+					LOGGER.info("The payment status for this is already cancelled");
+					throw new Exception("The payment is already cancelled ");
+				}
+				if(status_before.equals("Payment Successful")|| status_before.equals("Successful")) {
+					LOGGER.info("The payment status for this is already completed");
+					throw new Exception("The payment is already completed ");
+				}
+				else {
 					if(status.equals("Payment Cancelled") || status.equals("Cancelled")) {
 						LOGGER.info("The satus of booking is updated as: "+status);
 						bookingdetails.setBookingStatus(status);
+						bookingdetails.setStatus("Not Booked");
+						ScheduleFlight scheduleFlight = scheduleFlightDao.getOne(bookingdetails.getScheduleFlight().getScheduleFlightId());
+						scheduleFlight.setAvailableSeats(bookingdetails.getScheduleFlight().getAvailableSeats()+1);
 						bookingdao.save(bookingdetails);
 						return 1;
 					}
-					LOGGER.info("The satus of booking is updated as: "+status);
-					bookingdetails.setBookingStatus(status);
-					balance = balance - amount;
-					userdetails.setBalance(balance);
-					bookingdao.save(bookingdetails);
-					userdao.save(userdetails);
-					return 1;
+					if(balance >= amount) {
+						LOGGER.info("The satus of booking is updated as: "+status);
+						bookingdetails.setBookingStatus(status);
+						bookingdetails.setStatus("Booked");
+						balance = balance - amount;
+						userdetails.setBalance(balance);
+						bookingdao.save(bookingdetails);
+						userdao.save(userdetails);
+						return 1;
+						}
+					LOGGER.error("The balance is low");
+					throw new Exception("The balance is low,Please contact the customercare service");
+					}
+					
 				}
-				LOGGER.error("The balance is low");
-				throw new Exception("The balance is low,Please contact the customercare service");
-			}
+			LOGGER.error("The Userid is not matching with the booking details");
+			throw new Exception("The Userid is not matching with the booking details");	
 		}
 		LOGGER.error("The bookingid is not found");
 		throw new Exception("The bookingid is not found");
+	}
+
+
+
+
+
+	@Override
+	public List<Passenger> getpassengerdetails(int bookingid) {
+		List<Passenger> listofall =  passengerdao.findAll();
+		List<Passenger> passengers = new ArrayList<Passenger>();
+		for (Passenger passenger : listofall) {
+			if(passenger.getBooking().getBookingId() == bookingid) {
+				passengers.add(passenger);
+			}
+		}
+		return passengers;
+		
 	}
 
 }

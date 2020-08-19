@@ -42,7 +42,7 @@ public class ScheduleFlight implements Serializable{
 	@JoinColumn(name="FLIGHT_ID")
 	private Flight flight;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name = "SCHEDULE_ID")
 	private Schedule schedule;
 	
@@ -57,7 +57,6 @@ public class ScheduleFlight implements Serializable{
 	public void setAvailableSeats(int availableSeats) {
 		this.availableSeats = availableSeats;
 	}
-    @JsonIgnore
 	public Flight getFlight() {
 		return flight;
 	}
@@ -105,6 +104,12 @@ public class ScheduleFlight implements Serializable{
 
 	public void setTicketCost(Long ticketCost) {
 		this.ticketCost = ticketCost;
+	}
+
+	public ScheduleFlight(int scheduleFlightId, Schedule schedule) {
+		super();
+		this.scheduleFlightId = scheduleFlightId;
+		this.schedule = schedule;
 	}
 	
 	

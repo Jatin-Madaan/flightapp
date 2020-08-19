@@ -9,7 +9,12 @@ import org.springframework.stereotype.Service;
 
 import com.flightapp.dao.IAirportDAO;
 import com.flightapp.entities.Airport;
+import com.flightapp.exception.AirportException;
 
+/**
+ * @author Jatin
+ *
+ */
 @Service
 public class AirportService implements IAirportService {
 
@@ -18,23 +23,48 @@ public class AirportService implements IAirportService {
 	
 	Logger logger = LoggerFactory.getLogger(AirportService.class);
 	
+	/**
+	 * Method: getAllAirports
+	 * Description: getting all airports in form lists
+	 * @param 
+	 * @return List<Airport>
+	 * @throws AirportException
+	 */
 	@Override
-	public List<Airport> getAllAirports() throws Exception {
+	public List<Airport> getAllAirports() throws AirportException {
 		logger.info("getting all airports");
-		return airportDAO.findAll();
+		List<Airport> airports = airportDAO.findAll();
+		if(airports.isEmpty()) {
+			throw new AirportException("No Airport Exists");
+		}
+		return airports;
 	}
 
+	/**
+	 * Method: getAirportById
+	 * Description: getting a airport  by providing Airport
+	 * @param airportId
+	 * @return Airport
+	 * @throws AirportException
+	 */
 	@Override
-	public Airport getAirportById(int airportId) throws Exception {
+	public Airport getAirportById(int airportId) throws AirportException {
 		// TODO Auto-generated method stub
 		if(airportDAO.existsById(airportId)) {
 			return airportDAO.getOne(airportId);
 		}
-		throw new Exception("Airport ID Doesn't exists");
+		throw new AirportException("Airport ID Doesn't exists");
 	}
 
+	/**
+	 * Method: addAirport
+	 * Description: add a airport in table
+	 * @param airport
+	 * @return Airport
+	 * @throws AirportException
+	 */
 	@Override
-	public Airport addAirport(Airport airport) throws Exception {
+	public Airport addAirport(Airport airport) throws AirportException {
 		return airportDAO.save(airport);
 	}
 

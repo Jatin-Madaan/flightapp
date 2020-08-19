@@ -1,21 +1,25 @@
 package com.flightapp.controller;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flightapp.entities.Flight;
+import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.service.IGetFlightService;
 
 @RestController
-@RequestMapping("/flight")
+@CrossOrigin(origins="*")
+@RequestMapping("/customer")
 public class GetFlightController {
 	
 	@Autowired
@@ -32,11 +36,11 @@ public class GetFlightController {
 	 * @return List: It returns the list of scheduled flights
 	 * @author Adithya 
 	 */
-	@GetMapping("/getFlights/{source}/{destination}")
-	public List<Flight> getFlights(@PathVariable String source, @PathVariable String destination) {
-		LocalDateTime time = LocalDateTime.now();
+	@GetMapping("/getFlights/{source}/{destination}/{dept_date}/{passengers}")
+	public List<ScheduleFlight> getFlights(@PathVariable String source, @PathVariable String destination, @PathVariable String dept_date, @PathVariable int passengers) {
 		logger.info("Searching flights between "+source+" - "+destination);
-		return getFlightService.getFlights(source,destination,time);
+		LocalDate date = LocalDate.parse(dept_date);
+		return getFlightService.getFlights(source,destination,date,passengers);
 	}
 }
 
