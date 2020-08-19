@@ -12,4 +12,5 @@ public interface IBookingService
 	public ScheduleFlight getScheduleFlightById(int scheduleFlightId);
 	public int addBooking(Booking booking);
 	public Booking modifyBooking(Booking booking);
+	public Booking saveBooking(Booking booking);
 }

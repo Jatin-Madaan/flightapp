@@ -20,6 +20,7 @@ import com.flightapp.entities.ScheduleFlight;
 import com.flightapp.exception.BookingException;
 
 @Service
+
 public class BookingService implements IAdminBookingCancelService, IBookingService
 {
 	@Autowired
@@ -135,4 +136,13 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 		// TODO Auto-generated method stub
 		return bookingDao.save(booking);
 	}
+
+
+	@Override
+	@Transactional
+	public Booking saveBooking(Booking booking) {
+		return bookingDao.save(booking);
+	}
+	
+	
 }

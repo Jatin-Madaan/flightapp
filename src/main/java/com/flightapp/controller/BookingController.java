@@ -20,7 +20,7 @@ import com.flightapp.exception.BookingException;
 import com.flightapp.service.IBookingService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class BookingController 
 {
 	@Autowired
@@ -53,5 +53,10 @@ public class BookingController
 	public Booking modifyBooking(@RequestBody Booking booking)
 	{
 		return bookingService.modifyBooking(booking);
+	}
+	
+	@PostMapping("/saveBooking")
+	public Booking saveBooking(@RequestBody Booking booking) {
+		return bookingService.saveBooking(booking);
 	}
 }
