@@ -22,7 +22,6 @@ import com.flightapp.service.IScheduleFlightService;
  */
 @CrossOrigin(origins = "*")
 @RestController
-@ControllerAdvice
 public class ScheduleFlightController {
 
 	@Autowired

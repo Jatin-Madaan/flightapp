@@ -19,7 +19,7 @@ import com.flightapp.exception.NoFlightIdException;
 
 import com.flightapp.service.IAddFlightService;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("Admin/flights")
 public class AddFlightController {

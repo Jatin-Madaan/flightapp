@@ -34,7 +34,7 @@ public class ScheduleService implements IScheduleService {
 	public Schedule addSchedule(Schedule schedule) throws ScheduleException {
 		if(schedule.getDepartureTime().after(schedule.getArrivalTime())) {
 			LOGGER.warn("Departure Time Should be less than arrival time");
-			throw new ScheduleException("Departure Time is After the Arriavl Time");
+			throw new ScheduleException("Departure Time is After the Arrival Time");
 		}
 		if(schedule.getDestinationAirport().getAirportId() == schedule.getSourceAirport().getAirportId()) {
 			LOGGER.warn("Destination and Source Cannot be Same");
