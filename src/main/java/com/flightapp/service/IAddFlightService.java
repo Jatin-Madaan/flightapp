@@ -15,5 +15,5 @@ public interface IAddFlightService {
 
 	public Flight fetchByFlightId(int flightId);
 
-	public String deleteById(int flightId);
+	public String deleteById(Flight flight);
 }
