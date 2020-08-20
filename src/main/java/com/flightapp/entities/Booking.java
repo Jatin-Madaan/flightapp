@@ -140,4 +140,9 @@ public class Booking implements Serializable {
 	public void setScheduleFlight(ScheduleFlight scheduleFlight) {
 		this.scheduleFlight = scheduleFlight;
 	}
+	
+	public void addPassenger(Passenger passenger) {
+		this.getPassengers().add(passenger);
+		passenger.setBooking(this);
+	}
 }

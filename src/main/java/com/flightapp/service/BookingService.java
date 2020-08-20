@@ -141,6 +141,9 @@ public class BookingService implements IAdminBookingCancelService, IBookingServi
 	@Override
 	@Transactional
 	public Booking saveBooking(Booking booking) {
+		booking.getPassengers().stream().forEach(passenger -> {
+			passenger.setBooking(booking);
+		});
 		return bookingDao.save(booking);
 	}
 	

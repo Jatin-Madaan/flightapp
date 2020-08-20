@@ -132,7 +132,6 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 
 
 
-
 	@Override
 	public Passenger getpassengerdetails(int pnr) {
 		Passenger passenger = passengerdao.getOne(pnr);
