@@ -7,7 +7,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -26,9 +25,14 @@ public class Flight {
 
 	@Id
 	@Column(name="FLIGHT_ID")
-	@GeneratedValue
 	private int flightId;
 	
+
+	private String carrierName;
+	
+	private String flightModel;
+	
+	private int seatCapacity;
 	public Flight(int flightId, String carrierName, String flightModel, int seatCapacity) {
 		super();
 		this.flightId = flightId;
@@ -37,16 +41,17 @@ public class Flight {
 		this.seatCapacity = seatCapacity;
 	}
 
-	private String carrierName;
-	
-	private String flightModel;
-	
-	private int seatCapacity;
 
 	@OneToMany(mappedBy="flight",cascade=CascadeType.ALL)
 	@JsonIgnore
 	private Set<Booking> bookings = new HashSet<>();
 	
+	@Override
+	public String toString() {
+		return "Flight [flightId=" + flightId + ", carrierName=" + carrierName + ", flightModel=" + flightModel
+				+ ", seatCapacity=" + seatCapacity + "]";
+	}
+
 	@OneToMany(mappedBy="flight",cascade=CascadeType.ALL)
 	@JsonIgnore
 	private Set<ScheduleFlight> ScheduleFlights = new HashSet<>();

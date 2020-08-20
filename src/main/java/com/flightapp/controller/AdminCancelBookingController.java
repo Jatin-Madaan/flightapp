@@ -25,7 +25,7 @@ public class AdminCancelBookingController
 		return bookingCancelService.viewAllBookings();  
 	}  
 	
-	@DeleteMapping("/booking/{bookingId}")  
+	@DeleteMapping("/deleteBooking/{bookingId}")  
 	private String deleteBooking(@PathVariable("bookingId") int bookingId) throws Exception   
 	{  
 		return bookingCancelService.cancelBookingById(bookingId);  
