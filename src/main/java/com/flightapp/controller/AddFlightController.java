@@ -28,9 +28,9 @@ public class AddFlightController {
 	IAddFlightService addFlightService;
 
 	@PostMapping(value = "/newFlight")
-	public String addFlight(@RequestBody Flight flight) {
-		addFlightService.save(flight);
-		return "added";
+	public Flight addFlight(@RequestBody Flight flight) {
+	return	addFlightService.save(flight);
+		
 	}
 
 	@GetMapping(value = "/getFlights")
