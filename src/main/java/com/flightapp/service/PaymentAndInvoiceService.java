@@ -134,15 +134,9 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 
 
 	@Override
-	public List<Passenger> getpassengerdetails(int bookingid) {
-		List<Passenger> listofall =  passengerdao.findAll();
-		List<Passenger> passengers = new ArrayList<Passenger>();
-		for (Passenger passenger : listofall) {
-			if(passenger.getBooking().getBookingId() == bookingid) {
-				passengers.add(passenger);
-			}
-		}
-		return passengers;
+	public Passenger getpassengerdetails(int pnr) {
+		Passenger passenger = passengerdao.getOne(pnr);
+		return passenger;
 		
 	}
 
