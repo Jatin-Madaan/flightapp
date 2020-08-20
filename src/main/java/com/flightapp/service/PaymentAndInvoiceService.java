@@ -134,7 +134,6 @@ public class PaymentAndInvoiceService implements IPaymentAndInvoiceService {
 
 
 
-
 	@Override
 	public List<Passenger> getpassengerdetails(int bookingid) {
 		List<Passenger> listofall =  passengerdao.findAll();
