@@ -29,12 +29,12 @@ public class Flight {
 	@GeneratedValue
 	private int flightId;
 	
-
 	private String carrierName;
 	
 	private String flightModel;
 	
 	private int seatCapacity;
+	
 	public Flight(int flightId, String carrierName, String flightModel, int seatCapacity) {
 		super();
 		this.flightId = flightId;

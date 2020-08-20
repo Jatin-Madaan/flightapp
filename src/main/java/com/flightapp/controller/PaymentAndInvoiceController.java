@@ -61,9 +61,9 @@ public class PaymentAndInvoiceController {
 		return paymentAndInvoiceService.setBookingStatusById(bookingid, userid, status, amount);
 	}
 	
-	@GetMapping(path="/getpassengerdetails/{bookingid}")
-	public List<Passenger> getpassengerdetails(@PathVariable int bookingid){
-		return paymentAndInvoiceService.getpassengerdetails(bookingid);
+	@GetMapping(path="/getpassengerdetails/{pnr}")
+	public Passenger getpassengerdetails(@PathVariable int pnr){
+		return paymentAndInvoiceService.getpassengerdetails(pnr);
 	}
 
 }
